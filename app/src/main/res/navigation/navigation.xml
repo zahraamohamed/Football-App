@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.footballapp.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/leagueDetailsFragment"
+        android:name="com.example.footballapp.ui.league.LeagueDetailsFragment"
+        android:label="LeagueDetailsFragment"
+        tools:layout="@layout/fragment_league_details"/>
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="com.example.footballapp.ui.player.PlayerDetailsFragment"
+        android:label="PlayerDetailsFragment"
+        tools:layout="@layout/fragment_player_details"
+       />
+    <fragment
+        android:id="@+id/scorsFragment"
+        android:name="com.example.footballapp.ui.league.ScorsFragment"
+        android:label="ScorsFragment"
+        tools:layout="@layout/fragment_scors"/>
+    <fragment
+        android:id="@+id/standingFragment"
+        android:name="com.example.footballapp.ui.league.StandingFragment"
+        android:label="StandingFragment"
+        tools:layout="@layout/fragment_standing"/>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="com.example.footballapp.ui.teames.TeamDetailsFragment"
+        android:label="TeamDetailsFragment"
+        tools:layout="@layout/fragment_team_details"/>
+    <fragment
+        android:id="@+id/webSearchFragment"
+        android:name="com.example.footballapp.ui.webSearch.WebSearchFragment"
+        android:label="WebSearchFragment"
+        tools:layout="@layout/fragment_web_search"/>
+    <fragment
+        android:id="@+id/matchDetailsFragment"
+        android:name="com.example.footballapp.ui.match.MatchDetailsFragment"
+        android:label="fragment_match_details"
+        tools:layout="@layout/fragment_match_details" />
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.example.footballapp.ui.league.matchesFragment"
+        android:label="matchesFragment"
+        tools:layout="@layout/fragment_matches"/>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.footballapp.ui.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
