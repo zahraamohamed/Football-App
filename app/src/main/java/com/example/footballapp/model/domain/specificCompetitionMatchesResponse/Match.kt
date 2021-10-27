@@ -3,19 +3,21 @@ package com.example.footballapp.model.domain.specificCompetitionMatchesResponse
 
 import com.google.gson.annotations.SerializedName
 
-data class Matche(
+data class Match(
     @SerializedName("awayTeam")
-    val awayTeam: AwayTeam? = null,
+    val awayTeam: AwayTeamX? = null,
+    @SerializedName("competition")
+    val competition: Competition? = null,
     @SerializedName("group")
-    val group: Any? = null,
+    val group: String? = null,
     @SerializedName("homeTeam")
-    val homeTeam: HomeTeam? = null,
+    val homeTeam: HomeTeamX? = null,
     @SerializedName("id")
     val id: Int? = null,
     @SerializedName("lastUpdated")
     val lastUpdated: String? = null,
     @SerializedName("matchday")
-    val matchday: Any? = null,
+    val matchday: Int? = null,
     @SerializedName("odds")
     val odds: Odds? = null,
     @SerializedName("referees")
@@ -29,5 +31,7 @@ data class Matche(
     @SerializedName("status")
     val status: String? = null,
     @SerializedName("utcDate")
-    val utcDate: String? = null
+    val utcDate: String? = null,
+    @SerializedName("venue")
+    val venue: String? = null
 )

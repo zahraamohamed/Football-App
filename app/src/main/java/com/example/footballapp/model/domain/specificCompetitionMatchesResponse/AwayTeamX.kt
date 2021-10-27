@@ -3,4 +3,9 @@ package com.example.footballapp.model.domain.specificCompetitionMatchesResponse
 
 import com.google.gson.annotations.SerializedName
 
-class Filters
+data class AwayTeamX(
+    @SerializedName("id")
+    val id: Int? = null,
+    @SerializedName("name")
+    val name: String? = null
+)
