@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hp/AndroidStudioProjects/footballapp/app/src/main/res/drawable/ic_downloading.xml" value="0.2703125" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/footballapp/app/src/main/res/drawable/ic_error.xml" value="0.2638888888888889" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/footballapp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
       </map>
     </option>
