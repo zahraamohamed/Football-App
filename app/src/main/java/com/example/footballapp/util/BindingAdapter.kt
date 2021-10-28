@@ -11,7 +11,7 @@ import com.example.footballapp.ui.base.BaseAdapter
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view:View , status: State<T>?){
-    if (status is com.example.footballapp.model.Status.State.Loading){
+    if (status is State.Loading){
         view.visibility = View.VISIBLE
     }else{
         view.visibility = View.GONE
@@ -20,7 +20,7 @@ fun <T> showWhenLoading(view:View , status: State<T>?){
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view:View , status: State<T>?){
-    if (status is com.example.footballapp.model.Status.State.Error){
+    if (status is State.Error){
         view.visibility = View.VISIBLE
     }else{
         view.visibility = View.GONE
@@ -29,7 +29,7 @@ fun <T> showWhenError(view:View , status: State<T>?){
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> showWhenSuccess(view:View , status: State<T>?){
-    if (status is com.example.footballapp.model.Status.State.Success){
+    if (status is State.Success){
         view.visibility = View.VISIBLE
     }else{
         view.visibility = View.GONE

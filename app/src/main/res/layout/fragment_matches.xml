@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.league.MatchesViewModel" />
+            type="com.example.footballapp.ui.league.LeagueViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
