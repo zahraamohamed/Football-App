@@ -2,7 +2,7 @@ package com.example.footballapp.repository
 
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
-import com.example.footballapp.model.domain.playerDetailsResponse.playerDetailsResponse
+import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
@@ -22,7 +22,7 @@ object Repository {
     fun getAllMatch(): Flow<State<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }
 
-    fun getPlayerDetails(playerId: Int): Flow<State<playerDetailsResponse?>> =
+    fun getPlayerDetails(playerId: Int): Flow<State<PlayerDetailsResponse?>> =
         wrapWithFlow { API.apiService.getPlayerDetails(API_TOKEN, playerId) }
 
     fun getScorerRank(scorerId: Int): Flow<State<ScorerRankResponse?>> =

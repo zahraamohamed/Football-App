@@ -17,11 +17,6 @@ class ScorersFragment : BaseFragment<FragmentScorsBinding,ScorerViewModel>() {
 
     }
 
-    override fun getFragment(): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun getViewModel(): Class<ScorerViewModel> {
-        TODO("Not yet implemented")
-    }
+    override fun getFragment(): Int = R.layout.fragment_scors
+    override fun getViewModel(): Class<ScorerViewModel> = ScorerViewModel::class.java
 }

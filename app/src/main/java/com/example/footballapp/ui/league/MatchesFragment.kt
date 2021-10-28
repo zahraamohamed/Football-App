@@ -16,11 +16,6 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding, MatchesViewModel>()
 
     }
 
-    override fun getFragment(): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun getViewModel(): Class<MatchesViewModel> {
-        TODO("Not yet implemented")
-    }
+    override fun getFragment(): Int = R.layout.fragment_matches
+    override fun getViewModel(): Class<MatchesViewModel> = MatchesViewModel::class.java
 }
