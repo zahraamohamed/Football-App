@@ -3,15 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/phoneApps/Football-App/app/src/main/res/drawable/matches_background.xml" value="0.23425925925925925" />
-        <entry key="..\:/phoneApps/Football-App/app/src/main/res/drawable/matechs_fragment_graident_background.xml" value="0.23425925925925925" />
-        <entry key="..\:/phoneApps/Football-App/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/phoneApps/Football-App/app/src/main/res/layout/fragment_match_details.xml" value="0.25416666666666665" />
-        <entry key="..\:/phoneApps/Football-App/app/src/main/res/layout/fragment_matches.xml" value="0.264" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appjl/app/src/main/res/layout/fragment_home.xml" value="0.19479166666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -74,6 +74,9 @@ dependencies {
     implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
 
 
+    //Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
 
 
 }
