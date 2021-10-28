@@ -1,14 +1,504 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="viewmodel"
+        type="com.example.footballapp.ui.match.MatchViewModel" />
+
+</data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.match.MatchDetailsFragment">
+    android:background="@color/app_color">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageButton
+        android:id="@+id/button_backwards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin3x"
+        android:layout_marginStart="@dimen/margin3x"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:alpha="0.25"
+        tools:background="@drawable/photo"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/league_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/txt3x"
+        android:textColor="@color/white"
+        android:text=""
+        android:layout_marginTop="@dimen/margin2x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_backwards"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="League premier" />
+
+    <ImageView
+        android:id="@+id/image_home_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin4x"
+        android:layout_marginStart="@dimen/margin4x"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_backwards" />
+
+    <TextView
+        android:id="@+id/text_home_team_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin3x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt4x"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/image_home_team"
+        app:layout_constraintStart_toEndOf="@+id/image_home_team"
+        app:layout_constraintTop_toTopOf="@+id/image_home_team"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin1x"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt3x"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_home_team_score"
+        app:layout_constraintStart_toEndOf="@+id/text_home_team_score"
+        app:layout_constraintTop_toTopOf="@+id/text_home_team_score" />
+
+    <TextView
+        android:id="@+id/text_away_team_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt4x"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/margin1x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_home_team_score"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/text_home_team_score"
+        tools:text="0" />
+
+    <ImageView
+        android:id="@+id/image_away_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="@+id/image_home_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_away_team_score"
+        app:layout_constraintTop_toTopOf="@+id/image_home_team" />
+
+    <TextView
+        android:id="@+id/text_home_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin2x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_home_team"
+        app:layout_constraintStart_toStartOf="@+id/image_home_team"
+        app:layout_constraintTop_toBottomOf="@+id/image_home_team"
+        tools:text="Barcelona"/>
+
+    <TextView
+        android:id="@+id/text_away_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin2x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_away_team"
+        app:layout_constraintStart_toStartOf="@+id/image_away_team"
+        app:layout_constraintTop_toBottomOf="@+id/image_home_team"
+        tools:text="Paris San Jerman"/>
+
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/matechs_fragment_graident_background"
+        app:layout_constraintBottom_toTopOf="@id/text_match_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_team_name" />
+    <TextView
+        android:id="@+id/text_match_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt2x"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin2x"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home_team_name"
+        tools:text="Finished" />
+
+    <TextView
+        android:id="@+id/text_match_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Match Details"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin3x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_match_status" />
+
+    <TextView
+        android:id="@+id/text_full_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin7x"
+        android:layout_marginTop="@dimen/margin7x"
+        android:text="Full Time"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_match_details" />
+
+    <TextView
+        android:id="@+id/text_away_team_full_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin7x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_full_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_full_time"
+        tools:text="1"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_full_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/text_away_team_full_time_score"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_full_time_score" />
+
+    <TextView
+        android:id="@+id/text_home_team_full_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_full_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_full_time_score"
+        tools:text="0"/>
+
+
+    <TextView
+        android:id="@+id/text_penalties"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin7x"
+        android:layout_marginTop="@dimen/margin6x"
+        android:text="Penalties"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_extra_time" />
+
+    <TextView
+        android:id="@+id/text_away_team_penalties_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin7x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_penalties"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_penalties"
+        tools:text="0"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_penalties_score"
+        app:layout_constraintEnd_toStartOf="@+id/text_away_team_penalties_score"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_penalties_score" />
+
+    <TextView
+        android:id="@+id/text_home_team_penalties_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_penalties_score"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_penalties_score"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/text_extra_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin7x"
+        android:layout_marginTop="@dimen/margin7x"
+        android:text="Extra Time"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_half_time" />
+
+    <TextView
+        android:id="@+id/text_away_team_extra_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin7x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_extra_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_extra_time"
+        tools:text="0"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_extra_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/text_away_team_extra_time_score"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_extra_time_score" />
+
+    <TextView
+        android:id="@+id/text_home_team_extra_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_extra_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_extra_time_score"
+        tools:text="0"/>
+
+    <TextView
+        android:id="@+id/text_half_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin7x"
+        android:layout_marginTop="@dimen/margin7x"
+        android:text="Half Time"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_full_time" />
+
+    <TextView
+        android:id="@+id/text_away_team_half_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin7x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_half_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_half_time"
+        tools:text="0"/>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_half_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/text_away_team_half_time_score"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_half_time_score"
+        />
+
+    <TextView
+        android:id="@+id/text_home_team_half_time_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/text_away_team_half_time_score"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/text_away_team_half_time_score"
+        tools:text="0"
+        />
+
+    <com.kofigyan.stateprogressbar.StateProgressBar
+        android:id="@+id/your_state_progress_bar_id"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:rotation="90"
+        android:layout_marginVertical="@dimen/margin2x"
+        app:layout_constraintBottom_toTopOf="@+id/home_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_match_details"
+        app:spb_animateToCurrentProgressState="true"
+        app:spb_currentStateDescriptionColor="@color/green"
+        app:spb_currentStateNumber="four"
+        app:spb_maxStateNumber="four"
+        app:spb_stateBackgroundColor="#BDBDBD"
+        app:spb_stateDescriptionColor="#808080"
+        app:spb_stateForegroundColor="@color/red"
+        app:spb_stateNumberBackgroundColor="#808080"
+        app:spb_stateNumberForegroundColor="#eeeeee" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="@dimen/margin2x"
+        android:layout_marginHorizontal="@dimen/margin3x"
+        android:background="#302F2F"
+        app:layout_constraintBottom_toTopOf="@+id/home_team"
+        app:layout_constraintEnd_toEndOf="@+id/away_team"
+        app:layout_constraintStart_toStartOf="@+id/home_team" />
+
+    <ImageView
+        android:id="@+id/home_team"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="@dimen/margin3x"
+        android:layout_marginBottom="@dimen/margin3x"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/away_team"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="@dimen/margin3x"
+        android:layout_marginBottom="@dimen/margin3x"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/home_team_win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt3x"
+        android:layout_marginStart="@dimen/margin3x"
+        app:layout_constraintBottom_toBottomOf="@+id/home_team"
+        app:layout_constraintStart_toEndOf="@+id/home_team"
+        app:layout_constraintTop_toTopOf="@+id/home_team"
+        tools:text="1"
+        />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="40dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/margin2x"
+        android:background="@color/white"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/away_team"
+        app:layout_constraintEnd_toStartOf="@+id/away_team_win"
+        app:layout_constraintStart_toEndOf="@+id/home_team_win"
+        app:layout_constraintTop_toTopOf="@+id/home_team"
+        />
+
+    <TextView
+        android:id="@+id/away_team_win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin3x"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintBottom_toBottomOf="@+id/away_team"
+        app:layout_constraintEnd_toStartOf="@+id/away_team"
+        app:layout_constraintTop_toTopOf="@+id/away_team"
+        tools:text="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WINS"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/home_team"
+        app:layout_constraintEnd_toStartOf="@+id/view3"
+        app:layout_constraintStart_toEndOf="@+id/home_team"
+        app:layout_constraintTop_toBottomOf="@+id/home_team_win" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="WINS"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintBottom_toBottomOf="@+id/away_team"
+        app:layout_constraintEnd_toStartOf="@+id/away_team"
+        app:layout_constraintStart_toEndOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/away_team_win" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
