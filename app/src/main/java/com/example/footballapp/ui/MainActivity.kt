@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.example.footballapp.R
 import com.example.footballapp.databinding.ActivityMainBinding
 import com.example.footballapp.model.network.API
@@ -15,13 +16,9 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= DataBindingUtil.setContentView<ActivityMainBinding>(this,
-            R.layout.activity_main).also { binding -> binding.lifecycleOwner=this }
-
+        setContentView(ActivityMainBinding.inflate(layoutInflater).root)
     }
 
 }

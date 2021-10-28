@@ -1,5 +1,6 @@
 package com.example.footballapp.repository
 
+import com.example.footballapp.model.Status
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
@@ -9,49 +10,50 @@ import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsRespo
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
 import com.example.footballapp.util.Constant.API_TOKEN
-import com.example.footballapp.util.State
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.Response
 
 object Repository {
 
-    fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
+    fun getAllCompetitions(): Flow<Status<CompetitionsResponse?>> =
         wrapWithFlow { API.apiService.getAllCompetitions() }
 
-    fun getAllMatch(): Flow<State<MatchesResponse?>> =
+    fun getAllMatch(): Flow<Status<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }
 
-    fun getPlayerDetails(playerId: Int): Flow<State<PlayerDetailsResponse?>> =
+    fun getPlayerDetails(playerId: Int): Flow<Status<PlayerDetailsResponse?>> =
         wrapWithFlow { API.apiService.getPlayerDetails(API_TOKEN, playerId) }
 
-    fun getScorerRank(scorerId: Int): Flow<State<ScorerRankResponse?>> =
+    fun getScorerRank(scorerId: Int): Flow<Status<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getScorerRank(API_TOKEN, scorerId) }
 
-    fun getSpecificCompetitionMatches(competitionId: Int): Flow<State<SpecificCompetitionMatchesResponse?>> =
+    fun getSpecificCompetitionMatches(competitionId: Int): Flow<Status<SpecificCompetitionMatchesResponse?>> =
         wrapWithFlow { API.apiService.getSpecificCompetitionMatches(API_TOKEN, competitionId) }
 
-    fun getSpecificTeamDetails(teamId: Int): Flow<State<TeamDetailsResponse?>> =
+    fun getSpecificTeamDetails(teamId: Int): Flow<Status<TeamDetailsResponse?>> =
         wrapWithFlow { API.apiService.getSpecificTeamDetails(API_TOKEN, teamId) }
 
-    fun getSpecificTeamRank(competitionId: Int , TeamType: String = "TOTAL"): Flow<State<TeamRankResponse?>> =
+    fun getSpecificTeamRank(competitionId: Int , TeamType: String = "TOTAL"): Flow<Status<TeamRankResponse?>> =
         wrapWithFlow { API.apiService.getSpecificTeamRank(API_TOKEN, competitionId , TeamType) }
 
-    private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
+    private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<Status<T?>> =
         flow {
-            emit(State.Loading)
+            emit(Status.Loading)
             emit(checkIsSuccessful(function()))
         }
 
-    private fun <T> checkIsSuccessful(response: Response<T>): State<T?> =
+    private fun <T> checkIsSuccessful(response: Response<T>): Status<T?> =
         try {
             if (response.isSuccessful) {
-                State.Success(response.body())
+                Status.Success(response.body())
             } else {
-                State.Error(response.message())
+                Status.Error(response.message())
             }
         } catch (e: Exception) {
-            State.Error(e.message.toString())
+            Status.Error(e.message.toString())
         }
 
 }

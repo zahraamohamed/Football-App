@@ -1,37 +1,24 @@
 package com.example.footballapp.ui.base
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 import androidx.lifecycle.viewModelScope
-import com.example.footballapp.repository.Repository
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import com.example.footballapp.model.Status
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 
 abstract class BaseViewModel() : ViewModel() {
 
-//    private val repository :Repository()
-//    abstract  val football : MutableLiveData<Any>
-//
-//    override fun onCleared() {
-//        super.onCleared()
-//       viewModelScope.cancel()
-//    }
-//
-//     fun <T>coroutine(){
+//    fun <T> collectValue(response: Flow<Status<T>>, theValue: MutableLiveData<Status<T?>>) =
 //        viewModelScope.launch {
-//           repository.getRandomMatch<T>().collect {
-//               football.postValue(it)
-//           }
+//            response
+//                .flowOn(Dispatchers.IO)
+//                .catch { Log.i("ERROR" , "error!") }
+//                .collect {
+//                    Log.i("hhhhhhhhhh" , it.toString())
+//                    theValue.postValue(it)
+//                }
 //        }
-//
-//
-//    }
-
-
-
-
-
 
 }

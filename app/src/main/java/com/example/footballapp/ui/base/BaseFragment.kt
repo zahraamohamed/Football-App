@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-abstract class BaseFragment<VB: ViewDataBinding, VM : ViewModel> : Fragment() {
+abstract class BaseFragment<VB: ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
+    abstract val layoutId: Int
     private lateinit var _binding : ViewDataBinding
     protected lateinit var viewModel : VM
 
@@ -23,7 +24,7 @@ abstract class BaseFragment<VB: ViewDataBinding, VM : ViewModel> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater,
-            getFragment(),
+            layoutId,
             container,
             false
         )
@@ -41,6 +42,5 @@ abstract class BaseFragment<VB: ViewDataBinding, VM : ViewModel> : Fragment() {
 
     abstract fun getViewModel(): Class<VM>
 
-    abstract fun getFragment(): Int
 
 }

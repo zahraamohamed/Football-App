@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appjl/app/src/main/res/layout/fragment_home.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/activity_main.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_league_details.xml" value="0.1707193515704154" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_cometition.xml" value="0.2921875" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_competition.xml" value="0.2549019607843137" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_live_matchs.xml" value="0.14209726443768997" />
       </map>
     </option>
   </component>

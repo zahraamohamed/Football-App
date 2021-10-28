@@ -9,6 +9,16 @@ import com.example.footballapp.R
 import com.example.footballapp.model.Status
 import com.example.footballapp.ui.base.BaseAdapter
 
+
+
+@BindingAdapter(value = ["app:items"])
+fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
+    (view.adapter as BaseAdapter<T>?)?.let {
+        if (items != null) it.setItem(items)
+        else it.setItem(emptyList())
+    }
+}
+
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view:View , status: Status<T>?){
     if (status is Status.Loading){
@@ -45,11 +55,3 @@ fun setImageUrl(view: ImageView,url:String?){
         .into(view)
 }
 
-@BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items:List<T>?){
-    if(items != null)
-        (view.adapter as BaseAdapter<T>?)?.setItem(items)
-    else
-        (view.adapter as BaseAdapter<T>?)?.setItem(emptyList())
-
-}
