@@ -4,45 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import com.example.footballapp.BR
 
-abstract class BaseFragment<VB: ViewDataBinding, VM : ViewModel> : Fragment() {
 
-    private lateinit var _binding : ViewDataBinding
-    protected lateinit var viewModel : VM
+abstract class BaseFragment<VDB : ViewDataBinding>() : Fragment() {
 
-    val binding : VB get() = _binding as VB
+    private lateinit var _binding: VDB
+
+    protected val binding get() = _binding
+
+    abstract val viewModel: ViewModel
+
+    abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VDB
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = DataBindingUtil.inflate(inflater,
-            getFragment(),
-            container,
-            false
-        )
-        _binding.lifecycleOwner = viewLifecycleOwner
-        viewModel = ViewModelProvider(this).get(getViewModel())
-        
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    ): View {
+        _binding = bindingInflater(inflater, container, false)
+        _binding.setVariable(BR.viewModel, viewModel)
+        _binding.lifecycleOwner = this
         setup()
+        return _binding.root
     }
 
     abstract fun setup()
 
-    abstract fun getViewModel(): Class<VM>
-
-    abstract fun getFragment(): Int
 
 }

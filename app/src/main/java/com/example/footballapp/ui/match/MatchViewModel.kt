@@ -1,4 +1,6 @@
 package com.example.footballapp.ui.match
 
-class MatchViewModel {
+import androidx.lifecycle.ViewModel
+
+class MatchViewModel:ViewModel() {
 }

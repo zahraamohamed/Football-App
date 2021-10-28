@@ -1,5 +1,7 @@
 package com.example.footballapp.ui.league
 
-class LeagueViewModel {
+import androidx.lifecycle.ViewModel
+
+class LeagueViewModel:ViewModel() {
 
 }

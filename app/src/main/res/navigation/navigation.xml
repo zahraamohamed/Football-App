@@ -25,7 +25,7 @@
         android:id="@+id/scorsFragment"
         android:name="com.example.footballapp.ui.league.ScorsFragment"
         android:label="ScorsFragment"
-        tools:layout="@layout/fragment_scors"/>
+        tools:layout="@layout/fragment_scorers"/>
     <fragment
         android:id="@+id/standingFragment"
         android:name="com.example.footballapp.ui.league.StandingFragment"
@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_standing"/>
     <fragment
         android:id="@+id/teamDetailsFragment"
-        android:name="com.example.footballapp.ui.teames.TeamDetailsFragment"
+        android:name="com.example.footballapp.ui.teams.TeamDetailsFragment"
         android:label="TeamDetailsFragment"
         tools:layout="@layout/fragment_team_details"/>
     <fragment

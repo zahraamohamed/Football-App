@@ -1,4 +1,6 @@
 package com.example.footballapp.ui.webSearch
 
-class WebSearchViewModel {
+import androidx.lifecycle.ViewModel
+
+class WebSearchViewModel:ViewModel() {
 }
