@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="view"
-    type="com.example.footballapp.ui.home.HomeViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +13,10 @@
         tools:context=".ui.MainActivity">
 
         <TextView
+            android:id="@+id/textApi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{view.popularMovies.toData().name}"
+            android:text="Hello World!"
             android:layout_margin="@dimen/margin1x"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
