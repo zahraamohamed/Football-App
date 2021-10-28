@@ -2,7 +2,7 @@ package com.example.footballapp.model.network
 
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
-import com.example.footballapp.model.domain.playerDetailsResponse.playerDetailsResponse
+import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
@@ -25,7 +25,7 @@ interface FootballApiService {
     suspend fun getPlayerDetails(
         @Header("X-Auth-Token") token: String,
         @Path("id") playerId: Int
-    ): Response<playerDetailsResponse>
+    ): Response<PlayerDetailsResponse>
 
     @GET("matches/{id}")
     suspend fun getScorerRank(

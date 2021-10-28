@@ -8,9 +8,4 @@ import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsR
 import com.example.footballapp.repository.Repository
 
 class HomeViewModel:ViewModel() {
-
-    private val repository = Repository()
-
-
-    val popularMovies: LiveData<Status<PlayerDetailsResponse?>> = repository.getPlayer().asLiveData()
 }
