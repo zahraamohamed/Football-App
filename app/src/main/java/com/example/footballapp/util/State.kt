@@ -7,5 +7,4 @@ sealed class State<out T> {
     object Loading : State<Nothing>()
 
     fun toData(): T? = if (this is Success) data else null
-
 }

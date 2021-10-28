@@ -4,7 +4,7 @@ import com.example.footballapp.model.domain.competitionsResponse.CompetitionsRes
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.playerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
-import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetionMatchesResponse
+import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import retrofit2.Response
@@ -37,7 +37,7 @@ interface FootballApiService {
     suspend fun getSpecificCompetitionMatches(
         @Header("X-Auth-Token") token: String,
         @Path("id") competitionId: Int
-    ): Response<SpecificCompetionMatchesResponse>
+    ): Response<SpecificCompetitionMatchesResponse>
 
     @GET("teams/{id}")
     suspend fun getSpecificTeamDetails(

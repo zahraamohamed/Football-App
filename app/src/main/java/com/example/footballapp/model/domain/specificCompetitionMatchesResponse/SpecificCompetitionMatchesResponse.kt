@@ -3,7 +3,7 @@ package com.example.footballapp.model.domain.specificCompetitionMatchesResponse
 
 import com.google.gson.annotations.SerializedName
 
-data class SpecificCompetionMatchesResponse(
+data class SpecificCompetitionMatchesResponse(
     @SerializedName("competition")
     val competition: Competition? = null,
     @SerializedName("count")

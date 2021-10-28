@@ -8,7 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import com.example.footballapp.R
 import com.example.footballapp.databinding.ActivityMainBinding
 import com.example.footballapp.model.network.API
+import com.example.footballapp.repository.Repository
 import com.example.footballapp.util.Constant.API_TOKEN
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -19,11 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= DataBindingUtil.setContentView<ActivityMainBinding>(this,
             R.layout.activity_main).also { binding -> binding.lifecycleOwner=this }
-
-        lifecycleScope.launch {
-            Log.i( "hhhhhhhhhhhhh" ,
-                API.apiService.getSpecificTeamRank(API_TOKEN,2021 , "HOME").body().toString())
-        }
 
     }
 

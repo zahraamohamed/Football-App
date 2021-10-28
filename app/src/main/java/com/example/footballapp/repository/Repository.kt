@@ -4,7 +4,7 @@ import com.example.footballapp.model.domain.competitionsResponse.CompetitionsRes
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.playerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
-import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetionMatchesResponse
+import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
@@ -28,7 +28,7 @@ object Repository {
     fun getScorerRank(scorerId: Int): Flow<State<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getScorerRank(API_TOKEN, scorerId) }
 
-    fun getSpecificCompetitionMatches(competitionId: Int): Flow<State<SpecificCompetionMatchesResponse?>> =
+    fun getSpecificCompetitionMatches(competitionId: Int): Flow<State<SpecificCompetitionMatchesResponse?>> =
         wrapWithFlow { API.apiService.getSpecificCompetitionMatches(API_TOKEN, competitionId) }
 
     fun getSpecificTeamDetails(teamId: Int): Flow<State<TeamDetailsResponse?>> =
@@ -36,7 +36,6 @@ object Repository {
 
     fun getSpecificTeamRank(competitionId: Int , TeamType: String = "TOTAL"): Flow<State<TeamRankResponse?>> =
         wrapWithFlow { API.apiService.getSpecificTeamRank(API_TOKEN, competitionId , TeamType) }
-
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
         flow {
