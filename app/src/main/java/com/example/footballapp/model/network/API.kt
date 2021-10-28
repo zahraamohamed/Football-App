@@ -1,5 +1,6 @@
 package com.example.footballapp.model.network
 
+import com.example.footballapp.util.Constant.url
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -7,13 +8,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object API {
 
-    private val url = "https://api.football-data.org/v2/"
-
-    private val myClient = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor()).build()
+    private val client = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor()).build()
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(url)
-        .client(myClient)
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
