@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="info.alraed.alraed.ui.MainViewModel" />
+            type="com.example.footballapp.ui.league.ScorerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
