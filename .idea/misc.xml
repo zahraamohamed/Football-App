@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/fragment_scors.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_live_matchs.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/item_match_score.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_scorer.xml" value="0.11684782608695653" />
       </map>
     </option>
   </component>
