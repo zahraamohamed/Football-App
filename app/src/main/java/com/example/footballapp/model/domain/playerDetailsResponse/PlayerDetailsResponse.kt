@@ -3,7 +3,7 @@ package com.example.footballapp.model.domain.playerDetailsResponse
 
 import com.google.gson.annotations.SerializedName
 
-data class playerDetailsResponse(
+data class PlayerDetailsResponse(
     @SerializedName("countryOfBirth")
     val countryOfBirth: String? = null,
     @SerializedName("dateOfBirth")

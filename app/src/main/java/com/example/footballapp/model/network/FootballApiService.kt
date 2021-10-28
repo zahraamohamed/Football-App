@@ -2,7 +2,7 @@ package com.example.footballapp.model.network
 
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
-import com.example.footballapp.model.domain.playerDetailsResponse.playerDetailsResponse
+import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionsMatchesResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
@@ -20,7 +20,7 @@ interface FootballApiService {
     suspend fun getAllMatches() : Response<MatchesResponse>
 
     @GET("players/{id}")
-    suspend fun getPlayerDetails(@Path("id") playerId: Int) : Response<playerDetailsResponse>
+    suspend fun getPlayerDetails(@Path("id") playerId: Int) : Response<PlayerDetailsResponse>
 
     @GET("matches/{id}")
     suspend fun getScorerRank(@Path("id") ScorerId:Int) : Response<ScorerRankResponse>
