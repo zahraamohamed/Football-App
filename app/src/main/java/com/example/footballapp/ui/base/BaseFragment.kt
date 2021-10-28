@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -29,6 +30,7 @@ abstract class BaseFragment<VB: ViewDataBinding, VM : ViewModel> : Fragment() {
         )
         _binding.lifecycleOwner = viewLifecycleOwner
         viewModel = ViewModelProvider(this).get(getViewModel())
+        
         return binding.root
     }
 

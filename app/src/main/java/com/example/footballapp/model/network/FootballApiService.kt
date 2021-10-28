@@ -23,31 +23,27 @@ interface FootballApiService {
 
     @GET("players/{id}")
     suspend fun getPlayerDetails(
-        @Header("X-Auth-Token") token: String,
+
         @Path("id") playerId: Int
     ): Response<PlayerDetailsResponse>
 
     @GET("matches/{id}")
     suspend fun getScorerRank(
-        @Header("X-Auth-Token") token: String,
         @Path("id") scorerId: Int
     ): Response<ScorerRankResponse>
 
     @GET("competitions/{id}/matches")
     suspend fun getSpecificCompetitionMatches(
-        @Header("X-Auth-Token") token: String,
         @Path("id") competitionId: Int
     ): Response<SpecificCompetitionMatchesResponse>
 
     @GET("teams/{id}")
     suspend fun getSpecificTeamDetails(
-        @Header("X-Auth-Token") token: String,
         @Path("id") teamId: Int
     ): Response<TeamDetailsResponse>
 
     @GET("competitions/{id}/standings")
     suspend fun getSpecificTeamRank(
-        @Header("X-Auth-Token") token: String,
         @Path("id") competitionId: Int,
         @Query("standingType") TeamType: String
     ): Response<TeamRankResponse>
