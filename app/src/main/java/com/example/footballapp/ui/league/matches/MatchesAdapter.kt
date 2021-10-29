@@ -8,4 +8,5 @@ import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.M
 class MatchesAdapter(
     items: List<Matche>, listener: BaseInteractionListener,
     override val layoutId: Int = R.layout.item_match
+
 ) : BaseAdapter<Matche>(items, listener)
