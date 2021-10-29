@@ -7,7 +7,7 @@ import com.example.footballapp.BR
 
 abstract class BaseAdapter<T>(
     private var items: List<T>,
-    private var listener: BaseInteractionListener
+    private val listener: BaseInteractionListener
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
     abstract val layoutId: Int
@@ -29,13 +29,14 @@ abstract class BaseAdapter<T>(
             )
         )
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) =
-        holder.let {
-            if (it is ItemViewHolder) {
-                it.binding.setVariable(BR.item, items[position])
-                it.binding.setVariable(BR.listener, listener)
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        when(holder) {
+            is ItemViewHolder -> {
+                holder.binding.setVariable(BR.item, items[position])
+                holder.binding.setVariable(BR.listener, listener)
             }
         }
+    }
 
     override fun getItemCount(): Int = items.size
 

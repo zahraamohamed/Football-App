@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.league.LeagueViewModel" />
@@ -14,5 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_color"
-        tools:context=".ui.HomeFragment"/>
+        tools:context=".ui.HomeFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/matchesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:items= "@{viewModel.matches.toData().matches}"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
