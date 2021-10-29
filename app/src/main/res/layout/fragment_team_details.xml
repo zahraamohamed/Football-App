@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="viewmodel"
             type="com.example.footballapp.ui.teams.TeameViewModel" />
     </data>
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewmodel.matchDetails.toData().name}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             android:textStyle="bold"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewmodel.matchDetails.toData().founded}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewmodel.matchDetails.toData().website}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -126,13 +126,13 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewmodel.matchDetails.toData().phone}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2"
-            tools:text="+49 (02161) 92930" />
+            tools:text="+hgdgdfgfhhh30" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -154,7 +154,7 @@
             android:layout_marginStart="@dimen/margin1x"
             android:gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin2x"
-            android:text=""
+            android:text="@{viewmodel.matchDetails.toData().email}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -183,6 +183,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="3"
+                app:items="@{viewmodel.matchDetails.toData().squad}"
                 tools:listitem="@layout/item_team_details" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
