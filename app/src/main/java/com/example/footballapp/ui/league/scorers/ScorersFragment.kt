@@ -17,6 +17,11 @@ class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
         get() = FragmentScorersBinding::inflate
 
     override fun setup() {
+        binding?.apply {
+            this.viewModel = viewModel
+            this.lifecycleOwner = viewLifecycleOwner
+            scorerRecycler.adapter = ScorerAdapter(mutableListOf(),viewModel)
+        }
     }
 
 }

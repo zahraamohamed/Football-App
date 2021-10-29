@@ -47,9 +47,9 @@ interface FootballApiService {
         @Query("standingType") TeamType: String
     ): Response<TeamRankResponse>
 
-    @GET("competitions/{competitionCode}/scorers")
-    suspend fun getCompletionScorers(
-        @Path("competitionCode") competitionCode: String
+    @GET("competitions/{competitionId}/scorers")
+    suspend fun getCompetitionScorers(
+        @Path("competitionId") competitionId: Int
     ): Response<ScorerRankResponse>
 
 }

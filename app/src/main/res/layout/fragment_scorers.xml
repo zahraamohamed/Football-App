@@ -24,7 +24,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/line">
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:items="@{viewModel.scorer.toData().scorers}">
 
         </androidx.recyclerview.widget.RecyclerView>
 
