@@ -1,6 +1,8 @@
 package com.example.footballapp.util
 
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -52,4 +54,9 @@ fun <T> setRecyclerItems(view: RecyclerView, items:List<T>?){
     else
         (view.adapter as BaseAdapter<T>?)?.setItem(emptyList())
 
+}
+
+@BindingAdapter(value = ["app:loadWebUrl"])
+fun setWebView(view:WebView, value:String) {
+    view.loadUrl(value)
 }
