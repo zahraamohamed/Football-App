@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text="@{viewmodel.matchDetails.toData().founded}"
+            android:text="@{viewmodel.matchDetails.toData().founded.toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintEnd_toEndOf="parent"

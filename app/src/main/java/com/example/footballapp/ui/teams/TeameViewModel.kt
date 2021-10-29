@@ -11,7 +11,7 @@ import com.example.footballapp.repository.FootballRepository
 
 class TeameViewModel:ViewModel() , ITeamDetailsInteractionListener {
 
-    private val repository = FootballRepository
+
     private val _matchDetails = MutableLiveData<State<TeamDetailsResponse?>>()
     val matchDetails: LiveData<State<TeamDetailsResponse?>>
         get() = _matchDetails
@@ -23,7 +23,7 @@ class TeameViewModel:ViewModel() , ITeamDetailsInteractionListener {
     private fun getTeamDetails() {
         val teamId = TeamDetailsResponse().id
         if (teamId != null) {
-            val teamDetails = repository.getSpecificTeamDetails(teamId).asLiveData()
+            val teamDetails = FootballRepository.getSpecificTeamDetails(teamId).asLiveData()
         }
 
     }
