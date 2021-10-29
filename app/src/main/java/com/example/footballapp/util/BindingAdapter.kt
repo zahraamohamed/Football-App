@@ -55,10 +55,11 @@ fun setImageUrl(view: ImageView, url: String?) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
-    if (items != null)
+    if (items != null) {
         (view.adapter as BaseAdapter<T>?)?.setItem(items)
-    else
+    } else {
         (view.adapter as BaseAdapter<T>?)?.setItem(emptyList())
+    }
 }
 
 
