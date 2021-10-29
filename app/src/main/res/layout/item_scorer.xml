@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.example.footballapp.model.domain.scorerRankResponse.Scorer" />
@@ -19,6 +20,7 @@
         android:background="@color/app_color">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/scorers_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1x"

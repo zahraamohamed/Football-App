@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="viewModel"
-    type="com.example.footballapp.ui.player.PlayerViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.player.PlayerViewModel" />
     </data>
 
     <FrameLayout
@@ -14,9 +15,13 @@
         tools:context=".ui.PlayerDetailsFragment">
 
         <TextView
+            android:id="@+id/text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:gravity="center"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="21sp"
+            android:textStyle="bold" />
 
     </FrameLayout>
 </layout>

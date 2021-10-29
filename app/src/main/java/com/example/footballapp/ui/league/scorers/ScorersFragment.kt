@@ -3,6 +3,8 @@ package com.example.footballapp.ui.league.scorers
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+
 import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.league.LeagueViewModel
@@ -14,6 +16,8 @@ class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
 
     override fun setup() {
         binding.scorerRecycler.adapter = ScorerAdapter(mutableListOf(), viewModel)
+//        val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(7879)
+//        findNavController().navigate(action)
     }
 }
 

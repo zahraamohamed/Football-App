@@ -4,18 +4,23 @@ import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.navigation.NavAction
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
+import com.example.footballapp.ui.league.scorers.ScorersFragment
+import com.example.footballapp.ui.league.scorers.ScorersFragmentDirections
 import java.time.LocalDate
 
 import java.time.format.DateTimeFormatter
 import java.util.*
-
+import androidx.navigation.fragment.findNavController
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, status: State<T>?) {
@@ -85,3 +90,13 @@ fun <T> setFormattedDate(view: TextView, dateStr: String? ) {
     val date = LocalDate.parse(dateStr, formatter)
     view.text  = date.toString()
 }
+
+//@BindingAdapter("app:onCardClicked")
+//fun navigate(view: View, playerID: Int?) {
+//    view.setOnClickListener { Toast.makeText(view.context, playerID.toString(), Toast.LENGTH_SHORT).show() }
+//
+//    val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(
+//        playerID ?: 3754
+//    )
+//    Navigation.findNavController(view).navigate(action)
+//}
