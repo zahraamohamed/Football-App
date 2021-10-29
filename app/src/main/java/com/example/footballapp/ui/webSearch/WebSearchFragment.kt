@@ -24,8 +24,6 @@ class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>(){
     override fun setup() {
 
         binding.apply {
-            lifecycleOwner = this@WebSearchFragment
-            viewModel = viewModel
             webView = searchWebView
             searchWebView.settings.javaScriptEnabled = true
         }
