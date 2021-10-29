@@ -12,10 +12,5 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMatchDetailsBinding
         get() = FragmentMatchDetailsBinding::inflate
 
-    override fun setup() {
-        binding.apply {
-            this.viewmodel = viewmodel
-            this.lifecycleOwner = lifecycleOwner
-        }
-    }
+    override fun setup() {}
 }
