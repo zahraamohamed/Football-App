@@ -6,7 +6,7 @@ import com.example.footballapp.ui.base.BaseInteractionListener
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche
 
 class MatchesAdapter(
-    items: List<Matche>, listener: BaseInteractionListener,
+    items: List<Matche>, listener: MatchInteractionListener,
     override val layoutId: Int = R.layout.item_match
 
 ) : BaseAdapter<Matche>(items, listener)

@@ -20,7 +20,8 @@ class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
         binding?.apply {
             this.viewModel = viewModel
             this.lifecycleOwner = viewLifecycleOwner
-            scorerRecycler.adapter  = ScorerAdapter(mutableListOf(),viewModel)
+            val adapter = ScorerAdapter(mutableListOf(),viewModel)
+            scorerRecycler.adapter  = adapter
         }
     }
 

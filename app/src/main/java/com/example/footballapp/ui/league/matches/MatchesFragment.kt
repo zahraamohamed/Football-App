@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.league.scorers.ScorerAdapter
 import com.example.footballapp.ui.match.MatchViewModel
 
 
@@ -18,7 +19,8 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
         binding?.apply {
             this.viewModel = viewModel
             this.lifecycleOwner = viewLifecycleOwner
-            matchesRecycler.adapter = MatchesAdapter(mutableListOf(), viewModel)
+            val adapter = MatchesAdapter(mutableListOf(),viewModel)
+            matchesRecycler.adapter  = adapter
         }
     }
 
