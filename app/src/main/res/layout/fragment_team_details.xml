@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.footballapp.ui.teams.TeameViewModel" />
+            type="com.example.footballapp.ui.teams.TeamViewModel" />
     </data>
 
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text="@{viewmodel.matchDetails.toData().name}"
+            android:text="@{viewmodel.teamDetails.toData().name}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             android:textStyle="bold"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text="@{viewmodel.matchDetails.toData().founded}"
+            android:text="@{viewmodel.teamDetails.toData().founded.toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text="@{viewmodel.matchDetails.toData().website}"
+            android:text="@{viewmodel.teamDetails.toData().website}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -126,7 +126,7 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text="@{viewmodel.matchDetails.toData().phone}"
+            android:text="@{viewmodel.teamDetails.toData().phone}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -154,7 +154,7 @@
             android:layout_marginStart="@dimen/margin1x"
             android:gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin2x"
-            android:text="@{viewmodel.matchDetails.toData().email}"
+            android:text="@{viewmodel.teamDetails.toData().email}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -174,7 +174,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/teams_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
@@ -183,10 +183,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="3"
-                app:items="@{viewmodel.matchDetails.toData().squad}"
+                app:items="@{viewmodel.teamDetails.toData().squad}"
                 tools:listitem="@layout/item_team_details" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 
