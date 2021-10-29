@@ -8,7 +8,7 @@ import com.example.footballapp.ui.league.matches.MatchInteractionListener
 import com.example.footballapp.ui.league.scorers.ScorerInteractionListener
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche
 
-class LeagueViewModel:ViewModel(), ScorerInteractionListener,  MatchInteractionListener {
+class LeagueViewModel:ViewModel(), ScorerInteractionListener,MatchInteractionListener {
 
      val scorer = FootballRepository.getCompetitionScorers(2001).asLiveData()
      val matches = FootballRepository.getSpecificCompetitionMatches(2001).asLiveData()
