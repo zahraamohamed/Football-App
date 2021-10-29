@@ -15,11 +15,7 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMatchesBinding
         get() = FragmentMatchesBinding::inflate
 
-
     override fun setup() {
-        val adapter = MatchesAdapter(mutableListOf(), viewModel)
-        binding.apply {
-            matchesRecycler.adapter  = adapter
-        }
+        binding.matchesRecycler.adapter = MatchesAdapter(mutableListOf(), viewModel)
     }
 }

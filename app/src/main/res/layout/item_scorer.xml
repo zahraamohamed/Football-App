@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.example.footballapp.model.domain.scorerRankResponse.Scorer" />
+
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.league.scorers.ScorerInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/app_color">
 
         <androidx.cardview.widget.CardView
