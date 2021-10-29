@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<variable
-    name="viewModel"
-    type="com.example.footballapp.ui.home.HomeViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.home.HomeViewModel" />
     </data>
 
     <FrameLayout
@@ -13,10 +14,9 @@
         android:layout_height="match_parent"
         tools:context=".HomeFragment">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=""/>
+            android:text="@{viewModel.player.toData().name}"/>
     </FrameLayout>
 </layout>
