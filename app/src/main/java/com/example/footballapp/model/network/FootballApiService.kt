@@ -23,7 +23,6 @@ interface FootballApiService {
 
     @GET("players/{id}")
     suspend fun getPlayerDetails(
-
         @Path("id") playerId: Int
     ): Response<PlayerDetailsResponse>
 
@@ -47,5 +46,10 @@ interface FootballApiService {
         @Path("id") competitionId: Int,
         @Query("standingType") TeamType: String
     ): Response<TeamRankResponse>
+
+    @GET("competitions/{competitionCode}/scorers")
+    suspend fun getCompletionScorers(
+        @Path("competitionCode") competitionCode: String
+    ): Response<ScorerRankResponse>
 
 }

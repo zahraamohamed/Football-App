@@ -4,7 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appjl/app/src/main/res/layout/fragment_home.xml" value="0.19479166666666667" />
-        <entry key="app/src/main/res/layout/item_scorer.xml" value="0.1490036231884058" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_league_details.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_match_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_matches.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_player_details.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_scorers.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_standing.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_team_details.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/fragment_web_search.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/item_live_matchs.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/item_match.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_scorer.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_team_details.xml" value="0.13677811550151975" />
       </map>
     </option>
   </component>

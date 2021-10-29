@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.domain.matchesResponse.Matche"/>
+            type="com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,9 +17,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/grayDark"
             android:layout_margin="@dimen/margin1x"
-            app:cardCornerRadius="25dp">
+            android:layout_marginStart="@dimen/margin1x"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginEnd="@dimen/margin1x"
+            app:cardBackgroundColor="@color/grayDark"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -31,26 +37,13 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="2021-04-19"
+                    setFormattedDate ="@{item.utcDate}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/timeTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="@dimen/margin2x"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:text="08:08:08 AM "
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
-                    app:layout_constraintStart_toEndOf="@+id/dateTxt"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2021-04-19" />
 
                 <TextView
                     android:id="@+id/homeTeamTxt"
@@ -59,7 +52,8 @@
                     android:layout_marginStart="@dimen/margin2x"
                     android:layout_marginTop="@dimen/margin1x"
                     android:gravity="center"
-                    android:text="Real Madrid"
+                    android:text= "@{item.homeTeam.name}"
+                    tools:text ="Real Madrid"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +67,8 @@
                     android:layout_marginTop="@dimen/margin1x"
                     android:layout_marginEnd="@dimen/margin2x"
                     android:gravity="center"
-                    android:text="1"
+                    android:text= "@{item.score.fullTime.homeTeam}"
+                    tools:text ="1"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintEnd_toStartOf="@+id/view"
@@ -84,7 +79,9 @@
                     android:layout_width="0dp"
                     android:layout_height="2dp"
                     android:layout_marginTop="@dimen/margin1x"
-                    android:background="@color/red"
+                    tools:background="@color/red"
+                    app:firstTeamGoals ="@{item.score.fullTime.homeTeam}"
+                    app:secondTeamGoals ="@{item.score.fullTime.awayTeam}"
                     app:layout_constraintEnd_toEndOf="@+id/homeTeamTxt"
                     app:layout_constraintStart_toStartOf="@+id/homeTeamTxt"
                     app:layout_constraintTop_toBottomOf="@+id/homeTeamTxt" />
@@ -97,7 +94,8 @@
                     android:layout_marginTop="@dimen/margin1x"
                     android:layout_marginEnd="@dimen/margin2x"
                     android:gravity="center"
-                    android:text="FC. Barcelona"
+                    android:text= "@{item.awayTeam.name}"
+                    tools:text ="FC. Barcelona"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +109,8 @@
                     android:layout_marginStart="@dimen/margin2x"
                     android:layout_marginTop="@dimen/margin1x"
                     android:gravity="center"
-                    android:text="1"
+                    android:text= "@{item.score.fullTime.awayTeam}"
+                    tools:text ="1"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintStart_toEndOf="@+id/view"
@@ -122,7 +121,9 @@
                     android:layout_width="0dp"
                     android:layout_height="2dp"
                     android:layout_marginTop="@dimen/margin1x"
-                    android:background="@color/green"
+                    tools:background="@color/green"
+                    app:firstTeamGoals ="@{item.score.fullTime.homeTeam}"
+                    app:secondTeamGoals ="@{item.score.fullTime.awayTeam}"
                     app:layout_constraintEnd_toEndOf="@+id/awayTeamTxt"
                     app:layout_constraintStart_toStartOf="@+id/awayTeamTxt"
                     app:layout_constraintTop_toBottomOf="@+id/awayTeamTxt" />
@@ -144,7 +145,8 @@
                     android:layout_marginBottom="@dimen/margin2x"
                     android:background="@drawable/rounded_corner_view"
                     android:gravity="center"
-                    android:text="Status"
+                    android:text= "@{item.status}"
+                    tools:text ="Finished"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
