@@ -5,6 +5,7 @@ import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
+import com.example.footballapp.model.domain.specificMatchDetailsResponse.SpecificMatchDetailsResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import retrofit2.Response
@@ -35,6 +36,11 @@ interface FootballApiService {
     suspend fun getSpecificCompetitionMatches(
         @Path("id") competitionId: Int
     ): Response<SpecificCompetitionMatchesResponse>
+
+    @GET("matches/{id}")
+    suspend fun getSpecificMatchDetails(
+        @Path("id") matchId: Int
+    ): Response<SpecificMatchDetailsResponse>
 
     @GET("teams/{id}")
     suspend fun getSpecificTeamDetails(

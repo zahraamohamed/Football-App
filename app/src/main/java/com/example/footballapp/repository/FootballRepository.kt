@@ -10,6 +10,7 @@ import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsRespo
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
 import com.example.footballapp.model.State
+import com.example.footballapp.model.domain.specificMatchDetailsResponse.SpecificMatchDetailsResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
@@ -32,6 +33,8 @@ object FootballRepository {
     fun getCompetitionScorers(competitionId: Int): Flow<State<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getCompetitionScorers( competitionId) }
 
+    fun getSpecificMatchDetails(matchId: Int): Flow<State<SpecificMatchDetailsResponse?>> =
+        wrapWithFlow { API.apiService.getSpecificMatchDetails(matchId) }
 
     fun getSpecificCompetitionMatches(competitionId: Int): Flow<State<SpecificCompetitionMatchesResponse?>> =
         wrapWithFlow { API.apiService.getSpecificCompetitionMatches( competitionId) }
