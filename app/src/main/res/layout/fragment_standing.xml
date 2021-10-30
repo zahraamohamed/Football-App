@@ -75,17 +75,17 @@
                     android:text="L"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt3x"
-                    app:layout_constraintBottom_toBottomOf="@+id/GA"
-                    app:layout_constraintEnd_toStartOf="@+id/GA"
+                    app:layout_constraintBottom_toBottomOf="@+id/Ga"
+                    app:layout_constraintEnd_toStartOf="@+id/Ga"
                     app:layout_constraintStart_toEndOf="@id/D"
-                    app:layout_constraintTop_toTopOf="@+id/GA" />
+                    app:layout_constraintTop_toTopOf="@+id/Ga" />
 
                 <TextView
-                    android:id="@+id/GA"
+                    android:id="@+id/Ga"
                     android:layout_width="44dp"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="GA"
+                    android:text="Ga"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt3x"
                     app:layout_constraintBottom_toBottomOf="@+id/GD"
@@ -103,7 +103,7 @@
                     android:textSize="@dimen/txt3x"
                     app:layout_constraintBottom_toBottomOf="@+id/PTS"
                     app:layout_constraintEnd_toStartOf="@+id/PTS"
-                    app:layout_constraintStart_toEndOf="@id/GA"
+                    app:layout_constraintStart_toEndOf="@id/Ga"
                     app:layout_constraintTop_toTopOf="@+id/PTS" />
 
                 <TextView
@@ -119,12 +119,21 @@
                     app:layout_constraintStart_toEndOf="@id/GD"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <View
+                    android:layout_width="366dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/margin1x"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/grayDark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/D" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginHorizontal="@dimen/margin1x"
             app:layout_constraintEnd_toEndOf="parent"
