@@ -13,6 +13,10 @@ class TeamDetailsFragment : BaseFragment<FragmentTeamDetailsBinding>() {
         get() = FragmentTeamDetailsBinding::inflate
 
     override fun setup() {
+        binding.apply {
+            viewmodel = viewModel
+            lifecycleOwner = lifecycleOwner
+        }
         binding.teamsRecycler.adapter = TeamDetailsAdapter(mutableListOf(), viewModel)
     }
 }

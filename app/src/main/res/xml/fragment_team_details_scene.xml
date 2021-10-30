@@ -125,9 +125,12 @@
 
     <Transition
         app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start">
+        app:constraintSetStart="@+id/start"
+        app:layoutDuringTransition="honorRequest">
         <OnSwipe app:touchAnchorId="@id/match_constraint"
-            app:dragDirection="dragDown"/>
+            app:dragDirection="dragDown"
+            app:touchAnchorSide="top"
+            app:moveWhenScrollAtTop="true"/>
 
     </Transition>
 </MotionScene>
