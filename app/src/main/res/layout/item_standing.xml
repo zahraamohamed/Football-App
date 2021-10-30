@@ -4,90 +4,102 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="item"
+            type="com.example.footballapp.model.domain.teamRankResponse.Table" />
 
-
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.league.standing.StandInteractionListener" />
     </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color">
+            <TextView
+                android:id="@+id/team_name"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding3x"
+                android:text="@{item.team.name}"
+                tools:text="Real Madrid"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                app:layout_constraintBottom_toBottomOf="@+id/draw"
+                app:layout_constraintEnd_toStartOf="@+id/draw"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:id="@+id/draw"
+                android:layout_width="52dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{item.draw}"
+                tools:text="8"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                app:layout_constraintBottom_toBottomOf="@+id/lost"
+                app:layout_constraintEnd_toStartOf="@+id/lost"
+                app:layout_constraintStart_toEndOf="@id/team_name"
+                app:layout_constraintTop_toTopOf="@+id/lost" />
+            <TextView
+                android:id="@+id/lost"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/goalsAgainst"
+                app:layout_constraintEnd_toStartOf="@+id/goalsAgainst"
+                app:layout_constraintTop_toTopOf="@+id/goalsAgainst"
+                app:layout_constraintStart_toEndOf="@id/draw"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                android:gravity="center"
+                android:text="@{item.lost}"
+                tools:text="7"/>
+            <TextView
+                android:id="@+id/goalsAgainst"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toEndOf="@id/lost"
+                app:layout_constraintBottom_toBottomOf="@+id/goalDifference"
+                app:layout_constraintEnd_toStartOf="@+id/goalDifference"
+                app:layout_constraintTop_toTopOf="@+id/goalDifference"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                android:gravity="center"
+                android:text="@{item.goalsAgainst}"
+                tools:text="14"/>
+            <TextView
+                android:id="@+id/goalDifference"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toEndOf="@id/goalsAgainst"
+                app:layout_constraintBottom_toBottomOf="@+id/points"
+                app:layout_constraintEnd_toStartOf="@+id/points"
+                app:layout_constraintTop_toTopOf="@+id/points"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                android:gravity="center"
+                android:text="@{item.goalDifference}"
+                tools:text="4"/>
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toEndOf="@id/goalDifference"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/goalDifference"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                android:gravity="center"
+                android:text="@{item.points}"
+                tools:text="35"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginVertical="@dimen/margin1x"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/app_color">
-
-        <TextView
-            android:id="@+id/team_name"
-            android:layout_width="178dp"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/padding2x"
-            android:text="Real Madrid"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            app:layout_constraintBottom_toBottomOf="@+id/D"
-            app:layout_constraintEnd_toStartOf="@+id/D"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/D"
-            android:layout_width="56dp"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:text="8"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            app:layout_constraintBottom_toBottomOf="@+id/L"
-            app:layout_constraintEnd_toStartOf="@+id/L"
-            app:layout_constraintStart_toEndOf="@id/team_name"
-            app:layout_constraintTop_toTopOf="@+id/L" />
-        <TextView
-            android:id="@+id/L"
-            android:layout_width="42dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="@+id/GA"
-            app:layout_constraintEnd_toStartOf="@+id/GA"
-            app:layout_constraintTop_toTopOf="@+id/GA"
-            app:layout_constraintStart_toEndOf="@id/D"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            android:gravity="center"
-            android:text="7"/>
-        <TextView
-            android:id="@+id/GA"
-            android:layout_width="42dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toEndOf="@id/L"
-            app:layout_constraintBottom_toBottomOf="@+id/GD"
-            app:layout_constraintEnd_toStartOf="@+id/GD"
-            app:layout_constraintTop_toTopOf="@+id/GD"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            android:gravity="center"
-            android:text="14"/>
-        <TextView
-            android:id="@+id/GD"
-            android:layout_width="42dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toEndOf="@id/GA"
-            app:layout_constraintBottom_toBottomOf="@+id/PTS"
-            app:layout_constraintEnd_toStartOf="@+id/PTS"
-            app:layout_constraintTop_toTopOf="@+id/PTS"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            android:gravity="center"
-            android:text="4"/>
-        <TextView
-            android:id="@+id/PTS"
-            android:layout_width="43dp"
-            android:layout_height="50dp"
-            app:layout_constraintStart_toEndOf="@id/GD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/GD"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt2x"
-            android:gravity="center"
-            android:text="35"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
