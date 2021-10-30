@@ -18,15 +18,22 @@ class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>(){
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentWebSearchBinding
         get() = FragmentWebSearchBinding::inflate
 
-    private lateinit var webView: WebView
+
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun setup() {
 
-        binding.apply {
-            webView = searchWebView
-            searchWebView.settings.javaScriptEnabled = true
-        }
+        openWebViewToSearchInFragment()
 
     }
+
+    private fun openWebViewToSearchInFragment() {
+        binding?.webSearch?.webViewClient = WebViewClient()
+        binding?.webSearch?.apply {
+            loadUrl("https://www.google.com/")
+            settings.safeBrowsingEnabled = true
+            settings.javaScriptEnabled = true
+        }
+    }
+
 }
