@@ -132,6 +132,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/standingRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1x"
@@ -139,7 +140,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            tools:listitem="@layout/item_standing" />
+            tools:listitem="@layout/item_standing"
+            app:items= "@{viewModel.stand.toData().standings}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
