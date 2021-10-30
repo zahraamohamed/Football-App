@@ -4,8 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_home.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_live_matchs.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_league_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_matches.xml" value="0.1" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_player_details.xml" value="0.321875" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_scorers.xml" value="0.15729166666666666" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_standing.xml" value="0.321875" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/fragment_web_search.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_competition.xml" value="0.22" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_live_match.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_live_matchs.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_match.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/item_team_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/items_competitions.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/Football-App/app/src/main/res/layout/items_live_matchs.xml" value="0.1994949494949495" />
       </map>
     </option>
   </component>

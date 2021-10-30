@@ -1,6 +1,5 @@
 package com.example.footballapp.repository
 
-import android.util.Log
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse

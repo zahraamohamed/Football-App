@@ -1,7 +1,10 @@
 package com.example.footballapp.ui.base
 
-import android.view.*
-import androidx.databinding.*
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballapp.BR
 
@@ -19,7 +22,8 @@ abstract class BaseAdapter<T>(
 
     fun getItem() = items
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): BaseViewHolder =
         ItemViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
@@ -29,8 +33,9 @@ abstract class BaseAdapter<T>(
             )
         )
 
+
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        when(holder) {
+        when (holder) {
             is ItemViewHolder -> {
                 holder.binding.setVariable(BR.item, items[position])
                 holder.binding.setVariable(BR.listener, listener)

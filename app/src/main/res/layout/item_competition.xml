@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.footballapp.model.domain.competitionsResponse.Competition"/>
+
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.home.HomeInteractionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#3A0B0B">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:hint="competition"
+            android:text="@{item.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
