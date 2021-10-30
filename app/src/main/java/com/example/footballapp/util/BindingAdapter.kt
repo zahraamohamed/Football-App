@@ -1,26 +1,20 @@
 package com.example.footballapp.util
 
-import android.graphics.Color
+
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import androidx.navigation.NavAction
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
-import com.example.footballapp.ui.league.scorers.ScorersFragment
-import com.example.footballapp.ui.league.scorers.ScorersFragmentDirections
 import java.time.LocalDate
-
 import java.time.format.DateTimeFormatter
 import java.util.*
-import androidx.navigation.fragment.findNavController
+
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, status: State<T>?) {
@@ -83,6 +77,14 @@ fun <T> viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals:
     }
 }
 
+@BindingAdapter(value = ["backgroundTeamByOnClick"])
+fun <T> setBackgroundTeam(view: View , value :View.OnClickListener) {
+    if (value.equals(view.callOnClick())) {
+        view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
+    } else {
+        view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.app_color))
+    }
+}
 @BindingAdapter(value = ["setFormattedDate"])
 fun <T> setFormattedDate(view: TextView, dateStr: String? ) {
 

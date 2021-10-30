@@ -12,9 +12,14 @@
             name="listener"
             type="com.example.footballapp.ui.league.standing.StandInteractionListener" />
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding1x"
+        backgroundTeamByOnClick="@{()->listener.onClickStand(item)"
+        app:cardCornerRadius="@dimen/padding3x">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
