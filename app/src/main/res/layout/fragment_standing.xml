@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,15 +10,127 @@
     </data>
 
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.StandingFragment">
+        android:background="@color/app_color">
 
-        <TextView
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/app_color"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin6x"
+            android:backgroundTint="@color/app_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/team_name"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/padding3x"
+                    android:text="Teams"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/D"
+                    app:layout_constraintEnd_toStartOf="@+id/D"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/D"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="D"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/L"
+                    app:layout_constraintEnd_toStartOf="@+id/L"
+                    app:layout_constraintStart_toEndOf="@id/team_name"
+                    app:layout_constraintTop_toTopOf="@+id/L" />
+
+                <TextView
+                    android:id="@+id/L"
+                    android:layout_width="42dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="L"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/GA"
+                    app:layout_constraintEnd_toStartOf="@+id/GA"
+                    app:layout_constraintStart_toEndOf="@id/D"
+                    app:layout_constraintTop_toTopOf="@+id/GA" />
+
+                <TextView
+                    android:id="@+id/GA"
+                    android:layout_width="44dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="GA"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/GD"
+                    app:layout_constraintEnd_toStartOf="@+id/GD"
+                    app:layout_constraintStart_toEndOf="@id/L"
+                    app:layout_constraintTop_toTopOf="@+id/GD" />
+
+                <TextView
+                    android:id="@+id/GD"
+                    android:layout_width="47dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="GD"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/PTS"
+                    app:layout_constraintEnd_toStartOf="@+id/PTS"
+                    app:layout_constraintStart_toEndOf="@id/GA"
+                    app:layout_constraintTop_toTopOf="@+id/PTS" />
+
+                <TextView
+                    android:id="@+id/PTS"
+                    android:layout_width="46dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="PTS"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt3x"
+                    app:layout_constraintBottom_toBottomOf="@+id/GD"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/GD"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="@dimen/margin1x"
+            android:layout_marginHorizontal="@dimen/margin1x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:listitem="@layout/item_standing" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
