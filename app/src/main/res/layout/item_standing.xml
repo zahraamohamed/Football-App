@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginVertical="@dimen/margin1x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/D"
+            app:layout_constraintEnd_toStartOf="@+id/D"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:paddingStart="@dimen/padding2x"
+            android:gravity="center_vertical"
+            android:text="Real Madrid"/>
+
+        <TextView
+            android:id="@+id/PTS"
+            android:layout_width="43dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@id/GD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/GD"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:gravity="center"
+            android:text="35"/>
+
+        <TextView
+            android:id="@+id/GA"
+            android:layout_width="42dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@id/L"
+            app:layout_constraintBottom_toBottomOf="@+id/GD"
+            app:layout_constraintEnd_toStartOf="@+id/GD"
+            app:layout_constraintTop_toTopOf="@+id/GD"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:gravity="center"
+            android:text="14"/>
+
+        <TextView
+            android:id="@+id/L"
+            android:layout_width="42dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/GA"
+            app:layout_constraintEnd_toStartOf="@+id/GA"
+            app:layout_constraintTop_toTopOf="@+id/GA"
+            app:layout_constraintStart_toEndOf="@id/D"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:gravity="center"
+            android:text="7"/>
+
+        <TextView
+            android:id="@+id/GD"
+            android:layout_width="42dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@id/GA"
+            app:layout_constraintBottom_toBottomOf="@+id/PTS"
+            app:layout_constraintEnd_toStartOf="@+id/PTS"
+            app:layout_constraintTop_toTopOf="@+id/PTS"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:gravity="center"
+            android:text="4"/>
+
+        <TextView
+            android:id="@+id/D"
+            android:layout_width="42dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/L"
+            app:layout_constraintEnd_toStartOf="@+id/L"
+            app:layout_constraintTop_toTopOf="@+id/L"
+            app:layout_constraintStart_toEndOf="@id/team_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            android:gravity="center"
+            android:text="8"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
