@@ -16,6 +16,4 @@ class StandingFragment:BaseFragment<FragmentStandingBinding>(){
     override fun setup() {
         binding.standingRecycler.adapter = StandAdapter(mutableListOf(), viewModel)
     }
-
-
 }

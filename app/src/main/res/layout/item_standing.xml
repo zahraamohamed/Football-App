@@ -6,19 +6,12 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.domain.teamRankResponse.Table" />
+            type="com.example.footballapp.model.domain.teamRankResponse.Standing" />
 
         <variable
             name="listener"
             type="com.example.footballapp.ui.league.standing.StandInteractionListener" />
     </data>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding1x"
-        backgroundTeamByOnClick="@{()->listener.onClickStand(item)"
-        app:cardCornerRadius="@dimen/padding3x">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,11 +19,11 @@
             android:background="@color/app_color">
             <TextView
                 android:id="@+id/team_name"
-                android:layout_width="160dp"
+                android:layout_width="180dp"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/padding3x"
-                android:text="@{item.team.name}"
+                android:text="@{item.table.toString()}"
                 tools:text="Real Madrid"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
@@ -41,10 +34,10 @@
                 tools:ignore="RtlSymmetry" />
             <TextView
                 android:id="@+id/draw"
-                android:layout_width="52dp"
+                android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@{item.draw}"
+                android:text="@{item.type}"
                 tools:text="8"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
@@ -54,7 +47,7 @@
                 app:layout_constraintTop_toTopOf="@+id/lost" />
             <TextView
                 android:id="@+id/lost"
-                android:layout_width="45dp"
+                android:layout_width="43dp"
                 android:layout_height="50dp"
                 app:layout_constraintBottom_toBottomOf="@+id/goalsAgainst"
                 app:layout_constraintEnd_toStartOf="@+id/goalsAgainst"
@@ -63,7 +56,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
                 android:gravity="center"
-                android:text="@{item.lost}"
+                android:text="@{item.type}"
                 tools:text="7"/>
             <TextView
                 android:id="@+id/goalsAgainst"
@@ -76,7 +69,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
                 android:gravity="center"
-                android:text="@{item.goalsAgainst}"
+                android:text="@{item.table.toString()}"
                 tools:text="14"/>
             <TextView
                 android:id="@+id/goalDifference"
@@ -89,11 +82,11 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
                 android:gravity="center"
-                android:text="@{item.goalDifference}"
+                android:text="@{item.stage}"
                 tools:text="4"/>
             <TextView
                 android:id="@+id/points"
-                android:layout_width="50dp"
+                android:layout_width="47dp"
                 android:layout_height="50dp"
                 app:layout_constraintStart_toEndOf="@id/goalDifference"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,9 +95,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
                 android:gravity="center"
-                android:text="@{item.points}"
+                android:text="@{item.stage}"
                 tools:text="35"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
 </layout>
