@@ -14,7 +14,7 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding>() {
 
     override fun setup() {
         binding.apply {
-            viewmodel = viewModel
+            viewModel = viewModel
             lifecycleOwner= lifecycleOwner
         }
     }
