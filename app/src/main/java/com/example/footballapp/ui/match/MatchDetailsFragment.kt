@@ -13,9 +13,5 @@ class MatchDetailsFragment: BaseFragment<FragmentMatchDetailsBinding>() {
         get() = FragmentMatchDetailsBinding::inflate
 
     override fun setup() {
-        binding.apply {
-            viewmodel = viewModel
-            lifecycleOwner= lifecycleOwner
-        }
     }
 }
