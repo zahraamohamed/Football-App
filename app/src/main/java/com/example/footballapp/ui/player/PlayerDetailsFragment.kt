@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.player
 
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -15,8 +14,8 @@ class PlayerDetailsFragment : BaseFragment<FragmentPlayerDetailsBinding>() {
         get() = FragmentPlayerDetailsBinding::inflate
 
     override fun setup() {
-        binding.textView.text = args.playerId.toString()
-        sharedElementEnterTransition = TransitionInflater.from(context)
-            .inflateTransition(android.R.transition.move)
+//        binding.textView.text = args.playerId.toString()
+//        sharedElementEnterTransition = TransitionInflater.from(context)
+//            .inflateTransition(android.R.transition.move)
     }
 }

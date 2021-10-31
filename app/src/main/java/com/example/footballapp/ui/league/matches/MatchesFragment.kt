@@ -6,8 +6,6 @@ import androidx.fragment.app.viewModels
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.league.LeagueViewModel
-import com.example.footballapp.ui.league.scorers.ScorerAdapter
-import com.example.footballapp.ui.match.MatchViewModel
 
 
 class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {

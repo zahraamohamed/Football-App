@@ -10,8 +10,5 @@ class TeamViewModel : ViewModel(), ITeamDetailsInteractionListener {
 
     val teamDetails = FootballRepository.getSpecificTeamDetails(18).asLiveData()
 
-
-    override fun onClickTeamPlayer(playerDetails: Squad) {
-
-    }
+    override fun onClickTeamPlayer(playerDetails: Squad) {}
 }

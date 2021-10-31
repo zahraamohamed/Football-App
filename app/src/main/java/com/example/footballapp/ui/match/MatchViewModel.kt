@@ -8,7 +8,6 @@ import com.example.footballapp.repository.FootballRepository
 
 class MatchViewModel:ViewModel() {
 
-    //private  val matchId:Int = SpecificMatchDetailsResponse().match?.id!!.toInt()
     val matchDetails= FootballRepository.getSpecificMatchDetails(204950).asLiveData()
 
 
