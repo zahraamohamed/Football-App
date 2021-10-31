@@ -15,7 +15,6 @@ import com.example.footballapp.R
 import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.league.scorers.ScorersFragment
-import com.example.footballapp.ui.league.scorers.ScorersFragmentDirections
 import java.time.LocalDate
 
 import java.time.format.DateTimeFormatter
@@ -89,6 +88,15 @@ fun <T> setFormattedDate(view: TextView, dateStr: String? ) {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
     val date = LocalDate.parse(dateStr, formatter)
     view.text  = date.toString()
+}
+
+@BindingAdapter(value = ["app:isNullable"])
+fun isNullable(view:TextView , score:String){
+    if (score == "null"){
+        view.text = "0"
+    }
+
+
 }
 
 //@BindingAdapter("app:onCardClicked")
