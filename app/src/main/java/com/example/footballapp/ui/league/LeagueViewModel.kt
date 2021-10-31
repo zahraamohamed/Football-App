@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import com.example.footballapp.model.domain.scorerRankResponse.Scorer
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche
 import com.example.footballapp.model.domain.teamRankResponse.Standing
+import com.example.footballapp.model.domain.teamRankResponse.Table
 import com.example.footballapp.repository.FootballRepository
 import com.example.footballapp.ui.league.matches.MatchInteractionListener
 import com.example.footballapp.ui.league.scorers.ScorerInteractionListener
@@ -19,6 +20,6 @@ class LeagueViewModel : ViewModel(), MatchInteractionListener, ScorerInteraction
 
     override fun onClickScorer(scorer: Scorer) {}
     override fun onClickMatch(match: Matche) {}
-    override fun onClickStand(stand: Standing) {}
+    override fun onClickStand(table: Table) {}
 
 }
