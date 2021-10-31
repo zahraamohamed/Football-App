@@ -5,7 +5,5 @@ import androidx.lifecycle.ViewModel
 
 class WebSearchViewModel :ViewModel() {
 
-  val webViewUrl = MutableLiveData("https://www.google.com")
-
 
 }
