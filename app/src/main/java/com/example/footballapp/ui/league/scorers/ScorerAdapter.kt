@@ -15,13 +15,13 @@ class ScorerAdapter(
         super.onBindViewHolder(holder, position)
 
         val binding = (holder as ItemViewHolder).binding as ItemScorerBinding
-        binding.scorersCard.setOnClickListener {
-            val playerID = binding.item?.player?.id
-            val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(
-                playerID ?: 3754
-            )
-            Navigation.findNavController(holder.itemView).navigate(action)
-        }
+       // binding.scorersCard.setOnClickListener {
+           // val playerID = binding.item?.player?.id
+           // val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(
+           //     playerID ?: 3754
+          //  )
+        //    Navigation.findNavController(holder.itemView).navigate(action)
+      //  }
     }
 }
 

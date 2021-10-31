@@ -85,6 +85,7 @@ fun <T> setBackgroundTeam(view: View , value :View.OnClickListener) {
         view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.app_color))
     }
 }
+
 @BindingAdapter(value = ["setFormattedDate"])
 fun <T> setFormattedDate(view: TextView, dateStr: String? ) {
 
