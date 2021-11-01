@@ -16,6 +16,18 @@
         android:background="@color/app_color"
         app:layoutDescription="@xml/fragment_team_details_scene">
 
+        <TextView
+            android:id="@+id/show_more_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show more"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/image_team"
+            app:layout_constraintEnd_toEndOf="@id/image_team"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageButton
             android:id="@+id/button_backward"
             android:layout_width="wrap_content"

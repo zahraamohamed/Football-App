@@ -91,6 +91,30 @@
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="@+id/imageView3"
             android:layout_marginStart="8dp" />
+        <Constraint
+            android:layout_marginEnd="230dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/show_more"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.051"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <Constraint
+            app:layout_constraintVertical_bias="0.049"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/show_more_team"
+            app:layout_constraintBottom_toTopOf="@+id/image_team"
+            app:layout_constraintStart_toEndOf="@+id/button_backward"
+            android:layout_marginEnd="230dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </ConstraintSet>

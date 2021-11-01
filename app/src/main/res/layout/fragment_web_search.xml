@@ -23,28 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:padding="@dimen/padding2x"
-            android:id="@+id/search_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/button_search"
-            android:layout_width="41dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="28dp"
-            android:src="@drawable/ic_baseline_search_24"
-            app:layout_constraintBottom_toBottomOf="@+id/search_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/search_name"
-            app:layout_constraintVertical_bias="0.444" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
