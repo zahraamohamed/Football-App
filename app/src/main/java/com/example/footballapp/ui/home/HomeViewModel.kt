@@ -1,12 +1,43 @@
 package com.example.footballapp.ui.home
 
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import com.example.footballapp.model.State
-import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
+import androidx.lifecycle.viewModelScope
+import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
+import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.repository.FootballRepository
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-class HomeViewModel:ViewModel() {
-    val player = FootballRepository.getPlayerDetails(44).asLiveData()
+
+class HomeViewModel: ViewModel() , HomeInteractionListener {
+
+    var liveMatches = MutableLiveData<MatchesResponse>()
+    var competitions = MutableLiveData<CompetitionsResponse>()
+
+    val clickItemMatch = MutableLiveData<Int>()
+
+    var itemsList: MutableLiveData<List<HomeItems<Any?>>> = MutableLiveData()
+
+    init{
+        getListAdapter()
+    }
+
+    private fun getListAdapter() {
+        viewModelScope.launch {
+            FootballRepository.getDailyMatch().collect{ liveMatches.value = it.toData() }
+            FootballRepository.getAllCompetitions().collect{ competitions.value = it.toData() }
+
+            itemsList.value = listOf(HomeItems(competitions.value?.competitions , HomeItemsType.TYPE_COMPETITION) ,
+                HomeItems(liveMatches.value?.matches, HomeItemsType.TYPE_LIVE_MATCH) )
+        }
+    }
+
+    override fun onClickSeeMore() { }
+
+    override fun onClickItemMatch(matchId: Int?) {
+        clickItemMatch.postValue(matchId)
+    }
+
+
 }
