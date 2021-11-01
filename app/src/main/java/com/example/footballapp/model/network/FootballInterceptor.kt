@@ -10,6 +10,7 @@ class FootballInterceptor : Interceptor {
             .newBuilder()
             .addHeader("X-Auth-Token", Constant.API_TOKEN)
             .build()
+
         return chain.proceed(request)
     }
 }

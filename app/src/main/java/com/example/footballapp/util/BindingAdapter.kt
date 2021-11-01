@@ -1,12 +1,11 @@
 package com.example.footballapp.util
 
-
-import android.view.View
-import android.webkit.WebView
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.*
+import android.webkit.*
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,36 +14,25 @@ import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.home.HomeItems
 import com.example.footballapp.ui.home.HomeNestedAdapter
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import java.time.*
+import java.time.format.*
 import java.util.*
+
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, status: State<T>?) {
-    if (status is State.Loading) {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+    view.isVisible =  (status is State.Loading)
 }
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view: View, status: State<T>?) {
-    if (status is State.Error) {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+    view.isVisible =  (status is State.Error)
 }
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> showWhenSuccess(view: View, status: State<T>?) {
-    if (status is State.Success) {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+    view.isVisible =  (status is State.Success)
 }
 
 @BindingAdapter(value = ["app:imgUrl"])
@@ -58,17 +46,13 @@ fun setImageUrl(view: ImageView, url: String?) {
 
 @BindingAdapter(value = ["app:webUrl"])
 fun setWebViewUrl(view: WebView, url: String?) {
-    val data = "<img src='$url' style='width:100%; height=120%; margin: auto;' />"
+    val data = "<img src='$url' style='width:100%; height=120%; margin-left: auto; margin-right: auto; margin-top: 5;' />"
     url?.let { view.loadData(data, "text/html", "utf-8") }
 }
 
 @BindingAdapter(value = ["app:isExistData"])
 fun ifDataEmpty(view: WebView, url: String?) {
-    if (url != null) {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+    view.isVisible = (url != null)
 }
 
 @BindingAdapter(value = ["app:items"])
@@ -87,22 +71,17 @@ fun setRecyclerNestedItems(view: RecyclerView, items: List<HomeItems<Any>>?) {
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
-    state?.let {
-        view.setBackgroundResource(StateMatches.valueOf(state).cardColor)
-    }
+    state?.let { view.setBackgroundColor(StateMatches.valueOf(state).cardColor) }
 }
 
 @BindingAdapter(value = ["app:ifStateLive"])
 fun displayIfLive(view: View, state: String?) {
-    if (state == "LIVE") {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+    view.isVisible = (state == StateMatches.valueOf("LIVE").name ||
+            state == StateMatches.valueOf("IN_PLAY").name )
 }
 
 @BindingAdapter(value = ["firstTeamGoals", "secondTeamGoals"])
-fun <T> viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
+fun viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
     when {
         firstTeamGoals!! > secondTeamGoals!! -> {
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
@@ -117,9 +96,7 @@ fun <T> viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals:
 }
 
 @BindingAdapter(value = ["setFormattedDate"])
-fun <T> setFormattedDate(view: TextView, dateStr: String?) {
-
+fun setFormattedDate(view: TextView, dateStr: String?) {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
-    val date = LocalDate.parse(dateStr, formatter)
-    view.text = date.toString()
+    view.text = LocalDate.parse(dateStr, formatter).toString()
 }

@@ -19,6 +19,7 @@
         android:layout_marginVertical="10dp"
         android:paddingBottom="@dimen/margin2x"
         app:stateMatch="@{item.status}"
+        android:elevation="@dimen/margin1x"
         android:layout_marginStart="@dimen/margin3x"
         android:layout_marginEnd="@dimen/margin1x"
         android:background="@drawable/shape_item_live_match"
@@ -33,6 +34,7 @@
             android:text="@{item.status}"
             android:textStyle="bold"
             android:paddingHorizontal="12dp"
+            android:paddingVertical="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,7 +79,7 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.score.fullTime.homeTeam.toString()}"
+            android:text="@{item.score.fullTime.awayTeam.toString()}"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
