@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.databinding.FragmentPlayerDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
 
 
 class PlayerDetailsFragment : BaseFragment<FragmentPlayerDetailsBinding>() {
-    private val args: PlayerDetailsFragmentArgs by navArgs()
+    //private val args: PlayerDetailsFragmentArgs by navArgs()
     override val viewModel: PlayerViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentPlayerDetailsBinding
         get() = FragmentPlayerDetailsBinding::inflate
@@ -18,7 +19,7 @@ class PlayerDetailsFragment : BaseFragment<FragmentPlayerDetailsBinding>() {
     override fun setup() {
 
         binding.showMorePlayer.setOnClickListener {
-            val action = PlayerDetailsFragmentDirections.actionPlayerDetailsFragmentToWebSearchFragment(7879)
+            val action = PlayerDetailsFragmentDirections.actionPlayerDetailsFragmentToWebSearchFragment("Cristiano")
             Navigation.findNavController(it).navigate(action)
         }
 
