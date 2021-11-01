@@ -166,7 +166,7 @@
             android:layout_marginStart="@dimen/margin1x"
             android:layout_marginBottom="@dimen/margin2x"
             android:gravity="center_horizontal"
-            android:text="@{viewModel.teamDetails.toData().clubColors}"
+            android:text="@{viewModel.teamDetails.toData().email}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"

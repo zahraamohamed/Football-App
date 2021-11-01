@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="11dp"
-            android:text="@{item.score.fullTime.homeTeam}"
+            android:text="@{item.score.fullTime.homeTeam.toString()}"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
