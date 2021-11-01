@@ -10,15 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity"
-        android:background="@color/app_color">
+        tools:context=".ui.MainActivity">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_container"
-            android:name="com.example.footballapp.ui.player.PlayerDetailsFragment"
+            android:name="com.example.footballapp.ui.viewPager.ViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-           />
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
