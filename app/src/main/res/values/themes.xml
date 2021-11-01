@@ -13,4 +13,11 @@
     <style name="teamDetailsImage" parent="">
         <item name="cornerSize">50%</item>
     </style>
+    <style name="teamDetails" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginTop">@dimen/margin2x</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#B3E5E5E5</item>
+        <item name="android:textSize">@dimen/txt2x</item>
+
+    </style>
 </resources>

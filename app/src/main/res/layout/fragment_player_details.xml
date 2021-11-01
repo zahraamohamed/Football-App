@@ -13,8 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.PlayerDetailsFragment"
-        android:background="@color/app_color">
+        android:background="@color/app_color"
+        tools:context=".ui.PlayerDetailsFragment">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -41,16 +41,17 @@
             android:id="@+id/player_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginVertical="@dimen/margin2x"
+            android:text="@{viewModel.playerDetails.toData().name}"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt3x"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/cardView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginVertical="@dimen/margin2x"
-            android:text="@{viewModel.playerDetails.toData().name}"
-            android:textColor="@color/white"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:textAlignment="textStart"
-            android:textSize="@dimen/txt3x"
-            tools:text="cristiano ronaldo"/>
+            tools:text="cristiano ronaldo" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -62,6 +63,8 @@
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,11 +91,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="Position"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                   style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +110,8 @@
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+            app:layout_constraintEnd_toStartOf="@+id/cardView5"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cardView4"
             app:layout_constraintTop_toTopOf="@+id/cardView4">
 
@@ -136,11 +138,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="country of birth"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                   style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -153,13 +152,14 @@
             android:id="@+id/cardView5"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="@dimen/margin2x"
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="@+id/cardView3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cardView3"
             app:layout_constraintTop_toTopOf="@+id/cardView3">
 
@@ -172,8 +172,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin4x"
-                    android:text="@{viewModel.playerDetails.toData().shirtNumber.toString()}"
                     android:paddingHorizontal="2dp"
+                    android:text="@{viewModel.playerDetails.toData().shirtNumber.toString()}"
                     android:textAlignment="center"
                     android:textColor="@color/red"
                     android:textSize="@dimen/txt3x"
@@ -187,11 +187,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="Shirt Number"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                    style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -210,6 +207,8 @@
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toTopOf="@+id/cardView4"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -219,7 +218,7 @@
                 <TextView
                     android:id="@+id/text_player_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="45dp"
                     android:layout_marginTop="@dimen/margin4x"
                     android:text="@{viewModel.playerDetails.toData().firstName}"
                     android:textAlignment="center"
@@ -235,11 +234,9 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin1x"
+                    android:layout_marginBottom="@dimen/margin3x"
                     android:text="First Name"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                    style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -257,6 +254,8 @@
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
+            app:layout_constraintEnd_toStartOf="@+id/cardView6"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="@+id/cardView">
 
@@ -283,11 +282,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="nationality"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                    style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -297,15 +293,17 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView6"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="@dimen/margin2x"
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="@+id/cardView2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toTopOf="@+id/cardView2">
 
@@ -334,11 +332,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="Date Of Birth"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt2x"
+                   style="@style/teamDetails"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
