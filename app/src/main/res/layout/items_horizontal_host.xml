@@ -12,14 +12,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin1x"
+        android:layout_marginVertical="@dimen/margin2x"
         android:background="@color/app_color">
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Live Matchs"
+            android:text="Matches"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="24dp"

@@ -15,7 +15,7 @@ class HomeViewModel: ViewModel() , HomeInteractionListener {
     var liveMatches = MutableLiveData<MatchesResponse>()
     var competitions = MutableLiveData<CompetitionsResponse>()
 
-    val clickItemMatch = MutableLiveData<Int>()
+    val clickItemMatch = MutableLiveData<Int?>()
 
     var itemsList: MutableLiveData<List<HomeItems<Any?>>> = MutableLiveData()
 
