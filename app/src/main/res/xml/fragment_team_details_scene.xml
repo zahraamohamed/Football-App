@@ -7,14 +7,12 @@
         <Constraint
             android:id="@+id/match_constraint"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="180dp"
-            android:background="@drawable/ic_green_background"
+            android:layout_height="180dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layoutDescription="@xml/fragment_team_details_scene"/>
+            app:layoutDescription="@xml/fragment_team_details_scene"
+             />
         <Constraint
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -75,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            />
+            android:layout_marginTop="0dp" />
 
         <Constraint
             android:id="@+id/textView"
@@ -88,9 +86,10 @@
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView3"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp" />
 
 
     </ConstraintSet>
@@ -102,13 +101,10 @@
             android:id="@+id/match_constraint"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginVertical="@dimen/margin2x"
-            android:background="@drawable/ic_green_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layoutDescription="@xml/fragment_team_details_scene"/>
+            app:layout_constraintTop_toBottomOf="@+id/text_team_venue"/>
         <Constraint
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -125,9 +121,11 @@
 
     <Transition
         app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start">
-        <OnSwipe app:touchAnchorId="@id/match_constraint"
-            app:dragDirection="dragDown"/>
+        app:constraintSetStart="@+id/start"
+        app:layoutDuringTransition="honorRequest">
+        <OnClick app:touchAnchorId="@id/lottieAnimationView"
+            app:dragDirection="dragDown"
+            />
 
     </Transition>
 </MotionScene>

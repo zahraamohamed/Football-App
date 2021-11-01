@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.teams.TeameViewModel" />
+            type="com.example.footballapp.ui.teams.TeamViewModel" />
     </data>
 
 
@@ -28,7 +28,8 @@
             android:src="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
         <ImageView
             android:id="@+id/image_team"
             android:layout_width="match_parent"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewModel.teamDetails.toData().name}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             android:textStyle="bold"
@@ -63,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewModel.teamDetails.toData().founded.toString()}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +101,7 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewModel.teamDetails.toData().website}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -126,13 +127,13 @@
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:gravity="center_horizontal"
-            android:text=""
+            android:text="@{viewModel.teamDetails.toData().phone}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="@+id/imageView2"
-            tools:text="+49 (02161) 92930" />
+            tools:text="+hgdgdfgfhhh30" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -145,16 +146,27 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:ignore="ContentDescription" />
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin1x"
+            android:src="@drawable/ic_sport_shirt"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            tools:ignore="ContentDescription" />
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin1x"
             android:layout_marginStart="@dimen/margin1x"
-            android:gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin2x"
-            android:text=""
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.teamDetails.toData().email}"
             android:textColor="@color/white"
             android:textSize="@dimen/txt2x"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -162,31 +174,86 @@
             app:layout_constraintTop_toTopOf="@+id/imageView3"
             tools:text="info@borussia.de" />
 
+        <TextView
+            android:id="@+id/text_team_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin1x"
+            android:layout_marginVertical="@dimen/margin1x"
+            android:layout_marginStart="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin2x"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.teamDetails.toData().clubColors}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4"
+            tools:text="red,blue,green" />
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin1x"
+            android:src="@drawable/ic_signs"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/text_team_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin1x"
+            android:layout_marginVertical="@dimen/margin1x"
+            android:layout_marginStart="@dimen/margin1x"
+            android:layout_marginBottom="@dimen/margin2x"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.teamDetails.toData().venue}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            tools:text="stadium" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/match_constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/arrow_up" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/match_constraint"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginVertical="@dimen/margin1x"
-            android:background="@drawable/ic_green_background"
+            android:layout_height="180dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/text_team_venue">
+
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/teams_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/padding2x"
+                app:items="@{viewModel.teamDetails.toData().squad}"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="3"
+                tools:ignore="RtlSymmetry"
                 tools:listitem="@layout/item_team_details" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>

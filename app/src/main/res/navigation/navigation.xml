@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/standingFragment">
+    app:startDestination="@id/webSearchFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.footballapp.ui.home.HomeFragment"
@@ -59,4 +59,9 @@
         android:name="com.example.footballapp.ui.webSearch.WebSearchFragment"
         android:label="WebSearchFragment"
         tools:layout="@layout/fragment_web_search"/>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.footballapp.ui.viewPager.ViewPager"
+        android:label="ViewPager"
+        tools:layout="@layout/fragment_view_pager"/>
 </navigation>

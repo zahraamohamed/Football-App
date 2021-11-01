@@ -5,16 +5,27 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#1D1D1D</color>
 
 
     <!--    color -->
     <color name="white">#E5E5E5</color>
     <color name="app_color">#363636</color>
+    <color name="card_color">#444444</color>
     <color name="green">#26DB85</color>
     <color name="red">#FF5757</color>
     <color name="yellow">#FFFF00</color>
     <color name="grayDark">#434343</color>
+    <color name="logoBackground">#212121</color>
+    <color name="viewPagerBackgroundBlack">#161616</color>
+    <color name="unselectedTabLayoutTitleGrey">#B7B3B3</color>
 
+    <color name="card_color_light_blue">#4965D5</color>
+    <color name="card_color_red">#FF5C70</color>
+    <color name="card_color_green">#25925E</color>
+    <color name="card_color_purpler">#838DE7</color>
+    <color name="card_color_gray">#4D4D4D</color>
+    <color name="card_color_blue">#312F8B</color>
+    <color name="gray_text">#B7B3B3</color>
 
 </resources>
