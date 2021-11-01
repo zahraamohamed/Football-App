@@ -20,15 +20,17 @@
             android:id="@+id/scorerRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin1x"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:spanCount="2"
+            app:items="@{viewModel.scorer.toData().scorers}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/line"
-            app:items= "@{viewModel.scorer.toData().scorers}">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/item_scorer"
+            />
 
         <TextView
             android:id="@+id/textView"
@@ -36,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="@dimen/margin2x"
-            android:text="#"
+            android:text="@string/hash"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin1x"
-            android:text="Player"
+            android:text="Tope Scorers"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -69,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/margin1x"
-            android:background="@color/black"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
