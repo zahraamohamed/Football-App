@@ -1,6 +1,6 @@
 package com.example.footballapp.ui.home
 
-enum class HomeItemType {
+enum class HomeItemsType {
     TYPE_LIVE_MATCH,
     TYPE_COMPETITION;
 }

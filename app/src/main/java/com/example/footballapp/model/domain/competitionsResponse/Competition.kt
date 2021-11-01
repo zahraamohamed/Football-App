@@ -11,7 +11,7 @@ data class Competition(
     @SerializedName("currentSeason")
     val currentSeason: CurrentSeason? = null,
     @SerializedName("emblemUrl")
-    val emblemUrl: Any? = null,
+    val emblemUrl: String? = null,
     @SerializedName("id")
     val id: Int? = null,
     @SerializedName("lastUpdated")
