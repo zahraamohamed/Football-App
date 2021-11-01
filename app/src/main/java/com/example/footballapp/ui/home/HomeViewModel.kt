@@ -20,12 +20,12 @@ class HomeViewModel: ViewModel() , HomeInteractionListener {
     var itemsList: MutableLiveData<List<HomeItems<Any?>>> = MutableLiveData()
 
     init{
-        getListAdapte()
+        getListAdapter()
     }
 
-    private fun getListAdapte() {
+    private fun getListAdapter() {
         viewModelScope.launch {
-            FootballRepository.getAllMatch().collect{ liveMatches.value = it.toData() }
+            FootballRepository.getDailyMatch().collect{ liveMatches.value = it.toData() }
             FootballRepository.getAllCompetitions().collect{ competitions.value = it.toData() }
 
             itemsList.value = listOf(HomeItems(competitions.value?.competitions , HomeItemsType.TYPE_COMPETITION) ,
