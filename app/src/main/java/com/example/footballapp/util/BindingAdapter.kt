@@ -1,8 +1,9 @@
 package com.example.footballapp.util
 
-import android.view.*
-import android.webkit.*
-import android.widget.*
+import android.view.View
+import android.webkit.WebView
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -14,25 +15,24 @@ import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.home.HomeItems
 import com.example.footballapp.ui.home.HomeNestedAdapter
-import java.time.*
-import java.time.format.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
-
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, status: State<T>?) {
-    view.isVisible =  (status is State.Loading)
+    view.isVisible = (status is State.Loading)
 }
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view: View, status: State<T>?) {
-    view.isVisible =  (status is State.Error)
+    view.isVisible = (status is State.Error)
 }
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> showWhenSuccess(view: View, status: State<T>?) {
-    view.isVisible =  (status is State.Success)
+    view.isVisible = (status is State.Success)
 }
 
 @BindingAdapter(value = ["app:imgUrl"])
@@ -46,7 +46,8 @@ fun setImageUrl(view: ImageView, url: String?) {
 
 @BindingAdapter(value = ["app:webUrl"])
 fun setWebViewUrl(view: WebView, url: String?) {
-    val data = "<img src='$url' style='width:100%; height=120%; margin-left: auto; margin-right: auto; margin-top: 5;' />"
+    val data =
+        "<img src='$url' style='width:100%; height=120%; margin-left: auto; margin-right: auto; margin-top: 5;' />"
     url?.let { view.loadData(data, "text/html", "utf-8") }
 }
 
@@ -77,21 +78,18 @@ fun setBackgroundColor(view: ConstraintLayout, state: String?) {
 @BindingAdapter(value = ["app:ifStateLive"])
 fun displayIfLive(view: View, state: String?) {
     view.isVisible = (state == StateMatches.valueOf("LIVE").name ||
-            state == StateMatches.valueOf("IN_PLAY").name )
+            state == StateMatches.valueOf("IN_PLAY").name)
 }
 
 @BindingAdapter(value = ["firstTeamGoals", "secondTeamGoals"])
 fun viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
     when {
-        firstTeamGoals!! > secondTeamGoals!! -> {
+        firstTeamGoals!! > secondTeamGoals!! ->
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
-        }
-        firstTeamGoals < secondTeamGoals -> {
+        firstTeamGoals < secondTeamGoals ->
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
-        }
-        else -> {
+        else ->
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow))
-        }
     }
 }
 
