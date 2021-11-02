@@ -64,10 +64,6 @@ fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
     }
 }
 
-@BindingAdapter(value = ["app:itemsForNested"])
-fun setRecyclerNestedItems(view: RecyclerView, items: List<HomeItems<Any>>?) {
-    items?.let { (view.adapter as HomeNestedAdapter?)?.setItemsNested(it) }
-}
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
