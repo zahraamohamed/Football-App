@@ -46,7 +46,7 @@ fun setImageUrl(view: ImageView, url: String?) {
 @BindingAdapter(value = ["app:webUrl"])
 fun setWebViewUrl(view: WebView, url: String?) {
     val data =
-        "<img src='$url' style='width:100%; height=120%; margin-left: auto; margin-right: auto; margin-top: 5;' />"
+        "<img src='$url' style='width:100%; height=130%; margin-left: auto; margin-right: auto; margin-top:4px;' />"
     url?.let { view.loadData(data, "text/html", "utf-8") }
 }
 

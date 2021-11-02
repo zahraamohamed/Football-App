@@ -1,10 +1,8 @@
 package com.example.footballapp.ui.home
 
-import android.util.Log
 import androidx.lifecycle.*
-import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
-import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
+import com.example.footballapp.model.domain.matchesResponse.Matche
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.repository.FootballRepository
 import kotlinx.coroutines.flow.*
@@ -29,8 +27,8 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
             FootballRepository.getDailyMatch().collect{ liveMatches.value = it.toData() }
             FootballRepository.getAllCompetitions().collect{ competitions.value = it }
 
-            itemsList.value = listOf(HomeItems(competitions.value , HomeItemsType.TYPE_COMPETITION) ,
-                HomeItems(liveMatches.value?.matches, HomeItemsType.TYPE_LIVE_MATCH) )
+            itemsList.value = listOf(HomeItems(competitions.value , HomeItemsType.TYPE_COMPETITION.index) ,
+                HomeItems(liveMatches.value?.matches, HomeItemsType.TYPE_LIVE_MATCH.index)  )
         }
     }
 
