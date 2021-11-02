@@ -1,8 +1,7 @@
 package com.example.footballapp.ui.home
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.repository.FootballRepository
@@ -12,11 +11,14 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel(), HomeInteractionListener {
 
-    var liveMatches = MutableLiveData<MatchesResponse?>()
-    var competitions = MutableLiveData<List<Competition>>()
+    private var liveMatches = MutableLiveData<State<MatchesResponse?>>()
+    private var competitions = MutableLiveData<List<Competition>>()
 
     val clickItemMatch = MutableLiveData<Int?>()
-    var itemsList: MutableLiveData<List<HomeItems<Any>>> = MutableLiveData()
+
+    var _itemsList: MutableLiveData<List<HomeItems<Any>>> = MutableLiveData()
+    val itemsList: LiveData<List<HomeItems<Any>>> = _itemsList
+
 
     init {
         setListsAdapter()
@@ -24,13 +26,12 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
 
     private fun setListsAdapter() {
         viewModelScope.launch {
-            FootballRepository.getDailyMatch().collect { liveMatches.value = it.toData() }
+            FootballRepository.getDailyMatch().collect { liveMatches.value = it }
             FootballRepository.filterDataCompetitions().collect { competitions.value = it }
 
-            itemsList.value =
-                listOf(
-                    HomeItems(competitions.value, HomeItemsType.TYPE_COMPETITION.index),
-                    HomeItems(liveMatches.value?.matches, HomeItemsType.TYPE_LIVE_MATCH.index),)
+            _itemsList.value =
+                listOf(HomeItems(competitions.value, HomeItemsType.TYPE_COMPETITION.index),
+                       HomeItems(liveMatches.value?.toData()?.matches, HomeItemsType.TYPE_LIVE_MATCH.index))
 
         }
     }

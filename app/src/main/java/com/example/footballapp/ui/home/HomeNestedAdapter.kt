@@ -1,12 +1,9 @@
 package com.example.footballapp.ui.home
 
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import com.example.footballapp.BR
 import com.example.footballapp.model.domain.competitionsResponse.Competition
-import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche
 import com.example.footballapp.ui.base.BaseAdapter
-import com.example.footballapp.ui.league.matches.MatchesAdapter
 
 
 class HomeNestedAdapter(
@@ -36,7 +33,8 @@ class HomeNestedAdapter(
                 (items[position].item)?.let {  holder.binding.setVariable(BR.adapter,
                    CompetitionAdapter(it as List<Competition>, listener)) }
             HomeItemsType.TYPE_LIVE_MATCH.index -> items[position].item?.let {
-                holder.binding.setVariable(BR.adapter , MatchesAdapter(it as List<Matche>, listener)) }
+                holder.binding.setVariable(BR.adapter , LiveMatchAdapter(it
+                        as List<com.example.footballapp.model.domain.matchesResponse.Matche>, listener)) }
             else -> { }
         }
 
