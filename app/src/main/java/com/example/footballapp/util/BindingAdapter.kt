@@ -5,7 +5,6 @@ import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -72,7 +71,7 @@ fun setRecyclerNestedItems(view: RecyclerView, items: List<HomeItems<Any>>?) {
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
-    state?.let { view.setBackgroundColor(StateMatches.valueOf(state).cardColor) }
+    state?.let { view.setBackgroundResource(StateMatches.valueOf(state).cardColor) }
 }
 
 @BindingAdapter(value = ["app:ifStateLive"])
@@ -95,3 +94,4 @@ fun setFormattedDate(view: TextView, dateStr: String?) {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
     view.text = LocalDate.parse(dateStr, formatter).toString()
 }
+

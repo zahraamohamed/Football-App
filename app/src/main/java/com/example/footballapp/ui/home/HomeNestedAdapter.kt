@@ -1,6 +1,7 @@
 package com.example.footballapp.ui.home
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.ViewGroup
 import com.example.footballapp.BR
 import com.example.footballapp.R
@@ -16,10 +17,10 @@ class HomeNestedAdapter(
 
     override var layoutId: Int = 0
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setItemsNested(newHome: List<HomeItems<Any>>) {
         items = newHome
-        this.notifyDataSetChanged()
+        Log.i("hhhhhhhhhhhhhhSetData" , items.toString())
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -40,12 +41,13 @@ class HomeNestedAdapter(
     }
 
     private fun bind(holder: ItemViewHolder, position: Int) {
-        when (items[position].type) {
-            HomeItemsType.TYPE_COMPETITION -> {
+        Log.i("hhhhhhhhhhhhhhBind" , items.toString())
+        when (getItemViewType(position)) {
+            VIEW_TYPE_COMPETITION -> {
                 holder.binding.setVariable(BR.adapter,
                     CompetitionAdapter(items[position].item as List<Competition>, listener))
             }
-            HomeItemsType.TYPE_LIVE_MATCH -> {
+            VIEW_TYPE_LIVE_MATCH -> {
                 holder.binding.setVariable(
                     BR.adapter,
                     LiveMatchAdapter(items[position].item as List<Matche>, listener))

@@ -1,7 +1,7 @@
 package com.example.footballapp.repository
 
 import com.example.footballapp.model.State
-import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
+import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
@@ -10,14 +10,19 @@ import com.example.footballapp.model.domain.specificMatchDetailsResponse.Specifi
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
 object FootballRepository {
 
-    fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
-        wrapWithFlow { API.apiService.getAllCompetitions() }
+    fun getAllCompetitions(): Flow<List<Competition>?> =
+        filtersDataCompetitions( wrapWithFlow { API.apiService.getAllCompetitions() }.flatMapConcat {
+            flow { emit(it.toData()?.competitions) } } )
+
+    private fun filtersDataCompetitions(competitions: Flow<List<Competition>?>): Flow<List<Competition>?>
+        = competitions.map {
+            it?.filter { competition -> competition.emblemUrl != null }
+        }
 
     fun getDailyMatch(): Flow<State<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }

@@ -1,8 +1,10 @@
 package com.example.footballapp.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.example.footballapp.BR
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.matchesResponse.AwayTeam
@@ -25,8 +27,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val itemsList: List<HomeItems<Any>> =
             listOf(HomeItems(listOf(Competition()), HomeItemsType.TYPE_COMPETITION),
                 HomeItems(listOf(Matche()), HomeItemsType.TYPE_LIVE_MATCH))
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(itemsList, this.viewModel)
+
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(items = itemsList, this.viewModel)
+
     }
+
+
 
 //    private fun observeValue() {
 //        viewModel.clickItemMatch.observe(this, {

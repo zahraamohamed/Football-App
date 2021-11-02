@@ -1,6 +1,5 @@
 package com.example.footballapp.ui.base
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -35,11 +34,9 @@ abstract class BaseAdapter<T>(
 
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        when (holder) {
-            is ItemViewHolder -> {
+        if (holder is ItemViewHolder ) {
                 holder.binding.setVariable(BR.item, items[position])
                 holder.binding.setVariable(BR.listener, listener)
-            }
         }
     }
 
