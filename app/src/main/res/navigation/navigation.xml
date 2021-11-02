@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/webSearchFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.footballapp.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/leagueDetailsFragment"
@@ -63,5 +67,9 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.example.footballapp.ui.viewPager.ViewPager"
         android:label="ViewPager"
-        tools:layout="@layout/fragment_view_pager"/>
+        tools:layout="@layout/fragment_view_pager">
+        <argument
+            android:name="league_id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

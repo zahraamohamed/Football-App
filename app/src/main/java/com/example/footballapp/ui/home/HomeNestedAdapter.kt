@@ -11,6 +11,7 @@ import com.example.footballapp.ui.base.BaseAdapter
 
 class HomeNestedAdapter(
     private var items: List<HomeItems<Any>>,
+    private var viewModel: HomeViewModel,
     private val listener: HomeInteractionListener
 ) : BaseAdapter<Any>(items, listener) {
 
@@ -42,8 +43,9 @@ class HomeNestedAdapter(
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (items[position].type) {
             HomeItemsType.TYPE_COMPETITION -> {
+                val currentItem = items[position].item as List<Competition>
                 holder.binding.setVariable(BR.adapter,
-                    CompetitionAdapter(items[position].item as List<Competition>, listener))
+                    CompetitionAdapter(currentItem, viewModel, listener))
             }
             HomeItemsType.TYPE_LIVE_MATCH -> {
                 holder.binding.setVariable(

@@ -7,12 +7,13 @@ import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.league.LeagueViewModel
 
-class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
+class ScorersFragment(private val leagueId: Int) : BaseFragment<FragmentScorersBinding>() {
     override val viewModel: LeagueViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentScorersBinding
         get() = FragmentScorersBinding::inflate
 
     override fun setup() {
+        viewModel.leagueId.value = leagueId
         binding.scorerRecycler.adapter = ScorerAdapter(mutableListOf(), viewModel)
 //        val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(7879)
 //        findNavController().navigate(action)

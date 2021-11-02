@@ -11,12 +11,12 @@ import com.example.footballapp.databinding.FragmentStandingBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.league.LeagueViewModel
 
-class StandingFragment:BaseFragment<FragmentStandingBinding>(){
+class StandingFragment(private val leagueId: Int) : BaseFragment<FragmentStandingBinding>(){
     override val viewModel: LeagueViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentStandingBinding
         get() = FragmentStandingBinding::inflate
 
     override fun setup() {
+        viewModel.leagueId.value = leagueId
     }
-
 }

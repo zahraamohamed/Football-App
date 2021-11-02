@@ -33,7 +33,7 @@ interface FootballApiService {
 
     @GET("competitions/{id}/matches")
     suspend fun getSpecificCompetitionMatches(
-        @Path("id") competitionId: Int
+        @Path("id") competitionId: Int?
     ): Response<SpecificCompetitionMatchesResponse>
 
     @GET("matches/{id}")
@@ -54,7 +54,7 @@ interface FootballApiService {
 
     @GET("competitions/{competitionId}/scorers")
     suspend fun getCompetitionScorers(
-        @Path("competitionId") competitionId: Int
+        @Path("competitionId") competitionId: Int?
     ): Response<ScorerRankResponse>
 
 }

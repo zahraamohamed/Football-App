@@ -1,8 +1,11 @@
 package com.example.footballapp.ui.viewPager
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import com.example.footballapp.databinding.FragmentViewPagerBinding
 import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.home.HomeFragment
@@ -15,11 +18,11 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 
 class ViewPager : BaseFragment<FragmentViewPagerBinding>() {
+    val args: ViewPagerArgs by navArgs()
     override val viewModel: LeagueViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentViewPagerBinding
         get() = FragmentViewPagerBinding::inflate
 
-    private val fragments = listOf(MatchesFragment(), ScorersFragment(), StandingFragment())
     private val tabLayoutTitles = listOf("Matches", "Scorers", "Standings")
 
 
@@ -35,10 +38,15 @@ class ViewPager : BaseFragment<FragmentViewPagerBinding>() {
 
     }
 
-    val fragment = HomeFragment()
     private fun initViewPager() {
+        val fragments = listOf(
+            MatchesFragment(args.leagueId),
+            ScorersFragment(args.leagueId),
+            StandingFragment(args.leagueId)
+        )
         val viewPagerAdapter = ViewPagerAdapter(this, fragments)
         binding.viewPager.adapter = viewPagerAdapter
+        viewModel.onLeagueClicked(args.leagueId)
     }
 
 }

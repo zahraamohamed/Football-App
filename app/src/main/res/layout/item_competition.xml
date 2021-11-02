@@ -5,6 +5,10 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.home.HomeViewModel" />
+
+        <variable
             name="item"
             type="com.example.footballapp.model.domain.competitionsResponse.Competition"/>
 
@@ -19,6 +23,8 @@
         android:layout_marginVertical="10dp"
         android:layout_marginStart="@dimen/margin3x"
         android:layout_marginEnd="@dimen/margin1x"
+        android:clickable="true"
+        android:onClick="@{() -> viewModel.onLeagueClicked(item.id)}"
         android:background="@drawable/item_competition"
         >
 

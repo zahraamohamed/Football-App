@@ -29,13 +29,13 @@ object FootballRepository {
     fun getScorerRank(scorerId: Int): Flow<State<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getScorerRank(scorerId) }
 
-    fun getCompetitionScorers(competitionId: Int): Flow<State<ScorerRankResponse?>> =
+    fun getCompetitionScorers(competitionId: Int?): Flow<State<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getCompetitionScorers(competitionId) }
 
     fun getSpecificMatchDetails(matchId: Int): Flow<State<SpecificMatchDetailsResponse?>> =
         wrapWithFlow { API.apiService.getSpecificMatchDetails(matchId) }
 
-    fun getSpecificCompetitionMatches(competitionId: Int): Flow<State<SpecificCompetitionMatchesResponse?>> =
+    fun getSpecificCompetitionMatches(competitionId: Int?): Flow<State<SpecificCompetitionMatchesResponse?>> =
         wrapWithFlow { API.apiService.getSpecificCompetitionMatches(competitionId) }
 
     fun getSpecificTeamDetails(teamId: Int): Flow<State<TeamDetailsResponse?>> =
