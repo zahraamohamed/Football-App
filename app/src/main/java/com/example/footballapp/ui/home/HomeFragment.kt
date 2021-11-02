@@ -14,22 +14,39 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setup() {
         initNestedAdapter()
-      //  observeValue()
+        observeValue()
     }
 
-    private fun initNestedAdapter(){
-        viewModel.itemsList.observe(this , {
-            binding.recyclerViewHome.adapter = HomeNestedAdapter(it , this.viewModel)
-        })
+    private fun initNestedAdapter() {
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(), viewModel)
+        observeListsForAdapter()
+    }
+
+    private fun observeListsForAdapter() {
+        (binding.recyclerViewHome.adapter as HomeNestedAdapter?)?.let { adapter ->
+
+            viewModel.competitions.observe(this@HomeFragment) { items ->
+                items?.let { adapter.setItem(HomeItems.CompetitionType(it)) }
+            }
+
+            viewModel.liveMatches.observe(this@HomeFragment) { items ->
+                items?.toData()?.matches?.let { adapter.setItem(HomeItems.LiveMatchType(it)) }
+            }
+
+            viewModel.topPlayer.observe(this@HomeFragment) { items ->
+                items?.toData()?.scorers?.let { adapter.setItem(HomeItems.TopPlayerType(it)) }
+            }
+
+        }
     }
 
 
-//    private fun observeValue() {
+    private fun observeValue() {
 //        viewModel.clickItemMatch.observe(this, {
 //            Navigation.findNavController(this).navigate(
 //                MatchDetailsFragmentDirections.actionHomeFragmentToMatchDetailsFragment(it)
 //            )
 //        })
-//    }
+    }
 
 }

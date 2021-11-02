@@ -14,18 +14,18 @@
     <color name="card_color">#444444</color>
     <color name="green">#26DB85</color>
     <color name="red">#FF5757</color>
-    <color name="yellow">#FFFF00</color>
-    <color name="grayDark">#434343</color>
+    <color name="yellow">#CFD23A</color>
+    <color name="grayDark">#4C4C4C</color>
     <color name="logoBackground">#212121</color>
     <color name="viewPagerBackgroundBlack">#161616</color>
     <color name="unselectedTabLayoutTitleGrey">#B7B3B3</color>
 
-    <color name="card_color_light_blue">#3F5CD1</color>
-    <color name="card_color_red">#FF5C70</color>
-    <color name="card_color_green">#25925E</color>
-    <color name="card_color_purpler">#838DE7</color>
-    <color name="card_color_gray">#505050</color>
-    <color name="card_color_blue">#313073</color>
+    <color name="card_color_light_blue">#4D4886</color>
+    <color name="card_color_black">#434343</color>
+    <color name="card_color_green">#468064</color>
+    <color name="card_color_purpler">#646AA3</color>
+    <color name="card_color_gray">#4C5A6F</color>
+    <color name="card_color_light_green">#668180</color>
     <color name="gray_text">#B7B3B3</color>
 
 </resources>

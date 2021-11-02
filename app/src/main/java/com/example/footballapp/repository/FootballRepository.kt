@@ -11,16 +11,21 @@ import com.example.footballapp.model.domain.specificMatchDetailsResponse.Specifi
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 object FootballRepository {
 
-     fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
+    fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
         wrapWithFlow { API.apiService.getAllCompetitions() }
 
-    fun filterDataCompetitions(): Flow<List<Competition>?>
-    = getAllCompetitions().flatMapConcat { flow { emit(it.toData()?.competitions?.filter { it.emblemUrl != null }) } }
+    @FlowPreview
+    fun filterDataCompetitions(): Flow<List<Competition>?> =
+        getAllCompetitions().flatMapConcat { flow {
+            emit(it.toData()?.competitions?.filter { it.emblemUrl != null }) } }
 
     fun getDailyMatch(): Flow<State<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }

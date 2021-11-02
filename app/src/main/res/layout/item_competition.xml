@@ -10,7 +10,7 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.HomeInteractionListener" />
+            type="com.example.footballapp.ui.base.BaseInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,6 +48,8 @@
             android:textColor="@color/white"
             android:singleLine="true"
             android:gravity="center"
+            android:layout_marginHorizontal="@dimen/margin1x"
+            android:foregroundGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

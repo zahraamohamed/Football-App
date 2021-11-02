@@ -6,6 +6,7 @@ import com.example.footballapp.ui.base.BaseAdapter
 
 class CompetitionAdapter(
     items: List<Competition>,
-    listener: HomeInteractionListener) : BaseAdapter<Competition>(items, listener) {
+    listener: HomeInteractionListener
+) : BaseAdapter<Competition>(items, listener) {
     override val layoutId: Int = R.layout.item_competition
 }

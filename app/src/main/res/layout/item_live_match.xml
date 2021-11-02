@@ -10,7 +10,7 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.home.HomeInteractionListener" />
+            type="com.example.footballapp.ui.base.BaseInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +33,7 @@
             android:background="@drawable/shape_bg_text_live_match"
             android:text="@{item.status}"
             tools:text="LIVE"
-            android:textColor="@color/card_color_gray"
+            android:textColor="@color/grayDark"
             android:textStyle="bold"
             android:paddingHorizontal="12dp"
             android:paddingVertical="2dp"

@@ -38,4 +38,5 @@ abstract class BaseFragment<VDB : ViewDataBinding>() : Fragment() {
     abstract fun setup()
 
 
+
 }

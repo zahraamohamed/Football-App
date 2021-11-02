@@ -1,13 +1,12 @@
 package com.example.footballapp.ui.league.scorers
 
-import androidx.navigation.Navigation
 import com.example.footballapp.R
-import com.example.footballapp.databinding.ItemScorerBinding
 import com.example.footballapp.model.domain.scorerRankResponse.Scorer
 import com.example.footballapp.ui.base.BaseAdapter
 
 class ScorerAdapter(
-    val items: List<Scorer>, listener: ScorerInteractionListener, ) : BaseAdapter<Scorer>(items, listener) {
+    val items: List<Scorer>, listener: ScorerInteractionListener
+) : BaseAdapter<Scorer>(items, listener) {
     override val layoutId: Int = R.layout.item_scorer
 //    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
 //        super.onBindViewHolder(holder, position)

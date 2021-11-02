@@ -2,7 +2,9 @@
 <resources>
     <!--    margin  -->
     <dimen name="margin1x">8dp</dimen>
+    <dimen name="margin1.5x">14dp</dimen>
     <dimen name="margin2x">16dp</dimen>
+    <dimen name="margin2.5x">18dp</dimen>
     <dimen name="margin3x">24dp</dimen>
     <dimen name="margin4x">32dp</dimen>
     <dimen name="margin5x">40dp</dimen>
