@@ -20,12 +20,12 @@
     <color name="viewPagerBackgroundBlack">#161616</color>
     <color name="unselectedTabLayoutTitleGrey">#B7B3B3</color>
 
-    <color name="card_color_light_blue">#4965D5</color>
+    <color name="card_color_light_blue">#3F5CD1</color>
     <color name="card_color_red">#FF5C70</color>
     <color name="card_color_green">#25925E</color>
     <color name="card_color_purpler">#838DE7</color>
-    <color name="card_color_gray">#434343</color>
-    <color name="card_color_blue">#312F8B</color>
+    <color name="card_color_gray">#505050</color>
+    <color name="card_color_blue">#313073</color>
     <color name="gray_text">#B7B3B3</color>
 
 </resources>

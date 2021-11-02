@@ -2,6 +2,7 @@ package com.example.footballapp.repository
 
 import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
+import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
@@ -15,14 +16,11 @@ import retrofit2.Response
 
 object FootballRepository {
 
-    fun getAllCompetitions(): Flow<List<Competition>?> =
-        filtersDataCompetitions( wrapWithFlow { API.apiService.getAllCompetitions() }.flatMapConcat {
-            flow { emit(it.toData()?.competitions) } } )
+     fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
+        wrapWithFlow { API.apiService.getAllCompetitions() }
 
-    private fun filtersDataCompetitions(competitions: Flow<List<Competition>?>): Flow<List<Competition>?>
-        = competitions.map {
-            it?.filter { competition -> competition.emblemUrl != null }
-        }
+    fun filterDataCompetitions(): Flow<List<Competition>?>
+    = getAllCompetitions().flatMapConcat { flow { emit(it.toData()?.competitions?.filter { it.emblemUrl != null }) } }
 
     fun getDailyMatch(): Flow<State<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }

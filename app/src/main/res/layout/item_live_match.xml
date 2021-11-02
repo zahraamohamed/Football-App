@@ -32,6 +32,8 @@
             android:layout_margin="16dp"
             android:background="@drawable/shape_bg_text_live_match"
             android:text="@{item.status}"
+            tools:text="LIVE"
+            android:textColor="@color/card_color_gray"
             android:textStyle="bold"
             android:paddingHorizontal="12dp"
             android:paddingVertical="2dp"
