@@ -21,10 +21,10 @@
     <color name="unselectedTabLayoutTitleGrey">#B7B3B3</color>
 
     <color name="card_color_light_blue">#4D4886</color>
-    <color name="card_color_black">#434343</color>
+    <color name="card_color_black">#485464</color>
     <color name="card_color_green">#468064</color>
     <color name="card_color_purpler">#646AA3</color>
-    <color name="card_color_gray">#4C5A6F</color>
+    <color name="card_color_gray">#4C4C4C</color>
     <color name="card_color_light_green">#668180</color>
     <color name="gray_text">#B7B3B3</color>
 

@@ -26,6 +26,7 @@
     <!--    text-->
     <dimen name="txt1x">8sp</dimen>
     <dimen name="txt2x">16sp</dimen>
+    <dimen name="txt2.5x">18sp</dimen>
     <dimen name="txt3x">24sp</dimen>
     <dimen name="txt4x">32sp</dimen>
     <dimen name="txt5x">40sp</dimen>
