@@ -51,8 +51,8 @@ fun setWebViewUrl(view: WebView, url: String?) {
 }
 
 @BindingAdapter(value = ["app:isExistData"])
-fun ifDataEmpty(view: WebView, url: String?) {
-    view.isVisible = (url != null)
+fun ifDataEmpty(view: TextView, data: Any?) {
+    data?.let { view.text = it.toString() }
 }
 
 @BindingAdapter(value = ["app:items"])
@@ -90,4 +90,6 @@ fun setFormattedDate(view: TextView, dateStr: String?) {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
     view.text = LocalDate.parse(dateStr, formatter).toString()
 }
+
+
 
