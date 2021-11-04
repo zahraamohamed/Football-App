@@ -26,6 +26,7 @@
             android:layout_marginStart="@dimen/margin1x"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginEnd="@dimen/margin1x"
+            android:onClick="@{() -> listener.onClickMatch(item.id)}"
             app:cardBackgroundColor="@color/grayDark"
             app:cardCornerRadius="25dp"
             app:layout_constraintEnd_toEndOf="parent"

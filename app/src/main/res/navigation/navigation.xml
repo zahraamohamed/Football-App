@@ -23,7 +23,11 @@
         android:id="@+id/matchDetailsFragment"
         android:name="com.example.footballapp.ui.match.MatchDetailsFragment"
         android:label="MatchDetailsFragment"
-        tools:layout="@layout/fragment_match_details"/>
+        tools:layout="@layout/fragment_match_details">
+        <argument
+            android:name="match_id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/matchesFragment"
         android:name="com.example.footballapp.ui.league.matches.MatchesFragment"
@@ -76,5 +80,8 @@
         <action
             android:id="@+id/action_viewPagerFragment_to_matchesFragment"
             app:destination="@id/matchesFragment" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
     </fragment>
 </navigation>

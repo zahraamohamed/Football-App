@@ -32,7 +32,7 @@ object FootballRepository {
     fun getCompetitionScorers(competitionId: Int?): Flow<State<ScorerRankResponse?>> =
         wrapWithFlow { API.apiService.getCompetitionScorers(competitionId) }
 
-    fun getSpecificMatchDetails(matchId: Int): Flow<State<SpecificMatchDetailsResponse?>> =
+    fun getSpecificMatchDetails(matchId: Int?): Flow<State<SpecificMatchDetailsResponse?>> =
         wrapWithFlow { API.apiService.getSpecificMatchDetails(matchId) }
 
     fun getSpecificCompetitionMatches(competitionId: Int?): Flow<State<SpecificCompetitionMatchesResponse?>> =

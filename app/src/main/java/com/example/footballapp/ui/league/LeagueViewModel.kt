@@ -16,13 +16,11 @@ import com.example.footballapp.ui.league.scorers.ScorerInteractionListener
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 
-class LeagueViewModel : ViewModel(), MatchInteractionListener{
+class LeagueViewModel : ViewModel(){
     val matches = MutableLiveData<State<SpecificCompetitionMatchesResponse?>>()
     val scorer = MutableLiveData<State<ScorerRankResponse?>>()
 
-    override fun onClickMatch(match: Matche) {
 
-    }
 
    fun onLeagueClicked(leagueId: Int) {
        viewModelScope.launch {

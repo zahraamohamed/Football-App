@@ -5,4 +5,5 @@
     <string name="tabtitle">tabTitle</string>
     <string name="competition_image">competition image</string>
     <string name="hash">#</string>
+    <string name="shirt_number">Shirt Number</string>
 </resources>
