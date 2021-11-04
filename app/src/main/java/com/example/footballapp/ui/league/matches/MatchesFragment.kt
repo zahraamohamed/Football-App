@@ -7,8 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentMatchesBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.league.LeagueViewModel
-import com.example.footballapp.ui.viewPager.ViewPagerFragmentDirections
+import com.example.footballapp.ui.league.LeagueFragmentDirections
 
 
 class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
@@ -25,7 +24,7 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
 
         viewModel.navigateToMatchDetails.observe(this, {
             it.getContentIfNotHandled()?.let { matchId ->
-                val action = ViewPagerFragmentDirections.actionViewPagerFragmentToMatchDetailsFragment(matchId)
+                val action = LeagueFragmentDirections.actionLeagueFragmentToMatchDetailsFragment(matchId)
                 findNavController().navigate(action)
             }
         })

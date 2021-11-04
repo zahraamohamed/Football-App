@@ -1,14 +1,15 @@
 package com.example.footballapp.ui.league.scorers
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentScorersBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.viewPager.ViewPagerFragmentDirections
+import com.example.footballapp.ui.league.LeagueFragmentDirections
+
 
 class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
     override val viewModel: ScorersViewModel by viewModels()
@@ -16,15 +17,15 @@ class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
         get() = FragmentScorersBinding::inflate
 
     override fun setup() {
-//        viewModel.leagueId.value = leagueId
         binding.scorerRecycler.adapter = ScorerAdapter(mutableListOf(), viewModel)
-//        val action = ScorersFragmentDirections.actionScorersFragmentToPlayerDetailsFragment(7879)
-//        findNavController().navigate(action)
+        arguments?.getInt("LEAGUE_ID")?.let { leagueId ->
+            viewModel.onScorerLoad(leagueId)
+        }
 
         viewModel.navigateToPlayerDetails.observe(this, Observer {
             it.getContentIfNotHandled()?.let { id ->
                 val action =
-                    ViewPagerFragmentDirections.actionViewPagerFragmentToPlayerDetailsFragment(id)
+                    LeagueFragmentDirections.actionLeagueFragmentToPlayerDetailsFragment(id)
                 findNavController().navigate(action)
             }
         })

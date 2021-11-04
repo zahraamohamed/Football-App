@@ -21,7 +21,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         viewModel.navigateToDetails.observe(this, {
             it?.getContentIfNotHandled()?.let { leagueId ->
-                val action = HomeFragmentDirections.actionHomeFragmentToViewPagerFragment(leagueId)
+                val action = HomeFragmentDirections.actionHomeFragmentToLeagueFragment(leagueId)
                 this.findNavController().navigate(action)
             }
         })

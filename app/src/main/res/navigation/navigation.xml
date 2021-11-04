@@ -9,16 +9,13 @@
         android:name="com.example.footballapp.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
+
         <action
-            android:id="@+id/action_homeFragment_to_viewPagerFragment"
-            app:destination="@id/viewPagerFragment" />
+            android:id="@+id/action_homeFragment_to_LeagueFragment"
+            app:destination="@id/LeagueFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/leagueDetailsFragment"
-        android:name="com.example.footballapp.ui.league.LeagueDetailsFragment"
-        android:label="LeagueDetailsFragment"
-        tools:layout="@layout/fragment_league_details"/>
+
     <fragment
         android:id="@+id/matchDetailsFragment"
         android:name="com.example.footballapp.ui.match.MatchDetailsFragment"
@@ -64,24 +61,24 @@
         android:label="WebSearchFragment"
         tools:layout="@layout/fragment_web_search"/>
     <fragment
-        android:id="@+id/viewPagerFragment"
-        android:name="com.example.footballapp.ui.viewPager.ViewPagerFragment"
-        android:label="ViewPagerFragment"
-        tools:layout="@layout/fragment_view_pager">
+        android:id="@+id/LeagueFragment"
+        android:name="com.example.footballapp.ui.league.LeagueFragment"
+        android:label="leagueFragment"
+        tools:layout="@layout/fragment_league">
         <argument
             android:name="league_id"
             app:argType="integer" />
         <action
-            android:id="@+id/action_viewPagerFragment_to_playerDetailsFragment"
+            android:id="@+id/action_leagueFragment_to_playerDetailsFragment"
             app:destination="@id/playerDetailsFragment" />
         <action
-            android:id="@+id/action_viewPagerFragment_to_standingFragment"
+            android:id="@+id/action_leagueFragment_to_standingFragment"
             app:destination="@id/standingFragment" />
         <action
-            android:id="@+id/action_viewPagerFragment_to_matchesFragment"
+            android:id="@+id/action_leagueFragment_to_matchesFragment"
             app:destination="@id/matchesFragment" />
         <action
-            android:id="@+id/action_viewPagerFragment_to_matchDetailsFragment"
+            android:id="@+id/action_leagueFragment_to_matchDetailsFragment"
             app:destination="@id/matchDetailsFragment" />
     </fragment>
 </navigation>

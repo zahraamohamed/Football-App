@@ -16,12 +16,13 @@ class ScorersViewModel : ViewModel(), ScorerInteractionListener {
     private val _navigateToPlayerDetails = MutableLiveData<Event<Int>>()
     val navigateToPlayerDetails: LiveData<Event<Int>> get() = _navigateToPlayerDetails
 
-    override fun onClickScorer(id: Int) {
+    override fun onScorerLoad(id: Int?) {
         viewModelScope.launch {
             FootballRepository.getCompetitionScorers(2003).collect {
                 scorer.postValue(it)
             }
         }
-        _navigateToPlayerDetails.postValue(Event(id))
     }
+
+    override fun onClickScorer(id: Int) = _navigateToPlayerDetails.postValue(Event(id))
 }

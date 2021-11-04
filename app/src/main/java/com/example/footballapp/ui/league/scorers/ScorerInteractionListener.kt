@@ -5,4 +5,5 @@ import com.example.footballapp.ui.base.BaseInteractionListener
 
 interface ScorerInteractionListener : BaseInteractionListener {
     fun onClickScorer(id:Int)
+    fun onScorerLoad(id: Int?)
 }

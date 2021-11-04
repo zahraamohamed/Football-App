@@ -1,25 +1,23 @@
-package com.example.footballapp.ui.viewPager
+package com.example.footballapp.ui.league
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.footballapp.databinding.FragmentViewPagerBinding
+import com.example.footballapp.databinding.FragmentLeagueBinding
 import com.example.footballapp.ui.base.BaseFragment
-import com.example.footballapp.ui.league.LeagueViewModel
 import com.example.footballapp.ui.league.matches.MatchesFragment
 import com.example.footballapp.ui.league.scorers.ScorersFragment
 import com.example.footballapp.ui.league.standing.StandingFragment
-import com.example.footballapp.ui.viewPager.viewPagerAdapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class ViewPagerFragment : BaseFragment<FragmentViewPagerBinding>() {
-    private val args: ViewPagerFragmentArgs by navArgs()
+class LeagueFragment : BaseFragment<FragmentLeagueBinding>() {
+    private val args: LeagueFragmentArgs by navArgs()
     override val viewModel: LeagueViewModel by viewModels()
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentViewPagerBinding
-        get() = FragmentViewPagerBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentLeagueBinding
+        get() = FragmentLeagueBinding::inflate
 
     private val tabLayoutTitles = listOf("Matches", "Scorers", "Standings")
 
@@ -40,14 +38,16 @@ class ViewPagerFragment : BaseFragment<FragmentViewPagerBinding>() {
         val bundle = Bundle()
         bundle.putInt("LEAGUE_ID", args.leagueId)
         val matchesFragment = MatchesFragment()
+        val scorersFragment = ScorersFragment()
         matchesFragment.arguments = bundle
+        scorersFragment.arguments = bundle
 
         val fragments = listOf(
             matchesFragment,
-            ScorersFragment(),
+            scorersFragment,
             StandingFragment()
         )
-        val viewPagerAdapter = ViewPagerAdapter(this, fragments)
+        val viewPagerAdapter = LeagueAdapter(this, fragments)
         binding.viewPager.adapter = viewPagerAdapter
         viewModel.onLeagueClicked(args.leagueId)
     }
