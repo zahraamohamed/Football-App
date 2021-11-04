@@ -1,6 +1,7 @@
 package com.example.footballapp.util
 
 
+import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import android.widget.ImageView
@@ -12,9 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
+import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.home.HomeItems
 import com.example.footballapp.ui.home.HomeNestedAdapter
+import com.google.android.material.chip.Chip
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -70,6 +73,7 @@ fun ifDataEmpty(view: WebView, url: String?) {
         view.visibility = View.GONE
     }
 }
+
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {

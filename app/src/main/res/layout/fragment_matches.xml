@@ -19,15 +19,65 @@
             android:id="@+id/matchesRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="8dp"
             app:items="@{viewModel.matches.toData().matches}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_group"
             app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/item_match"
             />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="4dp"
+            android:background="@drawable/chip_group_backgroubd"
+            android:layout_marginTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:singleLine="true"
+            app:singleSelection="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip4"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/yesterday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip5"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip6"
+                style="@style/CustomChipStyle"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:textStyle="bold"
+                android:text="@string/tomorrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.chip.ChipGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
