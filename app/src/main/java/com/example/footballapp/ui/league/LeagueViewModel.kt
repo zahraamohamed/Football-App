@@ -1,5 +1,6 @@
 package com.example.footballapp.ui.league
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -15,14 +16,9 @@ import com.example.footballapp.ui.league.scorers.ScorerInteractionListener
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 
-class LeagueViewModel : ViewModel(), MatchInteractionListener, ScorerInteractionListener {
-    val leagueId = MutableLiveData(2020)
-    val scorer = MutableLiveData<State<ScorerRankResponse?>>()
+class LeagueViewModel : ViewModel(), MatchInteractionListener{
     val matches = MutableLiveData<State<SpecificCompetitionMatchesResponse?>>()
-
-    override fun onClickScorer(scorer: Scorer) {
-
-    }
+    val scorer = MutableLiveData<State<ScorerRankResponse?>>()
 
     override fun onClickMatch(match: Matche) {
 
@@ -32,10 +28,14 @@ class LeagueViewModel : ViewModel(), MatchInteractionListener, ScorerInteraction
        viewModelScope.launch {
            FootballRepository.getCompetitionScorers(leagueId).collect {
                scorer.postValue(it)
+               Log.v("MATCHES", it.toString())
            }
+       }
 
+       viewModelScope.launch {
            FootballRepository.getSpecificCompetitionMatches(leagueId).collect {
                matches.postValue(it)
+               Log.v("MATCHES", it.toString())
            }
        }
    }

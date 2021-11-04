@@ -8,10 +8,12 @@ import com.example.footballapp.databinding.FragmentPlayerDetailsBinding
 import com.example.footballapp.ui.base.BaseFragment
 
 class PlayerDetailsFragment : BaseFragment<FragmentPlayerDetailsBinding>() {
+    private val args: PlayerDetailsFragmentArgs by navArgs()
     override val viewModel: PlayerViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentPlayerDetailsBinding
         get() = FragmentPlayerDetailsBinding::inflate
 
     override fun setup() {
+        viewModel.onPlayerClicked(args.playerId)
     }
 }

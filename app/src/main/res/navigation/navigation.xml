@@ -42,12 +42,8 @@
         android:id="@+id/scorersFragment"
         android:name="com.example.footballapp.ui.league.scorers.ScorersFragment"
         android:label="ScorersFragment"
-        tools:layout="@layout/fragment_scorers">
+        tools:layout="@layout/fragment_scorers"/>
 
-        <action
-            android:id="@+id/action_scorersFragment_to_playerDetailsFragment"
-            app:destination="@id/playerDetailsFragment" />
-    </fragment>
     <fragment
         android:id="@+id/standingFragment"
         android:name="com.example.footballapp.ui.league.standing.StandingFragment"
@@ -65,11 +61,20 @@
         tools:layout="@layout/fragment_web_search"/>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.footballapp.ui.viewPager.ViewPager"
-        android:label="ViewPager"
+        android:name="com.example.footballapp.ui.viewPager.ViewPagerFragment"
+        android:label="ViewPagerFragment"
         tools:layout="@layout/fragment_view_pager">
         <argument
             android:name="league_id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_standingFragment"
+            app:destination="@id/standingFragment" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_matchesFragment"
+            app:destination="@id/matchesFragment" />
     </fragment>
 </navigation>

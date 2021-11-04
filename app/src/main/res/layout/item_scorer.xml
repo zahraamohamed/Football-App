@@ -23,6 +23,7 @@
             android:layout_marginTop="@dimen/margin1x"
             app:cardCornerRadius="5dp"
             android:elevation="6dp"
+            android:onClick="@{()->listener.onClickScorer(item.player.id)}"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
