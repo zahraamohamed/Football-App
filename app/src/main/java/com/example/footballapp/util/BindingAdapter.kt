@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
+import com.example.footballapp.model.domain.teamRankResponse.Standing
+import com.example.footballapp.model.domain.teamRankResponse.Table
 import com.example.footballapp.ui.base.BaseAdapter
 import com.example.footballapp.ui.home.HomeItems
 import com.example.footballapp.ui.home.HomeNestedAdapter
@@ -123,3 +125,54 @@ fun <T> setFormattedDate(view: TextView, dateStr: String?) {
     val date = LocalDate.parse(dateStr, formatter)
     view.text = date.toString()
 }
+
+@BindingAdapter(value = ["app:setTeamName"])
+fun setStandingData(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.team?.name.toString()
+    }
+
+    }
+
+@BindingAdapter(value = ["app:setTeamScoreDraw"])
+fun setTeamScoreDraw(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.draw.toString()
+
+    }
+
+    }
+
+@BindingAdapter(value = ["app:setTeamScoreLost"])
+fun setTeamScoreLost(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.lost.toString()
+    }
+
+    }
+
+@BindingAdapter(value = ["app:setTeamScoreGoalAgainst"])
+fun setTeamScoreGoalAgainst(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.goalsAgainst.toString()
+    }
+
+    }
+
+@BindingAdapter(value = ["app:setTeamScoreGoalDifference"])
+fun setTeamScoreGoalDifference(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.goalDifference.toString()
+    }
+
+    }
+
+
+@BindingAdapter(value = ["app:setTeamScorePoints"])
+fun setTeamScorePoints(view:TextView ,data:Standing? ){
+    view.text = data?.table?.joinToString {
+        it.points.toString()
+    }
+
+    } // todo("make  points return sum")
+
