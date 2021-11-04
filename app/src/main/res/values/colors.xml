@@ -28,4 +28,6 @@
     <color name="card_color_light_green">#668180</color>
     <color name="gray_text">#B7B3B3</color>
 
+    <color name="chip_group_color">#302f2f</color>
+
 </resources>

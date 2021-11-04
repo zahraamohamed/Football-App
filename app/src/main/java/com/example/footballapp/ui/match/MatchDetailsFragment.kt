@@ -14,3 +14,4 @@ class MatchDetailsFragment : BaseFragment<FragmentMatchDetailsBinding>() {
 
     override fun setup() {}
 }
+

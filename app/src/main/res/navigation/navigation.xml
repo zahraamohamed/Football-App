@@ -59,9 +59,4 @@
         android:name="com.example.footballapp.ui.webSearch.WebSearchFragment"
         android:label="WebSearchFragment"
         tools:layout="@layout/fragment_web_search"/>
-    <fragment
-        android:id="@+id/viewPagerFragment"
-        android:name="com.example.footballapp.ui.viewPager.ViewPager"
-        android:label="ViewPager"
-        tools:layout="@layout/fragment_view_pager"/>
 </navigation>

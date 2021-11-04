@@ -33,7 +33,9 @@ interface FootballApiService {
 
     @GET("competitions/{id}/matches")
     suspend fun getSpecificCompetitionMatches(
-        @Path("id") competitionId: Int
+        @Path("id") competitionId: Int,
+        @Query("dateFrom") dateFrom: String?,
+        @Query("dateTo") dateTo: String?
     ): Response<SpecificCompetitionMatchesResponse>
 
     @GET("matches/{id}")
