@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.footballapp.model.domain.teamRankResponse.Standing" />
+            type="com.example.footballapp.model.domain.teamRankResponse.Table" />
 
         <variable
             name="listener"
@@ -19,10 +19,10 @@
         android:layout_marginTop="@dimen/margin1x"
         android:layout_marginHorizontal="@dimen/margin1x"
         app:cardCornerRadius="8dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_marginTop="@dimen/margin2x"
             android:layout_marginBottom="@dimen/margin2x">
 
@@ -38,7 +38,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/draw"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamName="@{item}"
+                app:isExistData="@{item.team.name}"
                 tools:ignore="RtlSymmetry"
                 tools:text="Real Madrid" />
 
@@ -52,7 +52,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/lost"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamScoreDraw="@{item}"
+                app:isExistData="@{item.draw}"
                 tools:text="8" />
 
             <TextView
@@ -66,7 +66,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/goalsAgainst"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamScoreLost="@{item}"
+                app:isExistData="@{item.lost}"
                 tools:text="7" />
 
             <TextView
@@ -79,7 +79,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/goalDifference"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamScoreGoalAgainst="@{item}"
+                app:isExistData="@{item.goalsAgainst}"
                 tools:text="14" />
 
             <TextView
@@ -93,7 +93,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/points"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamScoreGoalDifference="@{item}"
+                app:isExistData="@{item.goalDifference}"
                 tools:text="4" />
 
             <TextView
@@ -106,8 +106,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setTeamScorePoints="@{item}"
+                app:isExistData="@{item.points}"
                 tools:text="35" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

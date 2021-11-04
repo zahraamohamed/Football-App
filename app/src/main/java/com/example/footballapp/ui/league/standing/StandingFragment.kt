@@ -14,6 +14,10 @@ class StandingFragment:BaseFragment<FragmentStandingBinding>(){
         get() = FragmentStandingBinding::inflate
 
     override fun setup() {
-        binding.standingRecycler.adapter = StandAdapter(mutableListOf(), viewModel)
+        binding.standingRecycler.adapter =
+            StandAdapter(mutableListOf(), viewModel)
     }
+
+
+
 }

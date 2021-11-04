@@ -20,7 +20,7 @@ class LeagueViewModel : ViewModel(), MatchInteractionListener, ScorerInteraction
 
     val scorer = FootballRepository.getCompetitionScorers(2001).asLiveData()
     val matches = FootballRepository.getSpecificCompetitionMatches(2001).asLiveData()
-    val stand = FootballRepository.getSpecificTeamRank(2021 ,"TOTAL" ).asLiveData()
+    val stand = FootballRepository.getSpecificTeamRank(2021 ,"HOME" ).asLiveData()
 
     override fun onClickScorer(scorer: Scorer) {}
     override fun onClickMatch(match: Matche) {}

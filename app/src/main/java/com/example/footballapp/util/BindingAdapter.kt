@@ -65,12 +65,8 @@ fun setWebViewUrl(view: WebView, url: String?) {
 }
 
 @BindingAdapter(value = ["app:isExistData"])
-fun ifDataEmpty(view: WebView, url: String?) {
-    if (url != null) {
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
-    }
+fun ifDataEmpty(view: TextView, data: Any?) {
+    data?.let { view.text = it.toString() }
 }
 
 @BindingAdapter(value = ["app:items"])
@@ -126,53 +122,5 @@ fun <T> setFormattedDate(view: TextView, dateStr: String?) {
     view.text = date.toString()
 }
 
-@BindingAdapter(value = ["app:setTeamName"])
-fun setStandingData(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.team?.name.toString()
-    }
 
-    }
-
-@BindingAdapter(value = ["app:setTeamScoreDraw"])
-fun setTeamScoreDraw(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.draw.toString()
-
-    }
-
-    }
-
-@BindingAdapter(value = ["app:setTeamScoreLost"])
-fun setTeamScoreLost(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.lost.toString()
-    }
-
-    }
-
-@BindingAdapter(value = ["app:setTeamScoreGoalAgainst"])
-fun setTeamScoreGoalAgainst(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.goalsAgainst.toString()
-    }
-
-    }
-
-@BindingAdapter(value = ["app:setTeamScoreGoalDifference"])
-fun setTeamScoreGoalDifference(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.goalDifference.toString()
-    }
-
-    }
-
-
-@BindingAdapter(value = ["app:setTeamScorePoints"])
-fun setTeamScorePoints(view:TextView ,data:Standing? ){
-    view.text = data?.table?.joinToString {
-        it.points.toString()
-    }
-
-    } // todo("make  points return sum")
 
