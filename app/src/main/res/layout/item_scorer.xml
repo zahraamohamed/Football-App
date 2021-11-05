@@ -18,13 +18,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/scorers_card"
-            android:layout_width="148dp"
-            android:layout_height="188dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin8x"
             android:layout_marginTop="@dimen/margin1x"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="8dp"
             android:elevation="6dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
             app:cardBackgroundColor="@color/card_color"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,35 +32,24 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/scorrer_background_gradiant">
 
                 <TextView
                     android:id="@+id/scorerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin2x"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
                     android:gravity="center_horizontal"
                     android:text="@{item.player.name}"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/txt3x"
-                    app:layout_constraintBottom_toTopOf="@+id/scorerTeam"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/txt2x"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.8"
+                    app:layout_constraintVertical_bias="0.2"
                     tools:text="Ali A. Jalil" />
-
-                <View
-                    android:id="@+id/line"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/margin1x"
-                    android:background="@color/white"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/scorerName" />
 
                 <TextView
                     android:id="@+id/scorerTeam"
@@ -70,29 +57,27 @@
                     android:layout_height="30dp"
                     android:text="@{item.team.name}"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toTopOf="@+id/scorerGoalsCount"
-                    app:layout_constraintEnd_toEndOf="@id/scorerName"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/scorerName"
-                    app:layout_constraintTop_toBottomOf="@+id/scorerName"
+                    android:textSize="@dimen/txt1x"
+                    app:layout_constraintStart_toStartOf="@id/scorerName"
+                    app:layout_constraintTop_toBottomOf="@id/scorerName"
                     tools:text="F.C. Barcelona" />
+
 
                 <TextView
                     android:id="@+id/scorerGoalsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center_horizontal"
                     android:text="@{item.numberOfGoals.toString()}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt3x"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/scorerTeam"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@id/scorerTeam"
-                    app:layout_constraintTop_toBottomOf="@+id/scorerTeam"
-                    tools:text="90" />
-
-
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.4"
+                    tools:text="90"
+                       />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 </layout>
