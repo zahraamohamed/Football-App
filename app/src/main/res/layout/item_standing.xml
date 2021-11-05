@@ -18,7 +18,7 @@
         app:cardBackgroundColor="@color/card_color_gray"
         android:layout_marginTop="@dimen/margin1x"
         android:layout_marginHorizontal="@dimen/margin1x"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="24dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,11 +45,12 @@
 
             <TextView
                 android:id="@+id/draw"
-                android:layout_width="45dp"
+                android:layout_width="51dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
+                android:layout_marginStart="@dimen/margin1x"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/lost"
                 app:layout_constraintTop_toTopOf="parent"
@@ -58,9 +59,8 @@
 
             <TextView
                 android:id="@+id/lost"
-                android:layout_width="43dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="4dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
@@ -72,7 +72,7 @@
 
             <TextView
                 android:id="@+id/goalsAgainst"
-                android:layout_width="45dp"
+                android:layout_width="44dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -85,9 +85,8 @@
 
             <TextView
                 android:id="@+id/goalDifference"
-                android:layout_width="45dp"
+                android:layout_width="35dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="4dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2x"
@@ -99,7 +98,7 @@
 
             <TextView
                 android:id="@+id/points"
-                android:layout_width="45dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
