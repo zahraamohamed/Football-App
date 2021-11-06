@@ -10,25 +10,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
         tools:context=".ui.league.LeagueFragment">
 
 
         <ImageView
             android:id="@+id/competition_image"
             android:layout_width="match_parent"
-            android:layout_height="188dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin2x"
+            android:src="@drawable/ic_soccer_icon"
             android:background="@color/logoBackground"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="center"
-            android:contentDescription="@string/competition_image"
-            tools:src="@tools:sample/avatars[3]"
-             />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayoutLol" />
+
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutLol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin2x"
             android:background="@color/viewPagerBackgroundBlack"
             app:tabTextColor="@color/unselectedTabLayoutTitleGrey"
             app:tabSelectedTextColor="@color/red"
