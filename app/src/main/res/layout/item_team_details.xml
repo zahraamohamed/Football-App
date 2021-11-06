@@ -24,14 +24,14 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/image_player"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/teamDetailsImage"
-                    tools:src="@drawable/photo" />
+                    android:src="@drawable/ic_soccer_player" />
 
 
                 <TextView
