@@ -10,11 +10,12 @@
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.league.standing.StandInteractionListener" />
+            type="com.example.footballapp.ui.league.standing.StandingInteractionListener" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:onClick="@{() -> listener.onClickStand(item.team.id)}"
         app:cardBackgroundColor="@color/card_color_gray"
         android:layout_marginTop="@dimen/margin1x"
         android:layout_marginHorizontal="@dimen/margin1x"

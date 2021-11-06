@@ -8,6 +8,7 @@ import com.example.footballapp.ui.base.BaseAdapter
 
 class HomeNestedAdapter(
     private var items: MutableList<HomeItems>,
+    private var viewModel: HomeViewModel,
     private val listener: HomeInteractionListener
 ) : BaseAdapter<Any>(items, listener) {
 
@@ -41,7 +42,7 @@ class HomeNestedAdapter(
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (val currentItem = items[position]) {
                 is HomeItems.CompetitionType ->{
-                    holder.binding.setVariable(BR.adapter, CompetitionAdapter(currentItem.items, listener))
+                    holder.binding.setVariable(BR.adapter, CompetitionAdapter(currentItem.items, viewModel, listener))
                 }
                 is HomeItems.LiveMatchType -> {
                     holder.binding.setVariable(BR.adapter, LiveMatchAdapter(currentItem.items, listener))

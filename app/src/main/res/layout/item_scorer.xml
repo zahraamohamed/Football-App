@@ -23,6 +23,9 @@
             android:layout_marginTop="@dimen/margin1x"
             app:cardCornerRadius="8dp"
             android:elevation="6dp"
+            android:onClick="@{()->listener.onClickScorer(item.player.id)}"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
             app:cardBackgroundColor="@color/card_color"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +63,6 @@
                     app:layout_constraintStart_toStartOf="@id/scorerName"
                     app:layout_constraintTop_toBottomOf="@id/scorerName"
                     tools:text="F.C. Barcelona" />
-
 
                 <TextView
                     android:id="@+id/scorerGoalsCount"

@@ -3,23 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/webSearchFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.footballapp.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
 
-    <fragment
-        android:id="@+id/leagueDetailsFragment"
-        android:name="com.example.footballapp.ui.league.LeagueDetailsFragment"
-        android:label="LeagueDetailsFragment"
-        tools:layout="@layout/fragment_league_details"/>
+        <action
+            android:id="@+id/action_homeFragment_to_LeagueFragment"
+            app:destination="@id/LeagueFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/matchDetailsFragment"
         android:name="com.example.footballapp.ui.match.MatchDetailsFragment"
         android:label="MatchDetailsFragment"
-        tools:layout="@layout/fragment_match_details"/>
+        tools:layout="@layout/fragment_match_details">
+        <argument
+            android:name="match_id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/matchesFragment"
         android:name="com.example.footballapp.ui.league.matches.MatchesFragment"
@@ -38,12 +42,8 @@
         android:id="@+id/scorersFragment"
         android:name="com.example.footballapp.ui.league.scorers.ScorersFragment"
         android:label="ScorersFragment"
-        tools:layout="@layout/fragment_scorers">
+        tools:layout="@layout/fragment_scorers"/>
 
-        <action
-            android:id="@+id/action_scorersFragment_to_playerDetailsFragment"
-            app:destination="@id/playerDetailsFragment" />
-    </fragment>
     <fragment
         android:id="@+id/standingFragment"
         android:name="com.example.footballapp.ui.league.standing.StandingFragment"
@@ -53,10 +53,41 @@
         android:id="@+id/teamDetailsFragment"
         android:name="com.example.footballapp.ui.teams.TeamDetailsFragment"
         android:label="TeamDetailsFragment"
-        tools:layout="@layout/fragment_team_details"/>
+        tools:layout="@layout/fragment_team_details">
+        <argument
+            android:name="team_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_teamDetailsFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/webSearchFragment"
         android:name="com.example.footballapp.ui.webSearch.WebSearchFragment"
         android:label="WebSearchFragment"
         tools:layout="@layout/fragment_web_search"/>
+    <fragment
+        android:id="@+id/LeagueFragment"
+        android:name="com.example.footballapp.ui.league.LeagueFragment"
+        android:label="leagueFragment"
+        tools:layout="@layout/fragment_league">
+        <argument
+            android:name="league_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_leagueFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+        <action
+            android:id="@+id/action_leagueFragment_to_standingFragment"
+            app:destination="@id/standingFragment" />
+        <action
+            android:id="@+id/action_leagueFragment_to_matchesFragment"
+            app:destination="@id/matchesFragment" />
+        <action
+            android:id="@+id/action_leagueFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
+        <action
+            android:id="@+id/action_LeagueFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+    </fragment>
 </navigation>

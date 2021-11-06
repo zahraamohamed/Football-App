@@ -1,13 +1,16 @@
 package com.example.footballapp.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentHomeBinding
+import com.example.footballapp.model.domain.competitionsResponse.Competition
+import com.example.footballapp.model.domain.matchesResponse.Matche
 import com.example.footballapp.ui.base.BaseFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-
     override val viewModel: HomeViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
@@ -15,10 +18,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
         initNestedAdapter()
         observeValue()
+
+        viewModel.navigateToDetails.observe(this, {
+            it?.getContentIfNotHandled()?.let { leagueId ->
+                val action = HomeFragmentDirections.actionHomeFragmentToLeagueFragment(leagueId)
+                this.findNavController().navigate(action)
+            }
+        })
     }
 
     private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(), viewModel)
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(), viewModel, viewModel)
+
         observeListsForAdapter()
     }
 
@@ -26,7 +37,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         (binding.recyclerViewHome.adapter as HomeNestedAdapter?)?.let { adapter ->
 
             viewModel.competitions.observe(this@HomeFragment) { items ->
-                items?.let { adapter.setItem(HomeItems.CompetitionType(it)) }
+                items?.toData()?.competitions?.let { adapter.setItem(HomeItems.CompetitionType(it)) }
             }
 
             viewModel.liveMatches.observe(this@HomeFragment) { items ->

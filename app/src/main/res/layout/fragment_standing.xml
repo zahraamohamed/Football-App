@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.league.LeagueViewModel" />
+            type="com.example.footballapp.ui.league.standing.StandingViewModel" />
     </data>
 
 
@@ -32,7 +32,7 @@
             android:layout_height="50dp"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/padding2x"
-            android:text="Teams"
+            android:text="@string/teams"
             android:textColor="@color/white"
             android:textSize="@dimen/txt3x"
             app:layout_constraintBottom_toBottomOf="@+id/D"
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:items="@{viewModel.stand.toData().standings[0].table}"
+            app:items="@{viewModel.standing.toData().standings[0].table}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,5 +5,6 @@ import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsRespo
 import com.example.footballapp.ui.base.BaseInteractionListener
 
 interface ITeamDetailsInteractionListener:BaseInteractionListener {
+    fun onLoadTeam(id: Int)
     fun onClickTeamPlayer(playerDetails:Squad)
 }

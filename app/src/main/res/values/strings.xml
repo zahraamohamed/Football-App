@@ -5,8 +5,10 @@
     <string name="tabtitle">tabTitle</string>
     <string name="competition_image">competition image</string>
     <string name="hash">#</string>
+    <string name="shirt_number">Shirt Number</string>
     <string name="yesterday">Yesterday</string>
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
     <string name="goals">Goals</string>
+    <string name="teams">Teams</string>
 </resources>

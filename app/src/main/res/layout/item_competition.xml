@@ -5,40 +5,50 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.home.HomeViewModel" />
+
+        <variable
             name="item"
             type="com.example.footballapp.model.domain.competitionsResponse.Competition"/>
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.base.BaseInteractionListener" />
+            type="com.example.footballapp.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginStart="@dimen/margin3x">
+        android:layout_marginStart="@dimen/margin3x"
+        android:layout_marginEnd="@dimen/margin1x"
+        android:clickable="true"
+        android:onClick="@{() -> viewModel.onLeagueClicked(item.id)}"
+        android:background="@drawable/item_competition">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/item_competition"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            android:padding="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"/>
 
-            <WebView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:padding="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:webUrl="@{item.emblemUrl}" />
+        <WebView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        app:webUrl="@{item.emblemUrl}"-->
+<!--        app:isExistData="@{item.emblemUrl}"-->
 
         <TextView
             android:layout_width="match_parent"
