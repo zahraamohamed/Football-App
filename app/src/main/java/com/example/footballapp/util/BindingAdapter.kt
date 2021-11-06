@@ -5,6 +5,7 @@ import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +13,6 @@ import com.bumptech.glide.Glide
 import com.example.footballapp.R
 import com.example.footballapp.model.State
 import com.example.footballapp.ui.base.BaseAdapter
-import com.example.footballapp.ui.home.HomeItems
-import com.example.footballapp.ui.home.HomeNestedAdapter
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -33,6 +32,7 @@ fun <T> showWhenError(view: View, status: State<T>?) {
 fun <T> showWhenSuccess(view: View, status: State<T>?) {
     view.isVisible = (status is State.Success)
 }
+
 @BindingAdapter(value = ["app:imgUrl"])
 fun setImageUrl(view: ImageView, url: String?) {
     Glide.with(view)
@@ -54,6 +54,7 @@ fun setWebViewUrl(view: WebView, url: String?) {
 fun ifDataEmpty(view: TextView, data: Any?) {
     data?.let { view.text = it.toString() }
 }
+
 //@BindingAdapter(value = ["app:isExistData"])
 //fun ifDataEmpty(view: WebView, url: String?) {
 //    view.isVisible = (url != null)
@@ -79,44 +80,44 @@ fun displayIfLive(view: View, state: String?) {
             state == StateMatches.valueOf("IN_PLAY").name)
 }
 
-@BindingAdapter(value = ["firstTeamGoals", "secondTeamGoals"])
-fun viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
-@BindingAdapter(value = ["firstHomeTeamGoals", "firstAwayTeamGoals"])
-fun <T> awayViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
-    when {
-        firstTeamGoals!! > secondTeamGoals!! -> {
-            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
-        }
-        firstTeamGoals < secondTeamGoals -> {
-            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
-        }
-        else -> {
-            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow))
+
+    @BindingAdapter(value = ["firstHomeTeamGoals", "firstAwayTeamGoals"])
+    fun <T> awayViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
+        when {
+            firstTeamGoals!! > secondTeamGoals!! -> {
+                view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
+            }
+            firstTeamGoals < secondTeamGoals -> {
+                view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
+            }
+            else -> {
+                view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow))
+            }
         }
     }
-}
 
-@BindingAdapter(value = ["secondHomeTeamGoals", "secondAwayTeamGoals"])
-fun <T> homeViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
-    when {
-        firstTeamGoals!! > secondTeamGoals!! -> view.setBackgroundResource(R.color.green)
-        firstTeamGoals < secondTeamGoals -> view.setBackgroundResource(R.color.red)
-        else -> view.setBackgroundResource(R.color.yellow)
+    @BindingAdapter(value = ["secondHomeTeamGoals", "secondAwayTeamGoals"])
+    fun <T> homeViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
+        when {
+            firstTeamGoals!! > secondTeamGoals!! -> view.setBackgroundResource(R.color.green)
+            firstTeamGoals < secondTeamGoals -> view.setBackgroundResource(R.color.red)
+            else -> view.setBackgroundResource(R.color.yellow)
+        }
     }
-}
 
-@BindingAdapter(value = ["setBackgroundColor"])
-fun setBackgroundColor(view: View, booleanValue : Boolean){
-    if (booleanValue) view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
-    else  view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
+    @BindingAdapter(value = ["setBackgroundColor"])
+    fun setBackgroundColor(view: View, booleanValue: Boolean) {
+        if (booleanValue) view.setBackgroundColor(ContextCompat.getColor(view.context,
+            R.color.green))
+        else view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
 
-}
+    }
 
-@BindingAdapter(value = ["setFormattedDate"])
-fun setFormattedDate(view: TextView, dateStr: String?) {
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
-    view.text = LocalDate.parse(dateStr, formatter).toString()
-}
+    @BindingAdapter(value = ["setFormattedDate"])
+    fun setFormattedDate(view: TextView, dateStr: String?) {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
+        view.text = LocalDate.parse(dateStr, formatter).toString()
+    }
 
 
 
