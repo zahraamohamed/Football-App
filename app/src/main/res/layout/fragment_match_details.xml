@@ -28,16 +28,17 @@ xmlns:tools="http://schemas.android.com/tools">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/league_name" />
 
-    <View
-        android:id="@+id/view"
+    <ImageView
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:alpha="0.25"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@drawable/photo" />
+        android:src="@drawable/player" />
 
     <TextView
         android:id="@+id/league_name"
@@ -49,7 +50,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_backwards"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="League premier" />
 
@@ -59,7 +60,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin4x"
         android:layout_marginStart="@dimen/margin4x"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_soccer_svgrepo_com"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_backwards" />
 
@@ -86,6 +87,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:textColor="@color/white"
         android:textSize="@dimen/txt3x"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/text_away_team_score"
         app:layout_constraintBottom_toBottomOf="@+id/text_home_team_score"
         app:layout_constraintStart_toEndOf="@+id/text_home_team_score"
         app:layout_constraintTop_toTopOf="@+id/text_home_team_score" />
@@ -98,8 +100,8 @@ xmlns:tools="http://schemas.android.com/tools">
         android:textColor="@color/white"
         android:textSize="@dimen/txt4x"
         android:textStyle="bold"
-        android:layout_marginStart="@dimen/margin1x"
         app:layout_constraintBottom_toBottomOf="@+id/text_home_team_score"
+        app:layout_constraintEnd_toStartOf="@+id/image_away_team"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/text_home_team_score"
         tools:text="0" />
@@ -108,10 +110,10 @@ xmlns:tools="http://schemas.android.com/tools">
         android:id="@+id/image_away_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
+        android:layout_marginEnd="@dimen/margin3x"
+        android:src="@drawable/ic_soccer_svgrepo_com"
         app:layout_constraintBottom_toBottomOf="@+id/image_home_team"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_away_team_score"
         app:layout_constraintTop_toTopOf="@+id/image_home_team" />
 
     <TextView
@@ -119,6 +121,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin2x"
+        android:layout_marginStart="@dimen/margin2x"
         android:text="@{viewModel.matchDetails.toData().head2head.homeTeam.name}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
@@ -133,6 +136,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin2x"
+        android:layout_marginEnd="@dimen/margin2x"
         android:text="@{viewModel.matchDetails.toData().head2head.homeTeam.name}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
@@ -392,7 +396,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_height="wrap_content"
         android:rotation="90"
         android:layout_marginVertical="@dimen/margin2x"
-        app:layout_constraintBottom_toTopOf="@+id/home_team"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_match_details"
@@ -402,7 +406,8 @@ xmlns:tools="http://schemas.android.com/tools">
         app:spb_maxStateNumber="four"
         app:spb_stateBackgroundColor="#BDBDBD"
         app:spb_stateDescriptionColor="#808080"
-        app:spb_stateForegroundColor="@color/red"
+        app:spb_stateForegroundColor="@color/grayDark"
+        android:outlineSpotShadowColor="@color/black"
         app:spb_stateNumberBackgroundColor="#808080"
         app:spb_stateNumberForegroundColor="#eeeeee" />
 
@@ -410,32 +415,32 @@ xmlns:tools="http://schemas.android.com/tools">
         android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginBottom="@dimen/margin1x"
         android:layout_marginHorizontal="@dimen/margin3x"
         android:background="#302F2F"
-        app:layout_constraintBottom_toTopOf="@+id/home_team"
-        app:layout_constraintEnd_toEndOf="@+id/away_team"
-        app:layout_constraintStart_toStartOf="@+id/home_team" />
 
-    <ImageView
-        android:id="@+id/home_team"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="@dimen/margin3x"
-        android:layout_marginBottom="@dimen/margin3x"
-        android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_penalties"
+        tools:layout_editor_absoluteX="24dp" />
 
-    <ImageView
-        android:id="@+id/away_team"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="@dimen/margin3x"
-        android:layout_marginBottom="@dimen/margin3x"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/home_team"-->
+<!--        android:layout_width="90dp"-->
+<!--        android:layout_height="90dp"-->
+<!--        android:layout_marginStart="@dimen/margin3x"-->
+<!--        android:layout_marginBottom="@dimen/margin3x"-->
+<!--        android:src="@drawable/ic_launcher_background"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/away_team"-->
+<!--        android:layout_width="90dp"-->
+<!--        android:layout_height="90dp"-->
+<!--        android:layout_marginEnd="@dimen/margin3x"-->
+<!--        android:layout_marginBottom="@dimen/margin3x"-->
+<!--        android:src="@drawable/ic_launcher_background"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <TextView
         android:id="@+id/home_team_win"
@@ -444,12 +449,10 @@ xmlns:tools="http://schemas.android.com/tools">
         android:text="@{String.valueOf(viewModel.matchDetails.toData().head2head.homeTeam.wins)}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt3x"
-        android:layout_marginStart="@dimen/margin3x"
-        app:layout_constraintBottom_toBottomOf="@+id/home_team"
-        app:layout_constraintStart_toEndOf="@+id/home_team"
-        app:layout_constraintTop_toTopOf="@+id/home_team"
-        tools:text="1"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView17"
+        tools:text="1" />
 
     <View
         android:id="@+id/view3"
@@ -458,11 +461,11 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_marginHorizontal="@dimen/margin2x"
         android:background="@color/white"
         android:rotation="90"
-        app:layout_constraintBottom_toBottomOf="@+id/away_team"
-        app:layout_constraintEnd_toStartOf="@+id/away_team_win"
-        app:layout_constraintStart_toEndOf="@+id/home_team_win"
-        app:layout_constraintTop_toTopOf="@+id/home_team"
-        />
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <TextView
         android:id="@+id/away_team_win"
@@ -472,33 +475,32 @@ xmlns:tools="http://schemas.android.com/tools">
         android:text="@{String.valueOf(viewModel.matchDetails.toData().head2head.awayTeam.wins)}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt3x"
-        app:layout_constraintBottom_toBottomOf="@+id/away_team"
-        app:layout_constraintEnd_toStartOf="@+id/away_team"
-        app:layout_constraintTop_toTopOf="@+id/away_team"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="1"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:layout_width="45dp"
+        android:layout_height="17dp"
         android:text="WINS"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
-        app:layout_constraintBottom_toBottomOf="@+id/home_team"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view3"
-        app:layout_constraintStart_toEndOf="@+id/home_team"
-        app:layout_constraintTop_toBottomOf="@+id/home_team_win" />
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <TextView
+        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="WINS"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
-        app:layout_constraintBottom_toBottomOf="@+id/away_team"
-        app:layout_constraintEnd_toStartOf="@+id/away_team"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/away_team_win" />
+        app:layout_constraintTop_toBottomOf="@id/view4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
