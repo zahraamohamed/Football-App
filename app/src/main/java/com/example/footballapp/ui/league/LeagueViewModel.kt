@@ -1,6 +1,7 @@
 package com.example.footballapp.ui.league
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.footballapp.model.State
@@ -19,6 +20,9 @@ class LeagueViewModel : ViewModel(), MatchInteractionListener, ScorerInteraction
     val yMatches = FootballRepository.getSpecificCompetitionMatches(
         2001, "2021-11-03", "2021-11-03"
     ).asLiveData()
+
+    val value = MutableLiveData<String>()
+    
 
     override fun onClickScorer(scorer: Scorer) {
 

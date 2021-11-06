@@ -35,7 +35,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="148dp">
 
                 <TextView
                     android:id="@+id/dateTxt"
@@ -46,12 +46,11 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="2021-04-19"
-                    />
+                    tools:text="2021-04-19" />
 
                 <TextView
                     android:id="@+id/homeTeamTxt"
@@ -60,8 +59,8 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="@dimen/margin1x"
                     android:layout_marginEnd="4dp"
-                    android:maxLength="12"
                     android:gravity="center"
+                    android:maxLength="12"
                     android:text="@{item.homeTeam.name}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
@@ -88,15 +87,16 @@
 
                 <View
                     android:id="@+id/homeTeamWinState"
-                    android:layout_width="0dp"
-                    android:layout_height="2dp"
+                    android:layout_width="3dp"
+                    android:layout_height="0dp"
                     android:layout_marginTop="@dimen/margin1x"
-                    app:firstTeamGoals="@{item.score.fullTime.homeTeam}"
-                    app:layout_constraintEnd_toEndOf="@+id/homeTeamTxt"
-                    app:layout_constraintStart_toStartOf="@+id/homeTeamTxt"
-                    app:layout_constraintTop_toBottomOf="@+id/homeTeamTxt"
-                    app:secondTeamGoals="@{item.score.fullTime.awayTeam}"
-                    tools:background="@color/red" />
+                    app:firstHomeTeamGoals="@{item.score.fullTime.homeTeam}"
+                    app:firstAwayTeamGoals="@{item.score.fullTime.awayTeam}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:background="@color/red"
+                    />
 
 
                 <TextView
@@ -105,15 +105,15 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="@dimen/margin1x"
                     android:layout_marginEnd="4dp"
-                    app:layout_goneMarginEnd="4dp"
-                    android:maxLength="12"
                     android:gravity="center"
+                    android:maxLength="12"
                     android:text="@{item.awayTeam.name}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt2x"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/awayTeamGoalsTxt"
                     app:layout_constraintTop_toBottomOf="@+id/dateTxt"
+                    app:layout_goneMarginEnd="4dp"
                     tools:text="FC. Barcelona" />
 
 
@@ -134,15 +134,17 @@
 
                 <View
                     android:id="@+id/awayTeamWinState"
-                    android:layout_width="0dp"
-                    android:layout_height="2dp"
+                    android:layout_width="3dp"
+                    android:layout_height="0dp"
                     android:layout_marginTop="@dimen/margin1x"
-                    app:firstTeamGoals="@{item.score.fullTime.homeTeam}"
-                    app:layout_constraintEnd_toEndOf="@+id/awayTeamTxt"
-                    app:layout_constraintStart_toStartOf="@+id/awayTeamTxt"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:secondHomeTeamGoals="@{item.score.fullTime.homeTeam}"
+                    app:secondAwayTeamGoals="@{item.score.fullTime.awayTeam}"
                     app:layout_constraintTop_toBottomOf="@+id/awayTeamTxt"
-                    app:secondTeamGoals="@{item.score.fullTime.awayTeam}"
-                    tools:background="@color/green" />
+                    tools:background="@color/green"
+                    />
 
                 <View
                     android:id="@+id/view"
@@ -157,21 +159,18 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="35dp"
-                    android:layout_marginTop="@dimen/margin2x"
-                    android:layout_marginBottom="@dimen/margin2x"
                     android:background="@drawable/rounded_corner_view"
                     android:gravity="center"
                     android:text="@{item.status}"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/awayTeamTxt"
                     app:layout_constraintStart_toStartOf="@+id/awayTeamTxt"
-                    app:layout_constraintTop_toBottomOf="@+id/awayTeamWinState"
-                    tools:text="Finished">
-
-                </TextView>
+                    app:layout_constraintTop_toBottomOf="@+id/awayTeamTxt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="Finished"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

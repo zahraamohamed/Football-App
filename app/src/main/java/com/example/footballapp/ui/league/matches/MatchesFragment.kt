@@ -1,5 +1,6 @@
 package com.example.footballapp.ui.league.matches
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -15,5 +16,8 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
 
     override fun setup() {
         binding.matchesRecycler.adapter = MatchesAdapter(mutableListOf(), viewModel)
+        viewModel.value.observe(this,{
+            Log.v("HEHEHE",it)
+        })
     }
 }
