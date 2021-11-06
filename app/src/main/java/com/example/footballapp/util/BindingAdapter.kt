@@ -81,11 +81,35 @@ fun displayIfLive(view: View, state: String?) {
 
 @BindingAdapter(value = ["firstTeamGoals", "secondTeamGoals"])
 fun viewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
+@BindingAdapter(value = ["firstHomeTeamGoals", "firstAwayTeamGoals"])
+fun <T> awayViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
+    when {
+        firstTeamGoals!! > secondTeamGoals!! -> {
+            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
+        }
+        firstTeamGoals < secondTeamGoals -> {
+            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
+        }
+        else -> {
+            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow))
+        }
+    }
+}
+
+@BindingAdapter(value = ["secondHomeTeamGoals", "secondAwayTeamGoals"])
+fun <T> homeViewBGWith2Values(view: View, firstTeamGoals: Int? = 0, secondTeamGoals: Int? = 0) {
     when {
         firstTeamGoals!! > secondTeamGoals!! -> view.setBackgroundResource(R.color.green)
         firstTeamGoals < secondTeamGoals -> view.setBackgroundResource(R.color.red)
         else -> view.setBackgroundResource(R.color.yellow)
     }
+}
+
+@BindingAdapter(value = ["setBackgroundColor"])
+fun setBackgroundColor(view: View, booleanValue : Boolean){
+    if (booleanValue) view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.green))
+    else  view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
+
 }
 
 @BindingAdapter(value = ["setFormattedDate"])
