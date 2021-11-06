@@ -33,7 +33,6 @@ fun <T> showWhenError(view: View, status: State<T>?) {
 fun <T> showWhenSuccess(view: View, status: State<T>?) {
     view.isVisible = (status is State.Success)
 }
-
 @BindingAdapter(value = ["app:imgUrl"])
 fun setImageUrl(view: ImageView, url: String?) {
     Glide.with(view)
@@ -42,6 +41,7 @@ fun setImageUrl(view: ImageView, url: String?) {
         .error(R.drawable.ic_downloading)
         .into(view)
 }
+
 
 @BindingAdapter(value = ["app:webUrl"])
 fun setWebViewUrl(view: WebView, url: String?) {
@@ -54,7 +54,10 @@ fun setWebViewUrl(view: WebView, url: String?) {
 fun ifDataEmpty(view: TextView, data: Any?) {
     data?.let { view.text = it.toString() }
 }
-
+//@BindingAdapter(value = ["app:isExistData"])
+//fun ifDataEmpty(view: WebView, url: String?) {
+//    view.isVisible = (url != null)
+//}
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
     if (items != null) {
