@@ -3,14 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/drawable/ic_soccer_player_motion_svgrepo_com.xml" value="0.2703125" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/drawable/ic_soccer_svgrepo_com.xml" value="0.2546875" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/drawable/scorrer_background_gradiant.xml" value="0.2703125" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/drawable/standing_clicked_shape.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/activity_main.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_match_details.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_matches.xml" value="0.21979166666666666" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_scorers.xml" value="0.264" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_scorers.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/fragment_standing.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/item_competition.xml" value="0.264" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/item_scorer.xml" value="0.4" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/item_scorer.xml" value="0.5287569573283859" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/item_standing.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Football-Appkj/app/src/main/res/layout/item_top_player.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

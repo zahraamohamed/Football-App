@@ -16,15 +16,15 @@
     </data>
 
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scorers_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1x"
-            app:cardCornerRadius="8dp"
-            android:elevation="6dp"
+            android:layout_marginStart="@dimen/margin2x"
+            android:background="@drawable/scorrer_background_gradiant"
+             android:elevation="6dp"
             android:onClick="@{()->listener.onClickScorer(item.player.id)}"
-            android:layout_marginStart="24dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
             app:cardBackgroundColor="@color/card_color"
@@ -33,49 +33,92 @@
             app:layout_constraintTop_toTopOf="parent"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/scorrer_background_gradiant">
+
+
 
                 <TextView
-                    android:id="@+id/scorerName"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/margin2x"
+                    android:layout_marginTop="@dimen/margin2x"
+                    android:letterSpacing="0.04"
                     android:text="@{item.player.name}"
-                    android:textColor="@color/red"
-                    android:textSize="@dimen/txt2x"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt2.5x"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/scorerGoalsCount"
-                    tools:text="Ali A. Jalil" />
-
-                <TextView
-                    android:id="@+id/scorerTeam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="@{item.team.name}"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt1x"
-                    app:layout_constraintEnd_toEndOf="@+id/scorerName"
-                    app:layout_constraintStart_toStartOf="@id/scorerName"
-                    app:layout_constraintTop_toBottomOf="@id/scorerName"
-                    tools:text="F.C. Barcelona" />
-
-                <TextView
-                    android:id="@+id/scorerGoalsCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@{item.numberOfGoals.toString()}"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/txt3x"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="90" />
+                    tools:text="Mohamed Salah" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.04"
+                android:text="@{item.player.dateOfBirth +` In `+ item.player.countryOfBirth}"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:text="1992-06-15 In Egypt" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="@dimen/margin2x"
+                    android:text="@{item.team.name}"
+                    android:gravity="center"
+                    android:letterSpacing="0.04"
+                    android:textSize="@dimen/txt2x"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView2"
+                    tools:text="Liverpool FC" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.numberOfGoals.toString()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin6x"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                tools:text="10" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:text="Goals"
+                    android:textColor="@color/gray_text"
+                    android:letterSpacing="0.04"
+                    android:textSize="@dimen/txt2x"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView13"
+                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                    app:layout_constraintTop_toTopOf="@+id/textView13"
+                    app:layout_constraintVertical_bias="0.8" />
+
+                <View
+                    android:id="@+id/vector_3"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/yellow"
+                    android:layout_marginBottom="@dimen/margin1x"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView15"
+                    app:layout_constraintStart_toStartOf="@+id/textView13"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                   />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
 </layout>
