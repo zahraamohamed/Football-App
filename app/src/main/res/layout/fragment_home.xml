@@ -26,12 +26,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imageView5"
-            android:layout_width="@dimen/margin3x"
-            android:layout_height="@dimen/margin3x"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="@dimen/margin2x"
-            android:src="@drawable/ic_baseline_search_24"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/news"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView6" />
