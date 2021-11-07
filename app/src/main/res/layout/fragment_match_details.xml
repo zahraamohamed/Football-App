@@ -22,11 +22,14 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin3x"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_arrow_back"
         android:elevation="@dimen/margin1x"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintBottom_toBottomOf="@+id/league_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/league_name" />
+        app:layout_constraintTop_toTopOf="@+id/league_name"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/background"
@@ -409,7 +412,8 @@ xmlns:tools="http://schemas.android.com/tools">
         app:spb_stateForegroundColor="@color/grayDark"
         android:outlineSpotShadowColor="@color/black"
         app:spb_stateNumberBackgroundColor="#808080"
-        app:spb_stateNumberForegroundColor="#eeeeee" />
+        app:spb_stateNumberForegroundColor="#eeeeee"
+        tools:targetApi="p" />
 
     <View
         android:id="@+id/view4"
@@ -417,7 +421,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_height="2dp"
         android:layout_marginHorizontal="@dimen/margin3x"
         android:background="#302F2F"
-
+        app:layout_constraintVertical_bias="0.3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_penalties"
         tools:layout_editor_absoluteX="24dp" />
@@ -443,64 +447,105 @@ xmlns:tools="http://schemas.android.com/tools">
 <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <TextView
+        android:id="@+id/home_team_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{String.valueOf(viewModel.matchDetails.toData().head2head.homeTeam.wins)}"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt3x"
+        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        tools:text="1" />
+
+    <TextView
         android:id="@+id/home_team_win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@{String.valueOf(viewModel.matchDetails.toData().head2head.homeTeam.wins)}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt3x"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
         tools:text="1" />
 
     <View
         android:id="@+id/view3"
-        android:layout_width="40dp"
-        android:layout_height="2dp"
-        android:layout_marginHorizontal="@dimen/margin2x"
+        android:layout_width="2dp"
+        android:layout_height="44dp"
         android:background="@color/white"
-        android:rotation="90"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/away_team_win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin3x"
         android:text="@{String.valueOf(viewModel.matchDetails.toData().head2head.awayTeam.wins)}"
         android:textColor="@color/white"
         android:textSize="@dimen/txt3x"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1"/>
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        tools:text="1" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="45dp"
-        android:layout_height="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="WINS"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintVertical_bias="1" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WINS"
+        android:text="DRAW"
+        android:layout_marginStart="8dp"
+        app:layout_constraintVertical_bias="1"
         android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintStart_toEndOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@id/view4" />
+        app:layout_constraintTop_toBottomOf="@id/view4"
+        app:layout_constraintEnd_toStartOf="@id/view5"
+        />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="2dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintVertical_bias="0.428"
+        />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DRAW"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt2x"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintStart_toEndOf="@+id/view5"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
