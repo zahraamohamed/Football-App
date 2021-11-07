@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin4x"
                     android:paddingHorizontal="2dp"
-                    android:text="@{viewModel.playerDetails.toData().shirtNumber.toString()}"
+                    android:text="@{String.valueOf(viewModel.playerDetails.toData().shirtNumber.toString())}"
                     android:textAlignment="center"
                     android:textColor="@color/red"
                     android:textSize="@dimen/txt3x"
