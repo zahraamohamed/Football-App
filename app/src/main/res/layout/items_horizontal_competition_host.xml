@@ -36,7 +36,6 @@
             android:adapter="@{adapter}"
             android:orientation="horizontal"
             android:clipToPadding="false"
-            android:layout_marginTop="@dimen/margin1x"
             android:paddingHorizontal="@dimen/margin2x"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
