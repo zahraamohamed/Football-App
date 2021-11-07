@@ -1,10 +1,8 @@
 package com.example.footballapp.repository
 
-import android.util.Log
 import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
-import com.example.footballapp.model.domain.footballNewsResponse.FootballResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
@@ -13,7 +11,6 @@ import com.example.footballapp.model.domain.specificMatchDetailsResponse.Specifi
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
-import com.example.footballapp.model.network.NewsApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
@@ -27,8 +24,11 @@ object FootballRepository {
 
     @FlowPreview
     fun filterDataCompetitions(): Flow<List<Competition>?> =
-        getAllCompetitions().flatMapConcat { flow {
-            emit(it.toData()?.competitions?.filter { it.emblemUrl != null }) } }
+        getAllCompetitions().flatMapConcat {
+            flow {
+                emit(it.toData()?.competitions?.filter { it.emblemUrl != null })
+            }
+        }
 
     fun getDailyMatch(): Flow<State<MatchesResponse?>> =
         wrapWithFlow { API.apiService.getAllMatches() }
@@ -46,8 +46,16 @@ object FootballRepository {
     fun getSpecificMatchDetails(matchId: Int?): Flow<State<SpecificMatchDetailsResponse?>> =
         wrapWithFlow { API.apiService.getSpecificMatchDetails(matchId) }
 
-    fun getSpecificCompetitionMatches(competitionId: Int, dateFrom:String?, dateTo:String?): Flow<State<SpecificCompetitionMatchesResponse?>> =
-        wrapWithFlow { API.apiService.getSpecificCompetitionMatches(competitionId, dateFrom, dateTo) }
+    fun getSpecificCompetitionMatches(
+        competitionId: Int,
+        dateFrom: String?,
+        dateTo: String?,
+    ): Flow<State<SpecificCompetitionMatchesResponse?>> =
+        wrapWithFlow {
+            API.apiService.getSpecificCompetitionMatches(competitionId,
+                dateFrom,
+                dateTo)
+        }
 
 //    fun getSpecificCompetitionMatches(competitionId: Int?): Flow<State<SpecificCompetitionMatchesResponse?>> =
 //        wrapWithFlow { API.apiService.getSpecificCompetitionMatches(competitionId) }
@@ -57,25 +65,24 @@ object FootballRepository {
 
     fun getSpecificTeamRank(
         competitionId: Int,
-        TeamType: String = "TOTAL"
+        TeamType: String = "TOTAL",
     ): Flow<State<TeamRankResponse?>> =
         wrapWithFlow { API.apiService.getSpecificTeamRank(competitionId, TeamType) }
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
         flow {
-            emit(State.Loading)
-            emit(checkIsSuccessful(function()))
+            try {
+                emit(State.Loading)
+                emit(checkIsSuccessful(function()))
+            } catch (e: Exception) {
+                emit(State.Error(e.message.toString()))
+            }
         }
 
     private fun <T> checkIsSuccessful(response: Response<T>): State<T?> =
-        try {
-            if (response.isSuccessful) {
-                State.Success(response.body())
-            } else {
-                State.Error(response.message())
-            }
-        } catch (e: Exception) {
-            State.Error(e.message.toString())
+        if (response.isSuccessful) {
+            State.Success(response.body())
+        } else {
+            State.Error(response.message())
         }
-
 }

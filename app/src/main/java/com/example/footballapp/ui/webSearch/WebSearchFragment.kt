@@ -26,20 +26,20 @@ class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>() {
     }
 
     private fun openWebViewToSearchInFragment() {
-        val searchName = binding.searchName.text
-        binding.buttonSearch.setOnClickListener {
-            var WEB_SEARCH_URL = "https://www.google.com/search"
-            val search_url = "$WEB_SEARCH_URL?q=$searchName"
-            binding.webSearch?.apply {
-                webViewClient = WebViewClient()
-                loadUrl(search_url)
-                settings.apply {
-                    safeBrowsingEnabled = true
-                    javaScriptEnabled = true
-                }
-
-            }
-        }
+//        val searchName = binding.searchName.text
+//        binding.buttonSearch.setOnClickListener {
+//            var WEB_SEARCH_URL = "https://www.google.com/search"
+//            val search_url = "$WEB_SEARCH_URL?q=$searchName"
+//            binding.webSearch?.apply {
+//                webViewClient = WebViewClient()
+//                loadUrl(search_url)
+//                settings.apply {
+//                    safeBrowsingEnabled = true
+////                    javaScriptEnabled = true
+////                }
+////
+//            }
+//        }
     }
 }
 
