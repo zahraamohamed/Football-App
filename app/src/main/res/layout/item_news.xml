@@ -5,6 +5,9 @@
     >
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.model.domain.footballNewsResponse.Article" />
 
     </data>
 
@@ -41,6 +44,7 @@
                 android:layout_marginHorizontal="@dimen/margin1x"
                 android:layout_marginVertical="@dimen/margin4x"
                 android:maxLines="1"
+                android:text="@{viewModel.title}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2.5x"
                 android:textStyle="bold"
@@ -53,6 +57,7 @@
                 android:id="@+id/text_news_description"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
+                android:text="@{viewModel.description}"
                 android:layout_marginHorizontal="@dimen/margin1x"
                 android:layout_marginTop="@dimen/margin1x"
                 android:maxLines="2"
@@ -68,6 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
+                android:text="@{viewModel.publishedAt}"
                 android:textColor="#888383"
                 android:textSize="@dimen/txt2x"
                 app:layout_constraintBottom_toBottomOf="parent"

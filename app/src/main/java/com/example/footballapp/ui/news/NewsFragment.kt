@@ -15,12 +15,12 @@ import com.example.footballapp.ui.teams.TeamViewModel
 
 
 class NewsFragment :BaseFragment<FragmentNewsBinding>() {
-    override val viewModel: TeamViewModel by viewModels()
+    override val viewModel: NewsViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentNewsBinding
         get() = FragmentNewsBinding::inflate
 
     override fun setup() {
-
+        binding.recyclerNews.adapter =NewsAdapter(mutableListOf(), viewModel)
     }
 
 }

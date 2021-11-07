@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.footballapp.ui.news.NewsViewModel" />
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.news.INewsListener" />
 
     </data>
 
@@ -14,9 +20,11 @@
         android:background="@color/app_color">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            app:items="@{viewModel.news.toData().articles}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
