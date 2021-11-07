@@ -6,4 +6,7 @@ object Constant {
 
     const val BASE_URL = "https://api.football-data.org/v2/"
 
+    const val NEWS_BASE_URL = "https://newsapi.org/v2/"
+    const val NEWS_API_KEY = "4d9475789ac4482c9cf1d9ab2c7596b4"
+
 }

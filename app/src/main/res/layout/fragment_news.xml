@@ -6,23 +6,28 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.webSearch.WebSearchViewModel" />
+            type="com.example.footballapp.ui.news.NewsViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.WebSearchFragment">
+        tools:context=".ui.news.NewsFragment"
+        android:background="@color/app_color">
 
-        <WebView
-            android:id="@+id/web_search"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:items="@{viewModel.news.toData().articles}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_news"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

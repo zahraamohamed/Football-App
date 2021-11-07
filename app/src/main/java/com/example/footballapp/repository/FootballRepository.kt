@@ -1,8 +1,10 @@
 package com.example.footballapp.repository
 
+import android.util.Log
 import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
+import com.example.footballapp.model.domain.footballNewsResponse.FootballResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
@@ -11,6 +13,7 @@ import com.example.footballapp.model.domain.specificMatchDetailsResponse.Specifi
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
 import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
 import com.example.footballapp.model.network.API
+import com.example.footballapp.model.network.NewsApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
