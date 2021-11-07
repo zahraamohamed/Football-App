@@ -18,7 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scorers_card"
-            android:layout_width="match_parent"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginStart="@dimen/margin2x"
@@ -45,51 +45,39 @@
                     android:letterSpacing="0.04"
                     android:text="@{item.player.name}"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/txt2.5x"
+                    android:textSize="@dimen/txt2x"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Mohamed Salah" />
 
+
             <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
+                android:id="@+id/team_name"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="start"
                 android:letterSpacing="0.04"
-                android:text="@{item.player.dateOfBirth +` In `+ item.player.countryOfBirth}"
+                android:text="@{item.team.name}"
                 android:textColor="@color/white"
+                android:textSize="@dimen/txt1x"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
-                tools:text="1992-06-15 In Egypt" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginEnd="@dimen/margin2x"
-                    android:text="@{item.team.name}"
-                    android:gravity="center"
-                    android:letterSpacing="0.04"
-                    android:textSize="@dimen/txt2x"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView2"
-                    tools:text="Liverpool FC" />
+                tools:text="Liverpool FC" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/goal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{item.numberOfGoals.toString()}"
                 android:textColor="@color/white"
-                android:textSize="@dimen/margin6x"
+                android:textSize="@dimen/txt4x"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@id/team_name"
                 tools:text="10" />
 
                 <TextView
@@ -100,10 +88,10 @@
                     android:text="Goals"
                     android:textColor="@color/gray_text"
                     android:letterSpacing="0.04"
-                    android:textSize="@dimen/txt2x"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView13"
-                    app:layout_constraintStart_toEndOf="@+id/textView13"
-                    app:layout_constraintTop_toTopOf="@+id/textView13"
+                    android:textSize="@dimen/txt1x"
+                    app:layout_constraintBottom_toBottomOf="@+id/goal"
+                    app:layout_constraintStart_toEndOf="@+id/goal"
+                    app:layout_constraintTop_toTopOf="@+id/goal"
                     app:layout_constraintVertical_bias="0.8" />
 
                 <View
@@ -116,8 +104,8 @@
                     android:layout_marginBottom="@dimen/margin1x"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/textView15"
-                    app:layout_constraintStart_toStartOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    app:layout_constraintStart_toStartOf="@+id/goal"
+                    app:layout_constraintTop_toBottomOf="@+id/goal"
                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

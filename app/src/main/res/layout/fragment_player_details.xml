@@ -10,11 +10,34 @@
             type="com.example.footballapp.ui.player.PlayerViewModel" />
     </data>
 
+
+
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_color"
         tools:context=".ui.PlayerDetailsFragment">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/progress_bar_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/error"
+            app:showWhenLoading="@{viewModel.playerDetails}" />
+
+        <ImageView
+            android:id="@+id/error"
+            style="@style/image_error_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/player_name"
+            app:showWhenError="@{viewModel.playerDetails}" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -28,6 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginVertical="@dimen/margin4x"
@@ -62,6 +86,7 @@
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cardView3"
             app:layout_constraintHorizontal_bias="0.5"
@@ -109,6 +134,7 @@
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             app:layout_constraintBottom_toBottomOf="@+id/cardView4"
             app:layout_constraintEnd_toStartOf="@+id/cardView5"
             app:layout_constraintHorizontal_bias="0.5"
@@ -157,6 +183,7 @@
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             app:layout_constraintBottom_toBottomOf="@+id/cardView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -204,6 +231,7 @@
             android:layout_marginStart="@dimen/margin1x"
             android:layout_marginBottom="24dp"
             android:elevation="@dimen/padding1x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toTopOf="@+id/cardView4"
@@ -251,6 +279,7 @@
             android:layout_height="120dp"
             android:layout_marginStart="@dimen/margin1x"
             android:elevation="@dimen/padding1x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
@@ -298,6 +327,7 @@
             android:layout_height="120dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="@dimen/margin2x"
+            app:showWhenSuccess="@{viewModel.playerDetails}"
             android:elevation="@dimen/padding1x"
             app:cardBackgroundColor="#434343"
             app:cardCornerRadius="@dimen/padding3x"

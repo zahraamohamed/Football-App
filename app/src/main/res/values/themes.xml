@@ -24,4 +24,27 @@
         <item name="chipBackgroundColor">@color/chip_background_color</item>
 
     </style>
+    <!-- progress -->
+    <style name="progress_bar_style" parent="Widget.AppCompat.ProgressBar">
+
+        <item name="android:indeterminateTint">@color/red</item>
+        <item name="android:progressBackgroundTint">@color/red</item>
+        <item name="android:progressBackgroundTintMode">@color/red</item>
+        <item name="android:progressTint">@color/red</item>
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+
+
+    </style>
+
+    <!-- image error -->
+    <style name="image_error_style" parent="">
+
+        <item name="android:indeterminateTint">@color/red</item>
+        <item name="android:progressBackgroundTint">@color/red</item>
+        <item name="android:progressBackgroundTintMode">@color/red</item>
+        <item name="android:src">@drawable/ic_baseline_error_outline_24</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>‏
 </resources>

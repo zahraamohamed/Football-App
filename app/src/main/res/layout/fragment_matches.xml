@@ -14,12 +14,33 @@
         android:layout_height="match_parent"
         android:background="@color/app_color"
         tools:context=".ui.HomeFragment">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/progress_bar_style"
+            android:layout_marginTop="110dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.matches}" />
+
+        <ImageView
+            android:id="@+id/error"
+            style="@style/image_error_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:showWhenError="@{viewModel.matches}"/>
+
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/matchesRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
+            app:showWhenSuccess="@{viewModel.matches}"
             app:items="@{viewModel.matches.toData().matches}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -16,7 +16,23 @@
         android:layout_height="match_parent"
         android:background="@color/app_color">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/progress_bar_style"
+            android:layout_marginTop="110dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenLoading="@{viewModel.standing}" />
 
+        <ImageView
+            android:id="@+id/error"
+            style="@style/image_error_style"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:showWhenError="@{viewModel.standing}"/>
         <TextView
             android:id="@+id/team_name"
             android:layout_width="165dp"
@@ -117,6 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
+            app:showWhenSuccess="@{viewModel.standing}"
             app:items="@{viewModel.standing.toData().standings[0].table}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
