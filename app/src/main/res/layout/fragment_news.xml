@@ -7,9 +7,6 @@
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.news.NewsViewModel" />
-        <variable
-            name="listener"
-            type="com.example.footballapp.ui.news.INewsListener" />
 
     </data>
 

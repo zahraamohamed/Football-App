@@ -6,15 +6,15 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="item"
             type="com.example.footballapp.model.domain.footballNewsResponse.Article" />
 
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="4dp"
+        android:layout_height="140dp"
+        android:layout_marginHorizontal="@dimen/margin1x"
         android:layout_marginTop="@dimen/margin1x"
         app:cardBackgroundColor="@color/grayDark"
         android:elevation="8dp"
@@ -23,12 +23,14 @@
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/image_for_news"
                 android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                app:imgUrl="@{item.urlToImage}"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,9 +44,9 @@
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_marginHorizontal="@dimen/margin1x"
-                android:layout_marginVertical="@dimen/margin4x"
+                android:layout_marginVertical="@dimen/margin2x"
                 android:maxLines="1"
-                android:text="@{viewModel.title}"
+                android:text="@{item.title}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/txt2.5x"
                 android:textStyle="bold"
@@ -57,7 +59,7 @@
                 android:id="@+id/text_news_description"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:text="@{viewModel.description}"
+                android:text="@{item.content}"
                 android:layout_marginHorizontal="@dimen/margin1x"
                 android:layout_marginTop="@dimen/margin1x"
                 android:maxLines="2"
@@ -73,7 +75,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
-                android:text="@{viewModel.publishedAt}"
+                setFormattedDate="@{item.publishedAt}"
                 android:textColor="#888383"
                 android:textSize="@dimen/txt2x"
                 app:layout_constraintBottom_toBottomOf="parent"
