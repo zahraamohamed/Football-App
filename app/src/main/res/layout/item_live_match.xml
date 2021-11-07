@@ -16,12 +16,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="185dp"
         android:layout_height="220dp"
-        android:layout_marginVertical="10dp"
         android:paddingBottom="@dimen/margin2x"
+        android:layout_marginHorizontal="@dimen/margin1x"
+        android:layout_marginVertical="@dimen/margin2x"
         app:stateMatch="@{item.status}"
         android:elevation="@dimen/margin1x"
-        android:layout_marginStart="@dimen/margin3x"
-        android:layout_marginEnd="@dimen/margin1x"
         android:background="@drawable/shape_item_live_match"
         tools:ignore="WebViewLayout">
 

@@ -16,7 +16,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="358dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin2x"
+        android:layout_marginHorizontal="@dimen/margin1x"
+        android:layout_marginVertical="@dimen/margin2x"
         android:elevation="@dimen/margin1x"
         android:backgroundTint="@color/grayDark"
         android:background="@drawable/shape_item_match_finished">

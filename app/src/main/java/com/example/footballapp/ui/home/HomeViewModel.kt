@@ -14,27 +14,15 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel(), HomeInteractionListener {
 
-    val liveMatches = MutableLiveData<State<MatchesResponse?>>()
-    val competitions = MutableLiveData<State<CompetitionsResponse?>>()
+    val liveMatches = FootballRepository.getDailyMatch().asLiveData()
     private val _navigateToDetails = MutableLiveData<Event<Int?>>()
     val navigateToDetails: LiveData<Event<Int?>> get() = _navigateToDetails
-
+    val competitions = FootballRepository.filterDataCompetitions().asLiveData()
     val topPlayer = FootballRepository.getCompetitionScorers(2021).asLiveData()
     val clickItemMatch = MutableLiveData<Int?>()
 
     fun onLeagueClicked(leagueId: Int?) {
         _navigateToDetails.value = Event(leagueId)
-    }
-
-    init{
-        getListAdapter()
-    }
-
-    private fun getListAdapter() {
-        viewModelScope.launch {
-            FootballRepository.getDailyMatch().collect { liveMatches.postValue(it) }
-            FootballRepository.getAllCompetitions().collect { competitions.postValue(it) }
-        }
     }
 
     override fun onClickItemMatch(matchId: Int?) {
