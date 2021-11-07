@@ -176,6 +176,7 @@
             android:id="@+id/lottieAnimationView"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            app:lottie_rawRes="@raw/swipe"
             app:layout_constraintBottom_toTopOf="@+id/match_constraint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -184,6 +185,14 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:lottie_rawRes="@raw/swipdown"
+            app:layout_constraintBottom_toTopOf="@+id/match_constraint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@+id/text_website"
