@@ -5,7 +5,6 @@ import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -59,14 +58,7 @@ fun ifDataEmpty(view: TextView, data: Any?) {
 //    view.isVisible = (url != null)
 //}
 @BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
-    if (items != null) {
-        (view.adapter as BaseAdapter<T>?)?.setItem(items)
-    } else {
-        (view.adapter as BaseAdapter<T>?)?.setItem(emptyList())
-    }
-}
-
+fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) = (view.adapter as BaseAdapter<T>?)?.setItem(items ?: emptyList())
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
@@ -94,10 +86,10 @@ fun setMatchColorState(homeTeamView: View?, firstTeamGoals: Int?, secondTeamGoal
 
 @BindingAdapter(value = ["setBackgroundColor"])
 fun setBackgroundColor(view: View, booleanValue: Boolean) {
-    if (booleanValue) view.setBackgroundColor(ContextCompat.getColor(view.context,
-        R.color.green))
-    else view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
-
+    when (booleanValue) {
+        true -> R.color.green
+        false -> R.color.red
+    }.run { view.setBackgroundResource(this) }
 }
 
 @BindingAdapter(value = ["setFormattedDate"])
