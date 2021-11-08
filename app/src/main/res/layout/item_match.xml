@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.example.footballapp.model.domain.specificCompetitionMatchesResponse.Matche" />
@@ -91,13 +90,13 @@
                     android:layout_width="3dp"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/margin1x"
-                    app:firstHomeTeamGoals="@{item.score.fullTime.homeTeam}"
-                    app:firstAwayTeamGoals="@{item.score.fullTime.awayTeam}"
+                    app:homeTeamGoals="@{item.score.fullTime.homeTeam}"
+                    app:awayTeamGoals="@{item.score.fullTime.awayTeam}"
+                    app:awayState="@{awayTeamWinState}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:background="@color/red"
-                    />
+                    tools:background="@color/red" />
 
 
                 <TextView
@@ -141,8 +140,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:secondHomeTeamGoals="@{item.score.fullTime.homeTeam}"
-                    app:secondAwayTeamGoals="@{item.score.fullTime.awayTeam}"
                     app:layout_constraintTop_toBottomOf="@+id/awayTeamTxt"
                     tools:background="@color/green"
                     />
