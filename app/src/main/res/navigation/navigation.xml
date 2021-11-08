@@ -89,5 +89,8 @@
         <action
             android:id="@+id/action_LeagueFragment_to_teamDetailsFragment"
             app:destination="@id/teamDetailsFragment" />
+        <argument
+            android:name="league_name"
+            app:argType="string" />
     </fragment>
 </navigation>

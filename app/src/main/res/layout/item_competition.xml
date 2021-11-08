@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="130dp"
         android:orientation="vertical"
-        android:onClick="@{() -> viewModel.onLeagueClicked(item.id)}"
+        android:onClick="@{() -> viewModel.onLeagueClicked(item.id, item.name)}"
         android:layout_marginHorizontal="@dimen/margin1x"
         android:layout_marginVertical="@dimen/margin2x">
 

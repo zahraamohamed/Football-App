@@ -21,8 +21,8 @@ class LeagueFragment : BaseFragment<FragmentLeagueBinding>() {
 
     private val tabLayoutTitles = listOf("Matches", "Scorers", "Standings")
 
-
     override fun setup() {
+        binding.toolBar.title = args.leagueName
         initViewPager()
         initTabLayout()
     }
@@ -31,7 +31,6 @@ class LeagueFragment : BaseFragment<FragmentLeagueBinding>() {
         TabLayoutMediator(binding.tabLayoutLol, binding.viewPager) { tab, position ->
             tab.text = tabLayoutTitles[position]
         }.attach()
-
     }
 
     private fun initViewPager() {
