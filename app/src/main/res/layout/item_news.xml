@@ -76,7 +76,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
-                setFormattedDate="@{item.publishedAt}"
                 android:textColor="#888383"
                 android:textSize="@dimen/txt2x"
                 app:layout_constraintBottom_toBottomOf="parent"

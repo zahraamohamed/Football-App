@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.footballapp.R
 import com.example.footballapp.databinding.FragmentWebSearchBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.news.NewsFragmentArgs
 
 class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>() {
+    private val args : WebSearchFragmentArgs by navArgs()
     override val viewModel: WebSearchViewModel by viewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentWebSearchBinding
         get() = FragmentWebSearchBinding::inflate
@@ -22,26 +25,23 @@ class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun setup(
     ) {
-        openWebViewToSearchInFragment()
+        initWebSearchView()
+
     }
 
-    private fun openWebViewToSearchInFragment() {
-//        val searchName = binding.searchName.text
-//        binding.buttonSearch.setOnClickListener {
-//            var WEB_SEARCH_URL = "https://www.google.com/search"
-//            val search_url = "$WEB_SEARCH_URL?q=$searchName"
-//            binding.webSearch?.apply {
-//                webViewClient = WebViewClient()
-//                loadUrl(search_url)
-//                settings.apply {
-//                    safeBrowsingEnabled = true
-////                    javaScriptEnabled = true
-////                }
-////
-//            }
-//        }
+    private fun initWebSearchView() {
+
+        val article = args.article.url
+        binding.webSearch.apply {
+                 binding.webSearch.apply {
+                     webViewClient = WebViewClient()
+                     if (article != null) {
+                         loadUrl(article)
+                     }
+                 }
+             }
+         }
     }
-}
 
 
 

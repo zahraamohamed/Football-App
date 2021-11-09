@@ -7,6 +7,7 @@ import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.repository.FootballRepository
+import com.example.footballapp.repository.NewsFootballRepository
 import com.example.footballapp.util.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -18,7 +19,7 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
     private val _navigateToDetails = MutableLiveData<Event<Pair<Int, String>>>()
     val navigateToDetails: LiveData<Event<Pair<Int, String>>> get() = _navigateToDetails
     val competitions = FootballRepository.filterDataCompetitions().asLiveData()
-    val topPlayer = FootballRepository.getCompetitionScorers(2021).asLiveData()
+    val news = NewsFootballRepository.getFootballNews().asLiveData()
     val clickItemMatch = MutableLiveData<Int?>()
 
     fun onLeagueClicked(leagueId: Int?, leagueName: String? = null) {

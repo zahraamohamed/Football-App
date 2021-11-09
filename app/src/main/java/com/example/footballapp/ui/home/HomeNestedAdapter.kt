@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import com.example.footballapp.BR
 import com.example.footballapp.R
 import com.example.footballapp.ui.base.BaseAdapter
+import com.example.footballapp.ui.news.NewsAdapter
 
 
 class HomeNestedAdapter(
@@ -31,7 +32,7 @@ class HomeNestedAdapter(
         when (viewType) {
             HomeItemsType.TYPE_COMPETITION.index -> R.layout.items_horizontal_competition_host
             HomeItemsType.TYPE_LIVE_MATCH.index -> R.layout.items_horizontal_live_match_host
-            else -> R.layout.items_horizantal_player_host
+            else -> R.layout.item_news
 
         }
 
@@ -47,8 +48,8 @@ class HomeNestedAdapter(
                 is HomeItems.LiveMatchType -> {
                     holder.binding.setVariable(BR.adapter, LiveMatchAdapter(currentItem.items, listener))
                 }
-                is HomeItems.TopPlayerType -> {
-                    holder.binding.setVariable(BR.adapter, TopPlayerAdapter(currentItem.items, listener))
+                is HomeItems.NewsType -> {
+                    holder.binding.setVariable(BR.adapter, NewsNestedAdapter(currentItem.items, listener))
                 }
         }
     }

@@ -34,8 +34,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 items?.toData()?.matches?.let { adapter.setItem(HomeItems.LiveMatchType(it)) }
             }
 
-            viewModel.topPlayer.observe(this@HomeFragment) { items ->
-                items?.toData()?.scorers?.let { adapter.setItem(HomeItems.TopPlayerType(it)) }
+            viewModel.news.observe(this@HomeFragment) { items ->
+                items?.toData()?.articles?.let { adapter.setItem(HomeItems.NewsType(it)) }
             }
 
         }
