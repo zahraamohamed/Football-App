@@ -32,7 +32,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:showWhenError="@{viewModel.teamDetails}"/>
+            app:showWhenError="@{viewModel.teamDetails}"
+            android:contentDescription="@string/todo" />
 
         <ImageButton
             android:id="@+id/button_backward"
@@ -169,12 +170,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin1x"
-            app:showWhenSuccess="@{viewModel.teamDetails}"
             android:src="@drawable/ic_mail"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            tools:ignore="ContentDescription" />
+            app:showWhenSuccess="@{viewModel.teamDetails}"
+            tools:ignore="ContentDescription,ImageContrastCheck,ImageContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -256,19 +257,17 @@
             tools:text="stadium" />
 
 
-
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            app:showWhenSuccess="@{viewModel.teamDetails}"
             app:layout_constraintBottom_toTopOf="@+id/match_constraint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:lottie_autoPlay="true"
+            app:lottie_autoPlay="false"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/swipe" />
+            app:lottie_rawRes="@raw/swipe"
+            app:showWhenSuccess="@{viewModel.teamDetails}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/match_constraint"
@@ -301,7 +300,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="3"
                 tools:ignore="RtlSymmetry"
-                tools:listitem="@layout/item_team_details" />
+                tools:listitem="@layout/item_team_details"
+                tools:targetApi="p" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -11,4 +11,5 @@
     <string name="tomorrow">Tomorrow</string>
     <string name="goals">Goals</string>
     <string name="teams">Teams</string>
+    <string name="todo">TODO</string>
 </resources>
