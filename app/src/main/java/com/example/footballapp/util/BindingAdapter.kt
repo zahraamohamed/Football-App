@@ -58,7 +58,8 @@ fun ifDataEmpty(view: TextView, data: Any?) {
 //    view.isVisible = (url != null)
 //}
 @BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) = (view.adapter as BaseAdapter<T>?)?.setItem(items ?: emptyList())
+fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) =
+    (view.adapter as BaseAdapter<T>?)?.setItem(items ?: emptyList())
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
@@ -73,7 +74,12 @@ fun displayIfLive(view: View, state: String?) {
 
 
 @BindingAdapter(value = ["homeTeamGoals", "awayTeamGoals", "awayState"], requireAll = false)
-fun setMatchColorState(homeTeamView: View?, firstTeamGoals: Int?, secondTeamGoals: Int?, awayTeamView: View?, ) {
+fun setMatchColorState(
+    homeTeamView: View?,
+    firstTeamGoals: Int?,
+    secondTeamGoals: Int?,
+    awayTeamView: View?,
+) {
     when {
         firstTeamGoals ?: 0 > secondTeamGoals ?: 0 -> Pair(R.color.red, R.color.green)
         firstTeamGoals ?: 0 < secondTeamGoals ?: 0 -> Pair(R.color.green, R.color.red)
@@ -96,4 +102,11 @@ fun setBackgroundColor(view: View, booleanValue: Boolean) {
 fun setFormattedDate(view: TextView, dateStr: String?) {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
     view.text = LocalDate.parse(dateStr, formatter).toString()
+}
+
+@BindingAdapter(value = ["isRecyclerEmpty"])
+fun <T> isRecyclerEmpty(view: View, value: List<T>?) {
+
+    view.isVisible=value?.isEmpty()==true
+
 }

@@ -15,6 +15,20 @@
         android:layout_marginBottom="@dimen/margin2.5x"
         android:background="@color/app_color">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            isRecyclerEmpty="@{adapter.item}"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/recycler_live_matchs"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recycler_live_matchs"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/swipe" />
+
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
