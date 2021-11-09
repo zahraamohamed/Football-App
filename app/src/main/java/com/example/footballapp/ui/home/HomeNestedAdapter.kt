@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import com.example.footballapp.BR
 import com.example.footballapp.R
 import com.example.footballapp.ui.base.BaseAdapter
-import com.example.footballapp.ui.news.NewsAdapter
 
 
 class HomeNestedAdapter(

@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun observeValue() {
-        viewModel.navigateToDetails.observe(this, {
+        viewModel.navigateToLeagueDetails.observe(this, {
             it.getContentIfNotHandled()?.let { data ->
                 val action = HomeFragmentDirections.actionHomeFragmentToLeagueFragment(data.first, data.second)
                 this.findNavController().navigate(action)

@@ -1,10 +1,7 @@
-package com.example.footballapp.ui.news
+package com.example.footballapp.ui.home
 
-import android.widget.BaseAdapter
 import com.example.footballapp.R
 import com.example.footballapp.model.domain.footballNewsResponse.Article
-import com.example.footballapp.model.domain.teamDetailsResponse.Squad
-import com.example.footballapp.ui.home.HomeInteractionListener
 
 class NewsAdapter(val items:List<Article>,
                   val listener : HomeInteractionListener
