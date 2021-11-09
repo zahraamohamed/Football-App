@@ -36,19 +36,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <WebView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:padding="16dp"
-                android:contextClickable="false"
-                android:clickable="false"
-                android:layout_gravity="center"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding4x"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt2x"
+                tools:text="Hello"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:webUrl="@{item.emblemUrl}"
-            />
+                android:text="@{item.area.countryCode}"
+                />
 
         </LinearLayout>
 
