@@ -32,7 +32,7 @@ class HomeNestedAdapter(
         when (viewType) {
             HomeItemsType.TYPE_COMPETITION.index -> R.layout.items_horizontal_competition_host
             HomeItemsType.TYPE_LIVE_MATCH.index -> R.layout.items_horizontal_live_match_host
-            else -> R.layout.item_news
+            else -> R.layout.items_horizantal_news_host
 
         }
 

@@ -14,7 +14,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_container"
-            android:name="com.example.footballapp.ui.news.NewsFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation"
             android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentNewsBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.home.HomeFragmentDirections
 
 
 class NewsFragment :BaseFragment<FragmentNewsBinding>() {
@@ -22,9 +23,9 @@ class NewsFragment :BaseFragment<FragmentNewsBinding>() {
                 viewModel.onNewsClick(it)
         }*/
 
-        viewModel.navigateToWebView.observe( this,{
-            it.getContentIfNotHandled()?.let {
-                val action = NewsFragmentDirections.actionNewsFragmentToWebSearchFragment(it)
+        viewModel.navigateToWebView.observe( this,{ event ->
+            event.getContentIfNotHandled()?.let {
+                val action = HomeFragmentDirections.actionHomeFragmentToWebSearchFragment(it)
                 findNavController().navigate(action)
                 Log.v("article", it.url.toString())
 

@@ -1,5 +1,6 @@
 package com.example.footballapp.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -49,5 +50,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 this.findNavController().navigate(action)
             }
         })
+
+        viewModel.navigateToWebView.observe( this,{ event ->
+            event.getContentIfNotHandled()?.let {
+                val action = HomeFragmentDirections.actionHomeFragmentToWebSearchFragment(it)
+                findNavController().navigate(action)
+                Log.v("article", it.url.toString())
+
+            }
+        }
+        )
     }
 }

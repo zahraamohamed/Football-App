@@ -10,7 +10,7 @@
             type="com.example.footballapp.model.domain.footballNewsResponse.Article" />
         <variable
             name="listener"
-            type="com.example.footballapp.ui.news.INewsListener" />
+            type="com.example.footballapp.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.cardview.widget.CardView

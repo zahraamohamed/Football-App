@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_newsFragment"
             app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_webSearchFragment"
+            app:destination="@id/webSearchFragment" />
     </fragment>
 
     <fragment
@@ -108,9 +111,6 @@
         <argument
             android:name="article"
             app:argType="com.example.footballapp.model.domain.footballNewsResponse.Article" />
-        <action
-            android:id="@+id/action_newsFragment_to_webSearchFragment"
-            app:destination="@id/webSearchFragment" />
 
     </fragment>
 </navigation>

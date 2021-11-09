@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
+import com.example.footballapp.model.domain.footballNewsResponse.Article
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
 import com.example.footballapp.repository.FootballRepository
 import com.example.footballapp.repository.NewsFootballRepository
@@ -28,6 +29,13 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
 
     override fun onClickItemMatch(matchId: Int?) {
         clickItemMatch.postValue(matchId)
+    }
+
+    private  val _navigateToWebView = MutableLiveData <Event<Article>>()
+    val navigateToWebView : LiveData <Event<Article>>  get() = _navigateToWebView
+
+    override fun onNewsClick(articleDetails: Article) {
+        _navigateToWebView.postValue(Event(articleDetails))
     }
 
 }
