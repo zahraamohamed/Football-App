@@ -32,7 +32,6 @@ class HomeNestedAdapter(
             HomeItemsType.TYPE_COMPETITION.index -> R.layout.items_horizontal_competition_host
             HomeItemsType.TYPE_LIVE_MATCH.index -> R.layout.items_horizontal_live_match_host
             else -> R.layout.items_horizantal_player_host
-
         }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
@@ -41,7 +40,7 @@ class HomeNestedAdapter(
 
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (val currentItem = items[position]) {
-                is HomeItems.CompetitionType ->{
+                is HomeItems.CompetitionType -> {
                     holder.binding.setVariable(BR.adapter, CompetitionAdapter(currentItem.items, viewModel, listener))
                 }
                 is HomeItems.LiveMatchType -> {

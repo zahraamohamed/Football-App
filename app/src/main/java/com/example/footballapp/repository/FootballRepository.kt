@@ -23,10 +23,10 @@ object FootballRepository {
         wrapWithFlow { API.apiService.getAllCompetitions() }
 
     @FlowPreview
-    fun filterDataCompetitions(): Flow<List<Competition>?> =
+    fun filterDataCompetitions(): Flow<State<List<Competition>>> =
         getAllCompetitions().flatMapConcat {
             flow {
-                emit(it.toData()?.competitions?.filter { it.emblemUrl != null })
+                emit(State.Success(it.toData()?.competitions?.filter { it.emblemUrl != null }))
             }
         }
 

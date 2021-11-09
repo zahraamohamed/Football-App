@@ -27,10 +27,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         (binding.recyclerViewHome.adapter as HomeNestedAdapter?)?.let { adapter ->
 
             viewModel.competitions.observe(this@HomeFragment) { items ->
-                items?.let { adapter.setItem(HomeItems.CompetitionType(it)) }
+                items?.toData()?.let { adapter.setItem(HomeItems.CompetitionType(it)) }
             }
 
-            viewModel.liveMatches.observe(this@HomeFragment) { items ->
+            viewModel.matches.observe(this@HomeFragment) { items ->
                 items?.toData()?.matches?.let { adapter.setItem(HomeItems.LiveMatchType(it)) }
             }
 
@@ -50,4 +50,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         })
     }
+
 }
