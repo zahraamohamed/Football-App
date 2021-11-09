@@ -17,12 +17,13 @@ class PlayerViewModel : ViewModel() {
     val playerDetails = MutableLiveData<State<PlayerDetailsResponse?>>()
 
     fun onPlayerClicked(id: Int?) {
-        if (id == null) return
-        viewModelScope.launch {
-            FootballRepository.getPlayerDetails(id).collect {
-                playerDetails.postValue(it)
+        id?.let {
+            viewModelScope.launch {
+                FootballRepository.getPlayerDetails(id).collect {
+                    playerDetails.postValue(it)
+                }
             }
-        }
 
+        }
     }
 }

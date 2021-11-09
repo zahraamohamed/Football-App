@@ -50,7 +50,7 @@ interface FootballApiService {
 
     @GET("competitions/{id}/standings")
     suspend fun getSpecificTeamRank(
-        @Path("id") competitionId: Int,
+        @Path("id") competitionId: Int?,
         @Query("standingType") TeamType: String
     ): Response<TeamRankResponse>
 

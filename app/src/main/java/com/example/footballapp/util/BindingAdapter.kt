@@ -53,12 +53,9 @@ fun ifDataEmpty(view: TextView, data: Any?) {
     data?.let { view.text = it.toString() }
 }
 
-//@BindingAdapter(value = ["app:isExistData"])
-//fun ifDataEmpty(view: WebView, url: String?) {
-//    view.isVisible = (url != null)
-//}
 @BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) = (view.adapter as BaseAdapter<T>?)?.setItem(items ?: emptyList())
+fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) =
+    (view.adapter as BaseAdapter<T>?)?.setItem(items ?: emptyList())
 
 @BindingAdapter(value = ["app:stateMatch"])
 fun setBackgroundColor(view: ConstraintLayout, state: String?) {
@@ -84,13 +81,7 @@ fun setMatchColorState(homeTeamView: View?, firstTeamGoals: Int?, secondTeamGoal
     }
 }
 
-@BindingAdapter(value = ["setBackgroundColor"])
-fun setBackgroundColor(view: View, booleanValue: Boolean) {
-    when (booleanValue) {
-        true -> R.color.green
-        false -> R.color.red
-    }.run { view.setBackgroundResource(this) }
-}
+
 
 @BindingAdapter(value = ["setFormattedDate"])
 fun setFormattedDate(view: TextView, dateStr: String?) {
