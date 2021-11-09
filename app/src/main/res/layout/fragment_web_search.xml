@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.WebSearchFragment">
+        tools:context=".ui.WebSearchFragment"
+        android:background="@color/app_color">
 
         <WebView
             android:id="@+id/web_search"

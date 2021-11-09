@@ -8,7 +8,9 @@
         <variable
             name="item"
             type="com.example.footballapp.model.domain.footballNewsResponse.Article" />
-
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -18,12 +20,11 @@
         android:layout_marginTop="@dimen/margin1x"
         app:cardBackgroundColor="@color/grayDark"
         android:elevation="8dp"
-        app:cardCornerRadius="18dp"
-
-        >
+        app:cardCornerRadius="18dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="@{()->listener.onNewsClick(item)}">
 
             <ImageView
                 android:id="@+id/image_for_news"
@@ -75,7 +76,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
-                setFormattedDate="@{item.publishedAt}"
                 android:textColor="#888383"
                 android:textSize="@dimen/txt2x"
                 app:layout_constraintBottom_toBottomOf="parent"

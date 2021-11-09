@@ -1,5 +1,6 @@
 package com.example.footballapp.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -34,8 +35,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 items?.toData()?.matches?.let { adapter.setItem(HomeItems.LiveMatchType(it)) }
             }
 
-            viewModel.topPlayer.observe(this@HomeFragment) { items ->
-                items?.toData()?.scorers?.let { adapter.setItem(HomeItems.TopPlayerType(it)) }
+            viewModel.news.observe(this@HomeFragment) { items ->
+                items?.toData()?.articles?.let { adapter.setItem(HomeItems.NewsType(it)) }
             }
 
         }
@@ -43,11 +44,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun observeValue() {
-        viewModel.navigateToDetails.observe(this, {
+        viewModel.navigateToLeagueDetails.observe(this, {
             it.getContentIfNotHandled()?.let { data ->
                 val action = HomeFragmentDirections.actionHomeFragmentToLeagueFragment(data.first, data.second)
                 this.findNavController().navigate(action)
             }
         })
+
+        viewModel.navigateToWebView.observe( this,{ event ->
+            event.getContentIfNotHandled()?.let {
+                val action = HomeFragmentDirections.actionHomeFragmentToWebSearchFragment(it)
+                findNavController().navigate(action)
+                Log.v("article", it.url.toString())
+
+            }
+        }
+        )
     }
 }

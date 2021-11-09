@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_homeFragment_to_LeagueFragment"
             app:destination="@id/LeagueFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_webSearchFragment"
+            app:destination="@id/webSearchFragment" />
     </fragment>
 
     <fragment
@@ -65,7 +69,11 @@
         android:id="@+id/webSearchFragment"
         android:name="com.example.footballapp.ui.webSearch.WebSearchFragment"
         android:label="WebSearchFragment"
-        tools:layout="@layout/fragment_web_search"/>
+        tools:layout="@layout/fragment_web_search">
+        <argument
+            android:name="article"
+            app:argType="com.example.footballapp.model.domain.footballNewsResponse.Article" />
+    </fragment>
     <fragment
         android:id="@+id/LeagueFragment"
         android:name="com.example.footballapp.ui.league.LeagueFragment"
@@ -93,4 +101,5 @@
             android:name="league_name"
             app:argType="string" />
     </fragment>
+
 </navigation>

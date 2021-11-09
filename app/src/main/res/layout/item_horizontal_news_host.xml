@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.footballapp.ui.news.NewsViewModel" />
+            type="com.example.footballapp.ui.home.HomeViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.news.NewsFragment"
+        tools:context=".ui.home.news.NewsFragment"
         android:background="@color/app_color">
 
         <androidx.recyclerview.widget.RecyclerView
