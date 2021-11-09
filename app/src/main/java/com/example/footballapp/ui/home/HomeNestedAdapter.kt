@@ -41,7 +41,7 @@ class HomeNestedAdapter(
 
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (val currentItem = items[position]) {
-                is HomeItems.CompetitionType ->{
+                is HomeItems.CompetitionType -> {
                     holder.binding.setVariable(BR.adapter, CompetitionAdapter(currentItem.items, viewModel, listener))
                 }
                 is HomeItems.LiveMatchType -> {
