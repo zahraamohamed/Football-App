@@ -39,7 +39,7 @@ object FootballRepository {
         wrapWithFlow { FootballAPI.apiService.getSpecificMatchDetails(matchId) }
 
     fun getSpecificCompetitionMatches(
-        competitionId: Int,
+        competitionId: Int?,
         dateFrom: String?,
         dateTo: String?,
     ): Flow<State<SpecificCompetitionMatchesResponse?>> =

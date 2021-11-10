@@ -6,4 +6,5 @@ import com.example.footballapp.ui.base.BaseInteractionListener
 interface HomeInteractionListener : BaseInteractionListener {
     fun onClickItemMatch(matchId: Int?)
     fun onNewsClick(articleDetails: Article)
+    fun onLeagueClicked(leagueId: Int?, leagueName: String?=null )
 }

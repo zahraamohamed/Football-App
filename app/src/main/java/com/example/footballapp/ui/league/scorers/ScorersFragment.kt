@@ -2,6 +2,7 @@ package com.example.footballapp.ui.league.scorers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -12,7 +13,7 @@ import com.example.footballapp.util.Constant
 
 
 class ScorersFragment : BaseFragment<FragmentScorersBinding>() {
-    override val viewModel: ScorersViewModel by viewModels()
+    override val viewModel: ScorersViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentScorersBinding
         get() = FragmentScorersBinding::inflate
 

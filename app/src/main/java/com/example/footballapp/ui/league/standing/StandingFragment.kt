@@ -2,6 +2,7 @@ package com.example.footballapp.ui.league.standing
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,7 +14,7 @@ import com.example.footballapp.ui.league.LeagueViewModel
 import com.example.footballapp.util.Constant
 
 class StandingFragment : BaseFragment<FragmentStandingBinding>() {
-    override val viewModel: StandingViewModel by viewModels()
+    override val viewModel: StandingViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentStandingBinding
         get() = FragmentStandingBinding::inflate
 

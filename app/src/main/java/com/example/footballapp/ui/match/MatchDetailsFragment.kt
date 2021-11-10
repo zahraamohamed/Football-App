@@ -3,6 +3,7 @@ package com.example.footballapp.ui.match
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.databinding.FragmentMatchDetailsBinding
@@ -10,7 +11,7 @@ import com.example.footballapp.ui.base.BaseFragment
 
 class MatchDetailsFragment : BaseFragment<FragmentMatchDetailsBinding>() {
     private val args: MatchDetailsFragmentArgs by navArgs()
-    override val viewModel: MatchViewModel by viewModels()
+    override val viewModel: MatchViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentMatchDetailsBinding
         get() = FragmentMatchDetailsBinding::inflate
 

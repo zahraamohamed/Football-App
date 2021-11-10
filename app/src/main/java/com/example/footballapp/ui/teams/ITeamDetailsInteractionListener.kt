@@ -6,5 +6,5 @@ import com.example.footballapp.ui.base.BaseInteractionListener
 
 interface ITeamDetailsInteractionListener:BaseInteractionListener {
     fun onLoadTeam(id: Int)
-    fun onClickTeamPlayer(playerDetails:Squad)
+    fun onClickTeamPlayer(id:Int?)
 }

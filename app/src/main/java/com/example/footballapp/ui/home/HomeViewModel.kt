@@ -21,7 +21,7 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
 
 
 
-    fun onLeagueClicked(leagueId: Int?, leagueName: String? = null) {
+    override fun onLeagueClicked(leagueId: Int?, leagueName: String? ) {
         _navigateToLeagueDetails.value = Event(Pair(leagueId ?: 0, leagueName ?: ""))
     }
 

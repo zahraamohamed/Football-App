@@ -8,6 +8,9 @@
         <variable
             name="item"
             type="com.example.footballapp.model.domain.teamDetailsResponse.Squad" />
+        <variable
+            name="listener"
+            type="com.example.footballapp.ui.teams.ITeamDetailsInteractionListener" />
 
     </data>
 
@@ -19,6 +22,7 @@
         android:layout_marginStart="@dimen/margin1x"
         android:layout_marginBottom="@dimen/margin1x"
         android:padding="@dimen/padding1x"
+        android:onClick="@{() -> listener.onClickTeamPlayer(item.id)}"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="18dp">
 

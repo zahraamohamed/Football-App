@@ -3,14 +3,15 @@ package com.example.footballapp.ui.home
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel: HomeViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
 

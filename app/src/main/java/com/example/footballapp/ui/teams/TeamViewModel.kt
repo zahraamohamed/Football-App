@@ -26,5 +26,5 @@ class TeamViewModel : ViewModel(), ITeamDetailsInteractionListener {
         }
     }
 
-    override fun onClickTeamPlayer(playerDetails: Squad) {}
+    override fun onClickTeamPlayer(id: Int?) = _navigateToPlayerDetails.postValue(Event(id))
 }
