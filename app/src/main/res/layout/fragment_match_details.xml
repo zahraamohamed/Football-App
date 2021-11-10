@@ -36,22 +36,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:showWhenError="@{viewModel.matchDetails}" />
 
-
-        <ImageButton
-            android:id="@+id/button_backwards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin3x"
-            android:background="@android:color/transparent"
-            android:elevation="@dimen/margin1x"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintBottom_toBottomOf="@+id/league_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/league_name"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <ImageView
             android:id="@+id/background"
             android:layout_width="match_parent"
@@ -87,7 +71,7 @@
             android:layout_marginTop="@dimen/margin4x"
             android:src="@drawable/ic_soccer_svgrepo_com"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_backwards"
+            app:layout_constraintTop_toTopOf="parent"
             app:showWhenSuccess="@{viewModel.matchDetails}" />
 
         <TextView
@@ -141,7 +125,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin3x"
             android:src="@drawable/ic_soccer_svgrepo_com"
-
             app:layout_constraintBottom_toBottomOf="@+id/image_home_team"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/image_home_team"

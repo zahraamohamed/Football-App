@@ -16,16 +16,16 @@
         android:background="@color/app_color"
         app:layoutDescription="@xml/fragment_team_details_scene">
 
-        <ProgressBar
+        <!--<ProgressBar
             android:id="@+id/progressBar"
             style="@style/progress_bar_style"
             android:layout_marginTop="110dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:showWhenLoading="@{viewModel.teamDetails}" />
+            app:showWhenLoading="@{viewModel.teamDetails}" />-->
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/error"
             style="@style/image_error_style"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:showWhenError="@{viewModel.teamDetails}"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo" />-->
 
         <ImageButton
             android:id="@+id/button_backward"

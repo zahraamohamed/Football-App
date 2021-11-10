@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="@+id/recycler_live_matchs"
             app:lottie_autoPlay="false"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/swipe" />
+            app:lottie_rawRes="@raw/soccer_empty_state" />
 
         <TextView
             android:id="@+id/textView7"

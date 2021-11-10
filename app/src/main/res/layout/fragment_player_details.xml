@@ -35,27 +35,16 @@
             app:layout_constraintTop_toBottomOf="@+id/player_name"
             app:showWhenError="@{viewModel.playerDetails}" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin3x"
-            android:layout_marginTop="@dimen/margin3x"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginVertical="@dimen/margin4x"
+            android:layout_marginTop = "48dp"
             android:src="@drawable/ic_soccer_icon"
             app:layout_constraintBottom_toTopOf="@+id/player_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/player_name"

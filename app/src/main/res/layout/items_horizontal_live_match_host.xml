@@ -27,7 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="100dp"
@@ -40,8 +39,7 @@
             app:lottie_loop="true"
               android:visibility="gone"
             isRecyclerEmpty="@{adapter.item}"
-
-            app:lottie_rawRes="@raw/swipe"
+            app:lottie_rawRes="@raw/soccer_empty_state"
               />
 
         <androidx.recyclerview.widget.RecyclerView
