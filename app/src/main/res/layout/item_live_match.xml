@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="185dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:paddingBottom="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin1x"
         android:layout_marginVertical="@dimen/margin2x"
@@ -25,16 +25,16 @@
         tools:ignore="WebViewLayout">
 
 
-
         <View
+            android:id="@+id/view6"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_marginEnd="24dp"
-            app:ifStateLive="@{item.status}"
             android:background="@drawable/shape_view_live_match"
+            app:ifStateLive="@{item.status}"
+            android:layout_marginEnd="@dimen/margin3x"
             app:layout_constraintBottom_toBottomOf="@+id/team_one"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/team_one" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin1x"
-            android:layout_marginTop="@dimen/margin3x"
+            android:layout_marginTop="@dimen/margin2x"
             android:hint="Bar"
             android:maxLines="2"
             android:singleLine="true"
@@ -50,7 +50,6 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/team_two"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,45 +59,42 @@
             android:layout_height="wrap_content"
             android:text="@{item.score.fullTime.awayTeam.toString()}"
             android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/margin1x"
+            android:layout_marginTop="@dimen/margin1x"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintBottom_toBottomOf="@+id/team_two"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/team_two"
-            app:layout_constraintTop_toTopOf="@+id/team_two" />
+            app:layout_constraintEnd_toEndOf="@+id/team_two"
+            app:layout_constraintStart_toStartOf="@+id/team_two"
+            app:layout_constraintTop_toBottomOf="@+id/team_two" />
 
         <TextView
             android:id="@+id/team_two"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:hint="Real Madrid"
             android:maxLines="2"
             android:singleLine="true"
+            android:layout_marginTop="@dimen/margin1x"
             android:text="@{item.awayTeam.name}"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/team_one"
-            app:layout_constraintTop_toBottomOf="@+id/team_one" />
+            app:layout_constraintTop_toBottomOf="@id/goal_team_one" />
 
         <TextView
             android:id="@+id/goal_team_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="11dp"
             android:text="@{item.score.fullTime.homeTeam.toString()}"
             android:textColor="@color/white"
+            android:layout_marginTop="@dimen/margin1x"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/team_one"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintStart_toEndOf="@+id/team_two"
-            app:layout_constraintTop_toTopOf="@+id/team_one"
-            />
+            app:layout_constraintEnd_toEndOf="@+id/team_one"
+            app:layout_constraintStart_toStartOf="@+id/team_two"
+            app:layout_constraintTop_toBottomOf="@+id/team_one"
+            tools:text="1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
