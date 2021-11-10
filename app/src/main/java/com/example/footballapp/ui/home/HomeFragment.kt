@@ -8,6 +8,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.base.BaseFragment
+import com.example.footballapp.ui.league.LeagueFragmentDirections
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -49,6 +50,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             it.getContentIfNotHandled()?.let { data ->
                 val action = HomeFragmentDirections.actionHomeFragmentToLeagueFragment(data.first, data.second)
                 this.findNavController().navigate(action)
+            }
+        })
+
+        viewModel.navigateToMatchDetails.observe(this, {
+            it.getContentIfNotHandled()?.let { matchId ->
+                val action = HomeFragmentDirections.actionHomeFragmentToMatchDetailsFragment(matchId)
+                findNavController().navigate(action)
             }
         })
 

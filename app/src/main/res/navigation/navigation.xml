@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_webSearchFragment"
             app:destination="@id/webSearchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment" />
     </fragment>
 
     <fragment

@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
-            type="com.example.footballapp.model.domain.matchesResponse.Matche"/>
+            type="com.example.footballapp.model.domain.matchesResponse.Matche" />
 
         <variable
             name="listener"
-            type="com.example.footballapp.ui.base.BaseInteractionListener" />
+            type="com.example.footballapp.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="185dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin1x"
         android:layout_marginVertical="@dimen/margin2x"
-        app:stateMatch="@{item.status}"
-        android:elevation="@dimen/margin1x"
         android:background="@drawable/shape_item_live_match"
+        android:elevation="@dimen/margin1x"
+        android:onClick="@{() -> listener.onClickItemMatch(item.id)}"
+        android:paddingBottom="@dimen/margin2x"
+        app:stateMatch="@{item.status}"
         tools:ignore="WebViewLayout">
 
 
@@ -29,72 +31,108 @@
             android:id="@+id/view6"
             android:layout_width="10dp"
             android:layout_height="10dp"
+            android:layout_marginEnd="@dimen/margin3x"
             android:background="@drawable/shape_view_live_match"
             app:ifStateLive="@{item.status}"
-            android:layout_marginEnd="@dimen/margin3x"
-            app:layout_constraintBottom_toBottomOf="@+id/team_one"
+            app:layout_constraintBottom_toTopOf="@+id/awayTeamTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="@dimen/margin1x"
+            android:background="@drawable/shape_view_live_match"
+            android:src="@drawable/ic_soccer_svgrepo_com"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/team_one"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin1x"
-            android:layout_marginTop="@dimen/margin2x"
-            android:hint="Bar"
-            android:maxLines="2"
-            android:singleLine="true"
+            android:id="@+id/dateTxt"
+            setFormattedDate="@{item.utcDate}"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2021-04-19" />
+
+
+        <TextView
+            android:id="@+id/homeTeamTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin1x"
+            android:gravity="center"
+            android:maxLength="12"
             android:text="@{item.homeTeam.name}"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="@dimen/txt2x"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/dateTxt"
+            tools:text="Real Madrid" />
+
 
         <TextView
-            android:id="@+id/team_two_goal"
+            android:id="@+id/homeTeamGoalsTxt"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{item.score.fullTime.awayTeam.toString()}"
-            android:textColor="@color/white"
-            android:layout_marginBottom="@dimen/margin1x"
+            android:layout_height="30dp"
             android:layout_marginTop="@dimen/margin1x"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/team_two"
-            app:layout_constraintStart_toStartOf="@+id/team_two"
-            app:layout_constraintTop_toBottomOf="@+id/team_two" />
-
-        <TextView
-            android:id="@+id/team_two"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:hint="Real Madrid"
-            android:maxLines="2"
-            android:singleLine="true"
-            android:layout_marginTop="@dimen/margin1x"
-            android:text="@{item.awayTeam.name}"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/team_one"
-            app:layout_constraintTop_toBottomOf="@id/goal_team_one" />
-
-        <TextView
-            android:id="@+id/goal_team_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@{item.score.fullTime.homeTeam.toString()}"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/margin1x"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/team_one"
-            app:layout_constraintStart_toStartOf="@+id/team_two"
-            app:layout_constraintTop_toBottomOf="@+id/team_one"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintEnd_toStartOf="@id/view"
+            app:layout_constraintStart_toStartOf="@+id/homeTeamTxt"
+            app:layout_constraintTop_toBottomOf="@+id/homeTeamTxt"
             tools:text="1" />
+
+
+        <TextView
+            android:id="@+id/awayTeamTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:maxLength="12"
+            android:text="@{item.awayTeam.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintStart_toStartOf="@+id/homeTeamTxt"
+            app:layout_constraintTop_toBottomOf="@+id/awayTeamGoalsTxt"
+            app:layout_goneMarginEnd="4dp"
+            tools:text="FC. Barcelona" />
+
+
+        <TextView
+            android:id="@+id/awayTeamGoalsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@{item.score.fullTime.awayTeam.toString()}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt2x"
+            app:layout_constraintBottom_toBottomOf="@+id/homeTeamGoalsTxt"
+            app:layout_constraintEnd_toEndOf="@+id/homeTeamTxt"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="@+id/homeTeamGoalsTxt"
+            tools:text="1" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="10dp"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/homeTeamGoalsTxt"
+            app:layout_constraintEnd_toStartOf="@+id/awayTeamGoalsTxt"
+            app:layout_constraintStart_toEndOf="@+id/homeTeamGoalsTxt"
+            app:layout_constraintTop_toTopOf="@+id/homeTeamGoalsTxt" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.WebViewClient
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.footballapp.databinding.FragmentWebSearchBinding
@@ -11,7 +12,7 @@ import com.example.footballapp.ui.base.BaseFragment
 
 class WebSearchFragment: BaseFragment<FragmentWebSearchBinding>() {
     private val args : WebSearchFragmentArgs by navArgs()
-    override val viewModel: WebSearchViewModel by viewModels()
+    override val viewModel: WebSearchViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentWebSearchBinding
         get() = FragmentWebSearchBinding::inflate
 
