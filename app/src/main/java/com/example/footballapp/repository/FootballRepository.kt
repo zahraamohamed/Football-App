@@ -2,15 +2,13 @@ package com.example.footballapp.repository
 
 import com.example.footballapp.model.State
 import com.example.footballapp.model.domain.competitionsResponse.Competition
-import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
-import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
-import com.example.footballapp.model.domain.playerDetailsResponse.PlayerDetailsResponse
+import com.example.footballapp.model.domain.footballNewsResponse.FootballResponse
 import com.example.footballapp.model.domain.scorerRankResponse.ScorerRankResponse
 import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.SpecificCompetitionMatchesResponse
-import com.example.footballapp.model.domain.specificMatchDetailsResponse.SpecificMatchDetailsResponse
 import com.example.footballapp.model.domain.teamDetailsResponse.TeamDetailsResponse
-import com.example.footballapp.model.domain.teamRankResponse.TeamRankResponse
-import com.example.footballapp.model.network.API
+import com.example.footballapp.model.network.football.FootballAPI
+import com.example.footballapp.model.network.news.NewsApi
+import com.example.footballapp.util.Constant
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
@@ -19,32 +17,26 @@ import retrofit2.Response
 
 object FootballRepository {
 
-    fun getAllCompetitions(): Flow<State<CompetitionsResponse?>> =
-        wrapWithFlow { API.apiService.getAllCompetitions() }
+    private fun getAllCompetitions() = wrapWithFlow { FootballAPI.apiService.getAllCompetitions() }
 
     @FlowPreview
     fun filterDataCompetitions(): Flow<State<List<Competition>>> =
         getAllCompetitions().flatMapConcat {
             flow {
-                emit(State.Success(it.toData()?.competitions?.filter { it.emblemUrl != null }))
+                emit(State.Success(it.toData()?.competitions?.filter { it.plan == "TIER_TWO" }))
             }
         }
 
-    fun getDailyMatch(): Flow<State<MatchesResponse?>> =
-        wrapWithFlow { API.apiService.getAllMatches() }
+    fun getDailyMatch() = wrapWithFlow { FootballAPI.apiService.getAllMatches() }
 
-    fun getPlayerDetails(playerId: Int): Flow<State<PlayerDetailsResponse?>> {
-        return wrapWithFlow { API.apiService.getPlayerDetails(playerId) }
-    }
-
-    fun getScorerRank(scorerId: Int): Flow<State<ScorerRankResponse?>> =
-        wrapWithFlow { API.apiService.getScorerRank(scorerId) }
+    fun getPlayerDetails(playerId: Int?) =
+        wrapWithFlow { FootballAPI.apiService.getPlayerDetails(playerId) }
 
     fun getCompetitionScorers(competitionId: Int?): Flow<State<ScorerRankResponse?>> =
-        wrapWithFlow { API.apiService.getCompetitionScorers(competitionId) }
+        wrapWithFlow { FootballAPI.apiService.getCompetitionScorers(competitionId) }
 
-    fun getSpecificMatchDetails(matchId: Int?): Flow<State<SpecificMatchDetailsResponse?>> =
-        wrapWithFlow { API.apiService.getSpecificMatchDetails(matchId) }
+    fun getSpecificMatchDetails(matchId: Int?) =
+        wrapWithFlow { FootballAPI.apiService.getSpecificMatchDetails(matchId) }
 
     fun getSpecificCompetitionMatches(
         competitionId: Int,
@@ -52,22 +44,28 @@ object FootballRepository {
         dateTo: String?,
     ): Flow<State<SpecificCompetitionMatchesResponse?>> =
         wrapWithFlow {
-            API.apiService.getSpecificCompetitionMatches(competitionId,
+            FootballAPI.apiService.getSpecificCompetitionMatches(competitionId,
                 dateFrom,
                 dateTo)
         }
 
-//    fun getSpecificCompetitionMatches(competitionId: Int?): Flow<State<SpecificCompetitionMatchesResponse?>> =
-//        wrapWithFlow { API.apiService.getSpecificCompetitionMatches(competitionId) }
-
     fun getSpecificTeamDetails(teamId: Int): Flow<State<TeamDetailsResponse?>> =
-        wrapWithFlow { API.apiService.getSpecificTeamDetails(teamId) }
+        wrapWithFlow { FootballAPI.apiService.getSpecificTeamDetails(teamId) }
 
     fun getSpecificTeamRank(
         competitionId: Int?,
         TeamType: String = "TOTAL",
-    ): Flow<State<TeamRankResponse?>> =
-        wrapWithFlow { API.apiService.getSpecificTeamRank(competitionId, TeamType) }
+    ) = wrapWithFlow { FootballAPI.apiService.getSpecificTeamRank(competitionId, TeamType) }
+
+    fun getFootballNews(
+        country: String = "gb",
+        category: String = "sports",
+        apiKey: String = Constant.NEWS_API_KEY,
+    ): Flow<State<FootballResponse?>> =
+        wrapWithFlow {
+            NewsApi.newsService.getFootballNews(country, category, apiKey)
+
+        }
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
         flow {

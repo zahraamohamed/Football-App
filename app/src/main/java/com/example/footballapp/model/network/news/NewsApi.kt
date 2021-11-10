@@ -1,22 +1,21 @@
-package com.example.footballapp.model.network
+package com.example.footballapp.model.network.news
 
-import com.example.footballapp.util.Constant.BASE_URL
+import com.example.footballapp.util.Constant
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object API {
-
+object NewsApi {
     private val client = OkHttpClient
         .Builder()
-        .addInterceptor(FootballInterceptor()).build()
+        .addInterceptor(NewsInterceptor())
+        .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(Constant.NEWS_BASE_URL)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiService: FootballApiService = retrofit.create(FootballApiService::class.java)
-
+    val newsService: INewsApiService = retrofit.create(INewsApiService::class.java)
 }

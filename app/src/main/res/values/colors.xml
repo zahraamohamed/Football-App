@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="black">#1D1D1D</color>
 
 
@@ -16,7 +11,6 @@
     <color name="red">#FF5757</color>
     <color name="yellow">#CFD23A</color>
     <color name="grayDark">#4C4C4C</color>
-    <color name="logoBackground">#212121</color>
     <color name="viewPagerBackgroundBlack">#161616</color>
     <color name="unselectedTabLayoutTitleGrey">#B7B3B3</color>
 
@@ -27,7 +21,5 @@
     <color name="card_color_gray">#4C4C4C</color>
     <color name="card_color_light_green">#668180</color>
     <color name="gray_text">#B7B3B3</color>
-
-    <color name="chip_group_color">#302f2f</color>
 
 </resources>

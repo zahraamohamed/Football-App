@@ -1,4 +1,4 @@
-package com.example.footballapp.model.network
+package com.example.footballapp.model.network.news
 
 import com.example.footballapp.model.domain.footballNewsResponse.FootballResponse
 import retrofit2.Response

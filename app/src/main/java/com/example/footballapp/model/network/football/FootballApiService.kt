@@ -1,4 +1,4 @@
-package com.example.footballapp.model.network
+package com.example.footballapp.model.network.football
 
 import com.example.footballapp.model.domain.competitionsResponse.CompetitionsResponse
 import com.example.footballapp.model.domain.matchesResponse.MatchesResponse
@@ -23,7 +23,7 @@ interface FootballApiService {
 
     @GET("players/{id}")
     suspend fun getPlayerDetails(
-        @Path("id") playerId: Int
+        @Path("id") playerId: Int?
     ): Response<PlayerDetailsResponse>
 
     @GET("matches/{id}")

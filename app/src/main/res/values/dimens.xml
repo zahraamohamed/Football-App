@@ -2,12 +2,10 @@
 <resources>
     <!--    margin  -->
     <dimen name="margin1x">8dp</dimen>
-    <dimen name="margin1.5x">14dp</dimen>
     <dimen name="margin2x">16dp</dimen>
     <dimen name="margin2.5x">18dp</dimen>
     <dimen name="margin3x">24dp</dimen>
     <dimen name="margin4x">32dp</dimen>
-    <dimen name="margin5x">40dp</dimen>
     <dimen name="margin6x">48dp</dimen>
     <dimen name="margin7x">54dp</dimen>
     <dimen name="margin8x">64dp</dimen>
@@ -17,10 +15,6 @@
     <dimen name="padding2x">16dp</dimen>
     <dimen name="padding3x">24dp</dimen>
     <dimen name="padding4x">32dp</dimen>
-    <dimen name="padding5x">40dp</dimen>
-    <dimen name="padding6x">48dp</dimen>
-    <dimen name="padding7x">54dp</dimen>
-    <dimen name="padding8x">64dp</dimen>
 
 
     <!--    text-->
@@ -29,5 +23,4 @@
     <dimen name="txt2.5x">18sp</dimen>
     <dimen name="txt3x">24sp</dimen>
     <dimen name="txt4x">32sp</dimen>
-    <dimen name="txt5x">40sp</dimen>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.footballapp.ui.league.matches.MatchViewModel" />
@@ -14,6 +15,7 @@
         android:layout_height="match_parent"
         android:background="@color/app_color"
         tools:context=".ui.HomeFragment">
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="@style/progress_bar_style"
@@ -28,11 +30,9 @@
             style="@style/image_error_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:showWhenError="@{viewModel.matches}"/>
-
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:showWhenError="@{viewModel.matches}" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -40,62 +40,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            app:showWhenSuccess="@{viewModel.matches}"
             app:items="@{viewModel.matches.toData().matches}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chip_group"
-            tools:listitem="@layout/item_match"
-            />
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/chip_group_backgroubd"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:singleLine="true"
-            app:singleSelection="true">
+            app:showWhenSuccess="@{viewModel.matches}"
+            tools:listitem="@layout/item_match" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip4"
-                style="@style/CustomChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTint="@color/white"
-                android:text="@string/yesterday"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip5"
-                style="@style/CustomChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTint="@color/white"
-                android:text="@string/today"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip6"
-                style="@style/CustomChipStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTint="@color/white"
-                android:text="@string/tomorrow"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-        </com.google.android.material.chip.ChipGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

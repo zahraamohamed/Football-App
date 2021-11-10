@@ -35,24 +35,12 @@
             app:showWhenError="@{viewModel.teamDetails}"
             android:contentDescription="@string/todo" />-->
 
-        <ImageButton
-            android:id="@+id/button_backward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin2x"
-            android:background="@android:color/transparent"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_arrow_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
         <ImageView
             android:id="@+id/image_team"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginTop="@dimen/margin3x"
             app:showWhenSuccess="@{viewModel.teamDetails}"
             android:layout_marginHorizontal="@dimen/margin1x"
             android:layout_marginVertical="@dimen/margin3x"

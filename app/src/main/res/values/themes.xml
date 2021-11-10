@@ -20,10 +20,6 @@
         <item name="android:textSize">@dimen/txt2x</item>
     </style>
 
-    <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
-        <item name="chipBackgroundColor">@color/chip_background_color</item>
-
-    </style>
     <!-- progress -->
     <style name="progress_bar_style" parent="Widget.AppCompat.ProgressBar">
 
