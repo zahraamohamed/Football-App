@@ -20,9 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
      }
-        fun <T> T.lazyLog(tag: String = "LAZY_LOG"): T {
-            Log.i(tag, toString())
-            return this
-        }
+
     }
 

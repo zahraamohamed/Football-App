@@ -22,9 +22,11 @@ class MatchViewModel:ViewModel(), MatchInteractionListener {
     override fun onClickMatch(id: Int?) = _navigateToMatchDetails.postValue(Event(id))
 
     override fun onMatchLoad(id: Int?) {
-        viewModelScope.launch {
-            FootballRepository.getSpecificCompetitionMatches(2003, null, null).collect {
-                matches.postValue(it)
+        id?.let {
+            viewModelScope.launch {
+                FootballRepository.getSpecificCompetitionMatches(2003, null, null).collect {
+                    matches.postValue(it)
+                }
             }
         }
     }

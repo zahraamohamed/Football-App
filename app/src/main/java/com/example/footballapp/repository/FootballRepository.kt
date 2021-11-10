@@ -64,7 +64,7 @@ object FootballRepository {
         wrapWithFlow { API.apiService.getSpecificTeamDetails(teamId) }
 
     fun getSpecificTeamRank(
-        competitionId: Int,
+        competitionId: Int?,
         TeamType: String = "TOTAL",
     ): Flow<State<TeamRankResponse?>> =
         wrapWithFlow { API.apiService.getSpecificTeamRank(competitionId, TeamType) }

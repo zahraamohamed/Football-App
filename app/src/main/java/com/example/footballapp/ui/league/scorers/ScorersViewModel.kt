@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ScorersViewModel : ViewModel(), ScorerInteractionListener {
+
     val scorer = MutableLiveData<State<ScorerRankResponse?>>()
     private val _navigateToPlayerDetails = MutableLiveData<Event<Int>>()
     val navigateToPlayerDetails: LiveData<Event<Int>> get() = _navigateToPlayerDetails

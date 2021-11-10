@@ -10,6 +10,7 @@ import com.example.footballapp.ui.base.BaseFragment
 import com.example.footballapp.ui.league.LeagueFragment
 import com.example.footballapp.ui.league.LeagueFragmentDirections
 import com.example.footballapp.ui.league.LeagueViewModel
+import com.example.footballapp.util.Constant
 
 class StandingFragment : BaseFragment<FragmentStandingBinding>() {
     override val viewModel: StandingViewModel by viewModels()
@@ -19,7 +20,7 @@ class StandingFragment : BaseFragment<FragmentStandingBinding>() {
     override fun setup() {
         binding.standingRecycler.adapter =
             StandAdapter(mutableListOf(), viewModel)
-        viewModel.onScorerLoad(arguments?.getInt("LEAGUE_ID"))
+        viewModel.onScorerLoad(arguments?.getInt(Constant.LEAGUE_ID))
 
         viewModel.navigateToTeamDetails.observe(this, {
             it.getContentIfNotHandled()?.let { teamId ->

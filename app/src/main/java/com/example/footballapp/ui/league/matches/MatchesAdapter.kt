@@ -5,7 +5,7 @@ import com.example.footballapp.model.domain.specificCompetitionMatchesResponse.M
 import com.example.footballapp.ui.base.BaseAdapter
 
 class MatchesAdapter(
-    items: List<Matche>, listener: MatchInteractionListener) : BaseAdapter<Matche>(items, listener)
-{
+    items: List<Matche>, listener: MatchInteractionListener,
+) : BaseAdapter<Matche>(items, listener) {
     override val layoutId: Int = R.layout.item_match
 }
